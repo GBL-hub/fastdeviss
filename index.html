@@ -432,17 +432,53 @@ footer a:hover{color:#fff}
 
 /* RESPONSIVE */
 @media(max-width:960px){
-nav ul{display:none}nav{padding:16px 24px}
-.hero-inner{grid-template-columns:1fr;padding:0}.hero-card-wrap{display:none}
-.hero-wrap{padding:110px 24px 60px}
-.stats-inner{grid-template-columns:repeat(2,1fr);gap:20px}
-.pain-grid,.steps-grid,.features-grid,.demo-wrapper,.pricing-grid,.testi-grid,.roadmap-grid,.stack-grid{grid-template-columns:1fr}
-.form-row{grid-template-columns:1fr}
-.send-btns{grid-template-columns:1fr 1fr 1fr}
+nav ul{display:none}
+nav{padding:14px 18px}
+.nav-username{display:none}
+.hero-inner{grid-template-columns:1fr;padding:0}
+.hero-card-wrap{display:none}
+.hero-wrap{padding:90px 20px 50px;min-height:auto}
+.hero h1{font-size:2.4rem}
+.hero-sub{font-size:1rem;margin-bottom:24px}
+.hero-actions{flex-direction:column;align-items:stretch;gap:12px}
+.btn-primary,.btn-secondary{justify-content:center;padding:15px 24px}
+.btn-primary{background:linear-gradient(135deg,var(–orange),#ff4500)!important;color:#fff!important}
+.hero-trust{flex-direction:column;gap:10px}
+.stats-inner{grid-template-columns:repeat(2,1fr);gap:16px}
+.stats-band{padding:32px 20px}
+.stat-num{font-size:2rem}
+.pain-grid{grid-template-columns:1fr;gap:14px}
+.steps-grid{grid-template-columns:1fr 1fr}
 .steps-grid::before{display:none}
+.features-grid{grid-template-columns:1fr}
+.demo-wrapper{grid-template-columns:1fr}
+.form-row{grid-template-columns:1fr}
+.send-panel{grid-template-columns:1fr 1fr 1fr}
+.pricing-grid{grid-template-columns:1fr}
 .price-card.featured{transform:none}
-section{padding:60px 24px}.stats-band{padding:36px 24px}
-.cta-final{padding:60px 24px}footer{padding:28px 24px}
+.testi-grid{grid-template-columns:1fr;gap:14px}
+.roadmap-grid{grid-template-columns:1fr}
+.stack-grid{grid-template-columns:1fr 1fr;gap:12px}
+section{padding:56px 20px}
+.section-title{font-size:1.7rem}
+.section-sub{margin-bottom:32px}
+.cta-final{padding:60px 20px}
+.cta-white{padding:15px 32px;font-size:.95rem}
+footer{padding:28px 20px;flex-direction:column;text-align:center;gap:12px}
+.auth-modal{width:95vw}
+.auth-body{padding:20px}
+.setup-modal{width:95vw}
+.setup-body{padding:20px}
+.setup-form-grid{grid-template-columns:1fr}
+.setup-form-grid .span2{grid-column:span 1}
+.setup-nav{flex-direction:column;gap:10px}
+.nav-btn{width:100%;text-align:center}
+}
+@media(max-width:480px){
+.hero h1{font-size:2rem}
+.steps-grid{grid-template-columns:1fr}
+.send-panel{grid-template-columns:1fr}
+.stack-grid{grid-template-columns:1fr}
 }
 </style>
 
