@@ -96,7 +96,7 @@ nav ul li a:hover{color:var(–blue)}
 .stats-band{background:linear-gradient(135deg,var(–blue),var(–blue-dark));padding:48px}
 .stats-inner{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:24px;text-align:center}
 .stat-num{font-family:‘Bricolage Grotesque’,sans-serif;font-size:2.8rem;font-weight:800;color:#fff;line-height:1;margin-bottom:6px}
-.stat-label{font-size:.85rem;color:rgba(255,255,255,.65);line-height:1.4}
+.stat-label{font-size:.85rem;color:rgba(255,255,255,.85);line-height:1.4}
 
 /* SECTIONS */
 section{padding:96px 48px}
@@ -110,8 +110,8 @@ section{padding:96px 48px}
 .pain-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
 .pain-card{background:var(–bg);border:1.5px solid var(–border);border-radius:20px;padding:30px;transition:transform .25s,box-shadow .25s,border-color .25s}
 .pain-card:hover{transform:translateY(-6px);box-shadow:var(–shadow-lg);border-color:transparent;background:var(–white)}
-.pain-icon{width:40px;height:40px;border-radius:10px;background:var(–blue-light);margin-bottom:16px;display:flex;align-items:center;justify-content:center}
-.pain-icon svg{width:20px;height:20px;stroke:var(–blue);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.pain-icon{width:40px;height:40px;border-radius:10px;background:#e8f0ff;margin-bottom:16px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.pain-icon svg{width:20px;height:20px;stroke:#1a6bfa;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 .pain-card h3{font-family:‘Bricolage Grotesque’,sans-serif;font-size:1rem;font-weight:700;margin-bottom:10px;color:var(–ink)}
 .pain-card p{font-size:.875rem;color:var(–ink2);line-height:1.65}
 
@@ -120,8 +120,8 @@ section{padding:96px 48px}
 .steps-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;position:relative}
 .steps-grid::before{content:’’;position:absolute;top:32px;left:8%;right:8%;height:2px;background:linear-gradient(90deg,var(–blue),var(–orange));opacity:.15;z-index:0}
 .step{text-align:center;padding:0 12px;position:relative;z-index:1}
-.step-bubble{width:64px;height:64px;border-radius:50%;background:linear-gradient(135deg,var(–blue),#4c8bff);display:flex;align-items:center;justify-content:center;font-family:‘Bricolage Grotesque’,sans-serif;font-weight:800;font-size:1.3rem;color:#fff;margin:0 auto 20px;box-shadow:0 8px 24px rgba(26,107,250,.3)}
-.step:nth-child(2n) .step-bubble{background:linear-gradient(135deg,var(–orange),#ff4500);box-shadow:0 8px 24px rgba(255,107,43,.3)}
+.step-bubble{width:64px;height:64px;border-radius:50%;background:#1a6bfa;display:flex;align-items:center;justify-content:center;font-family:‘Bricolage Grotesque’,sans-serif;font-weight:800;font-size:1.3rem;color:#fff;margin:0 auto 20px;box-shadow:0 8px 24px rgba(26,107,250,.3)}
+.step:nth-child(2n) .step-bubble{background:#ff6b2b;box-shadow:0 8px 24px rgba(255,107,43,.3)}
 .step h3{font-family:‘Bricolage Grotesque’,sans-serif;font-size:.95rem;font-weight:700;margin-bottom:10px;color:var(–ink)}
 .step p{font-size:.82rem;color:var(–ink2);line-height:1.6}
 
@@ -445,8 +445,9 @@ nav{padding:14px 18px}
 .btn-primary{background:linear-gradient(135deg,var(–orange),#ff4500)!important;color:#fff!important}
 .hero-trust{flex-direction:column;gap:10px}
 .stats-inner{grid-template-columns:repeat(2,1fr);gap:16px}
-.stats-band{padding:32px 20px}
-.stat-num{font-size:2rem}
+.stats-band{padding:32px 20px;background:#1a6bfa!important}
+.stat-num{font-size:2rem;color:#fff!important}
+.stat-label{color:rgba(255,255,255,.9)!important}
 .pain-grid{grid-template-columns:1fr;gap:14px}
 .steps-grid{grid-template-columns:1fr 1fr}
 .steps-grid::before{display:none}
@@ -605,7 +606,6 @@ footer{padding:28px 20px;flex-direction:column;text-align:center;gap:12px}
     <li><a href="#how">Comment</a></li>
     <li><a href="#demo">Demo</a></li>
     <li><a href="#pricing">Tarifs</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
   </ul>
   <div class="nav-auth">
     <div class="nav-profile-btn" id="nav-profile-btn" onclick="toggleProfileDropdown()">
@@ -630,8 +630,8 @@ footer{padding:28px 20px;flex-direction:column;text-align:center;gap:12px}
       <h1>Vos devis en<br><span class="highlight">30 secondes</span><br><span class="orange">signez plus.</span></h1>
       <p class="hero-sub">FastDevis génère automatiquement vos devis professionnels conformes, vos PDFs, vos messages de réponse et relance vos prospects. Vous posez vos outils — FastDevis s'occupe du reste.</p>
       <div class="hero-actions">
-        <a href="#demo" class="btn-primary">Essayer gratuitement</a>
-        <a href="#how" class="btn-secondary">Voir la démo</a>
+        <a href="#demo" class="btn-primary" style="background:#ff6b2b;background-image:linear-gradient(135deg,#ff6b2b,#ff4500);color:#fff;text-decoration:none;-webkit-text-fill-color:#fff">Essayer gratuitement</a>
+        <a href="#how" class="btn-secondary" style="color:#1a6bfa;text-decoration:none">Voir la démo</a>
       </div>
       <div class="hero-trust">
         <div class="trust-item"><div class="trust-check"><svg viewBox="0 0 10 10"><polyline points="1.5 5 4 7.5 8.5 2.5"/></svg></div>Sans carte bancaire</div>
@@ -674,12 +674,12 @@ footer{padding:28px 20px;flex-direction:column;text-align:center;gap:12px}
 
 <!-- STATS -->
 
-<div class="stats-band">
+<div class="stats-band" style="background:#1a6bfa;padding:40px 20px">
   <div class="stats-inner">
-    <div><div class="stat-num">30s</div><div class="stat-label">pour un devis conforme et complet</div></div>
-    <div><div class="stat-num">+40%</div><div class="stat-label">de taux de signature moyen</div></div>
-    <div><div class="stat-num">4h</div><div class="stat-label">économisées par semaine</div></div>
-    <div><div class="stat-num">1 200+</div><div class="stat-label">artisans nous font confiance</div></div>
+    <div><div class="stat-num" style="color:#fff">30s</div><div class="stat-label" style="color:rgba(255,255,255,.85)">pour un devis conforme et complet</div></div>
+    <div><div class="stat-num" style="color:#fff">+40%</div><div class="stat-label" style="color:rgba(255,255,255,.85)">de taux de signature moyen</div></div>
+    <div><div class="stat-num" style="color:#fff">4h</div><div class="stat-label" style="color:rgba(255,255,255,.85)">économisées par semaine</div></div>
+    <div><div class="stat-num" style="color:#fff">1 200+</div><div class="stat-label" style="color:rgba(255,255,255,.85)">artisans nous font confiance</div></div>
   </div>
 </div>
 
@@ -890,22 +890,22 @@ footer{padding:28px 20px;flex-direction:column;text-align:center;gap:12px}
         <a href="#" class="plan-btn btn-plan-outline">Commencer gratuitement</a>
       </div>
       <div class="price-card featured reveal">
-        <div class="popular-pill">Le plus populaire</div>
-        <div class="plan-name">Pro</div>
-        <div class="plan-price"><sup>€</sup>59</div>
-        <div class="plan-period">par mois · sans engagement</div>
-        <div class="plan-divider"></div>
-        <ul class="plan-features">
-          <li>Devis illimités</li>
-          <li>PDF avec votre logo et branding</li>
-          <li>Relances automatiques J+2, J+5, J+7</li>
-          <li>Bouton "Accepter le devis" client</li>
-          <li>Signature digitale (IP + horodatage)</li>
-          <li>CRM clients intégré</li>
-          <li>Ajustement des prix en direct</li>
-          <li>Support prioritaire</li>
+        <div class="popular-pill" style="background:linear-gradient(135deg,#ff6b2b,#ff4500);color:#fff">Le plus populaire</div>
+        <div class="plan-name" style="color:rgba(255,255,255,.7)">Pro</div>
+        <div class="plan-price" style="color:#fff"><sup style="color:#fff">€</sup>59</div>
+        <div class="plan-period" style="color:rgba(255,255,255,.6)">par mois · sans engagement</div>
+        <div class="plan-divider" style="background:rgba(255,255,255,.2)"></div>
+        <ul class="plan-features" style="color:rgba(255,255,255,.9)">
+          <li style="color:rgba(255,255,255,.9)">Devis illimités</li>
+          <li style="color:rgba(255,255,255,.9)">PDF avec votre logo et branding</li>
+          <li style="color:rgba(255,255,255,.9)">Relances automatiques J+2, J+5, J+7</li>
+          <li style="color:rgba(255,255,255,.9)">Bouton "Accepter le devis" client</li>
+          <li style="color:rgba(255,255,255,.9)">Signature digitale (IP + horodatage)</li>
+          <li style="color:rgba(255,255,255,.9)">CRM clients intégré</li>
+          <li style="color:rgba(255,255,255,.9)">Ajustement des prix en direct</li>
+          <li style="color:rgba(255,255,255,.9)">Support prioritaire</li>
         </ul>
-        <a href="#" class="plan-btn btn-plan-featured">Commencer gratuitement</a>
+        <a href="#" class="plan-btn btn-plan-featured" style="background:#ff6b2b;background-image:linear-gradient(135deg,#ff6b2b,#ff4500);color:#fff;-webkit-text-fill-color:#fff;display:block;text-align:center;text-decoration:none">Commencer gratuitement</a>
       </div>
       <div class="price-card reveal">
         <div class="plan-name">Premium</div>
@@ -941,104 +941,6 @@ footer{padding:28px 20px;flex-direction:column;text-align:center;gap:12px}
       <div class="testi-card reveal"><div class="testi-stars">★★★★★</div><p class="testi-text">"Les relances automatiques, c'est ce qui m'a convaincu. J'oubliais toujours de relancer. Maintenant FastDevis le fait pour moi et je récupère des devis que j'aurais perdus. Rentabilisé en 2 semaines."</p><div class="testi-author"><div class="testi-av av-orange">SB</div><div><div class="testi-name">Sophie <span class="blur-surname">Blanchard</span></div><div class="testi-role">Electricienne · Bordeaux</div></div></div></div>
       <div class="testi-card reveal"><div class="testi-stars">★★★★★</div><p class="testi-text">"Le bouton Accepter le devis, c'est énorme. Mon client clique depuis son téléphone et c'est signé. Plus besoin d'imprimer, scanner, renvoyer. J'ai converti 3 devis en 48h la première semaine."</p><div class="testi-author"><div class="testi-av av-green">TP</div><div><div class="testi-name">Thomas <span class="blur-surname">Petit</span></div><div class="testi-role">Peintre · Paris</div></div></div></div>
     </div>
-  </div>
-</section>
-
-<!-- ROADMAP / PLAN SAAS -->
-
-<section id="roadmap">
-  <div class="section-inner">
-    <div class="section-label">Plan SaaS complet</div>
-    <h2 class="section-title" style="color:#fff">Ce qu'il faut pour un<br>vrai SaaS fonctionnel</h2>
-    <p class="section-sub">La démo ci-dessus est une landing page. Voici le plan pour transformer FastDevis en produit réel, par étapes.</p>
-    <div class="roadmap-grid">
-      <div class="rm-card rm-v1">
-        <div class="rm-version">Version 1 — MVP</div>
-        <div class="rm-title">Lancer en 4 semaines</div>
-        <div class="rm-timeline">Objectif : premiers clients payants</div>
-        <ul class="rm-list">
-          <li>Authentification (email + mot de passe)</li>
-          <li>Formulaire de création de devis</li>
-          <li>Génération PDF avec mentions légales</li>
-          <li>Envoi par email (SendGrid)</li>
-          <li>Historique des devis par compte</li>
-          <li>Paiement abonnement (Stripe)</li>
-          <li>Base de données clients simple</li>
-        </ul>
-        <span class="rm-status status-now">A faire en premier</span>
-      </div>
-      <div class="rm-card rm-v2">
-        <div class="rm-version">Version 2 — Growth</div>
-        <div class="rm-title">Mois 2 à 4</div>
-        <div class="rm-timeline">Objectif : rétention + viralité</div>
-        <ul class="rm-list">
-          <li>Envoi WhatsApp via Twilio API</li>
-          <li>Envoi SMS via Twilio</li>
-          <li>Relances automatiques J+2, J+5, J+7</li>
-          <li>Bouton "Accepter le devis" pour le client</li>
-          <li>Signature digitale (IP + horodatage)</li>
-          <li>Tableau de bord CRM</li>
-          <li>Notifications email artisan</li>
-          <li>Personnalisation logo et couleurs</li>
-        </ul>
-        <span class="rm-status status-soon">Phase 2</span>
-      </div>
-      <div class="rm-card rm-v3">
-        <div class="rm-version">Version 3 — Scale</div>
-        <div class="rm-title">Mois 5 à 9</div>
-        <div class="rm-timeline">Objectif : rendre le départ impossible</div>
-        <ul class="rm-list">
-          <li>Dictée vocale vers devis</li>
-          <li>Photo chantier vers estimation</li>
-          <li>Signature électronique légale (DocuSign)</li>
-          <li>Facturation automatique depuis devis</li>
-          <li>Connexion WhatsApp Business API</li>
-          <li>Statistiques avancées</li>
-          <li>Multi-utilisateurs par compte</li>
-          <li>Application mobile iOS/Android</li>
-        </ul>
-        <span class="rm-status status-later">Phase 3</span>
-      </div>
-    </div>
-
-```
-<!-- TECH STACK -->
-<div style="margin-top:48px">
-  <h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:1.3rem;color:#fff;margin-bottom:8px">Stack technique recommandée</h3>
-  <p style="font-size:.875rem;color:rgba(255,255,255,.45);margin-bottom:0">Outils no-code / low-code pour lancer vite sans CTO</p>
-</div>
-<div class="stack-grid">
-  <div class="stack-card"><div class="stack-name">Next.js</div><div class="stack-role">Frontend + API Routes</div><div class="stack-cost">Gratuit</div></div>
-  <div class="stack-card"><div class="stack-name">Supabase</div><div class="stack-role">Base de données + Auth</div><div class="stack-cost">Gratuit jusqu'à 500 MB</div></div>
-  <div class="stack-card"><div class="stack-name">Stripe</div><div class="stack-role">Paiements + abonnements</div><div class="stack-cost">2.9 % + 0.25 € / transaction</div></div>
-  <div class="stack-card"><div class="stack-name">Twilio</div><div class="stack-role">WhatsApp + SMS</div><div class="stack-cost">~0.05 € / SMS</div></div>
-  <div class="stack-card"><div class="stack-name">SendGrid</div><div class="stack-role">Envoi d'emails</div><div class="stack-cost">Gratuit jusqu'à 100/j</div></div>
-  <div class="stack-card"><div class="stack-name">Vercel</div><div class="stack-role">Hébergement</div><div class="stack-cost">Gratuit pour débuter</div></div>
-  <div class="stack-card"><div class="stack-name">PDFKit</div><div class="stack-role">Génération PDF</div><div class="stack-cost">Open source</div></div>
-  <div class="stack-card"><div class="stack-name">Claude API</div><div class="stack-role">Analyse des demandes</div><div class="stack-cost">~0.003 € / devis</div></div>
-</div>
-
-<!-- Budget -->
-<div style="margin-top:40px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:20px;padding:28px">
-  <h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:1.1rem;color:#fff;margin-bottom:16px">Budget estimé pour lancer le MVP</h3>
-  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px">
-    <div style="text-align:center;padding:16px;background:rgba(0,196,140,.08);border-radius:12px;border:1px solid rgba(0,196,140,.2)">
-      <div style="font-family:'Bricolage Grotesque',sans-serif;font-size:1.8rem;font-weight:800;color:var(--green)">0 €</div>
-      <div style="font-size:.8rem;color:rgba(255,255,255,.5);margin-top:4px">Si vous codez vous-même<br>Outils gratuits en phase MVP</div>
-    </div>
-    <div style="text-align:center;padding:16px;background:rgba(26,107,250,.08);border-radius:12px;border:1px solid rgba(26,107,250,.2)">
-      <div style="font-family:'Bricolage Grotesque',sans-serif;font-size:1.8rem;font-weight:800;color:#7ab4ff">2 000 €</div>
-      <div style="font-size:.8rem;color:rgba(255,255,255,.5);margin-top:4px">Freelance pour le MVP<br>4 à 6 semaines de dev</div>
-    </div>
-    <div style="text-align:center;padding:16px;background:rgba(255,107,43,.08);border-radius:12px;border:1px solid rgba(255,107,43,.2)">
-      <div style="font-family:'Bricolage Grotesque',sans-serif;font-size:1.8rem;font-weight:800;color:var(--orange)">49 €/mois</div>
-      <div style="font-size:.8rem;color:rgba(255,255,255,.5);margin-top:4px">Coût opérationnel mensuel<br>pour 100 clients actifs</div>
-    </div>
-  </div>
-  <p style="margin-top:20px;font-size:.82rem;color:rgba(255,255,255,.4);text-align:center">Rentable dès le 1er abonné Pro à 59 €/mois · Break-even total estimé à ~35 clients</p>
-</div>
-```
-
   </div>
 </section>
 
