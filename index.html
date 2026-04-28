@@ -331,11 +331,11 @@ DEMO SECTION — full redesign
 .cta-white:hover{transform:translateY(-3px);box-shadow:0 14px 40px rgba(0,0,0,.2)}
 
 /* FOOTER */
-footer{background:var(–ink);color:rgba(255,255,255,.45);padding:36px 48px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
-footer .logo{color:#fff;font-size:1.25rem}
-footer .logo span{color:var(–orange)}
-footer p{font-size:.82rem}
-footer a{color:rgba(255,255,255,.4);text-decoration:none;transition:color .2s}
+footer{background:#0f1923;color:rgba(255,255,255,.6);padding:36px 48px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+footer .logo{color:#fff;font-size:1.25rem;font-family:‘Bricolage Grotesque’,sans-serif;font-weight:800;letter-spacing:-.04em}
+footer .logo span{color:#ff6b2b}
+footer p{font-size:.82rem;color:rgba(255,255,255,.5)}
+footer a{color:rgba(255,255,255,.45);text-decoration:none;transition:color .2s}
 footer a:hover{color:#fff}
 
 /* TOAST */
@@ -373,9 +373,9 @@ footer a:hover{color:#fff}
 .dd-item.danger:hover{background:var(–red-l)}
 
 /* ── AUTH MODAL ── */
-.auth-modal-bg{position:fixed;inset:0;background:rgba(15,25,35,.55);z-index:1000;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .25s;backdrop-filter:blur(6px)}
+.auth-modal-bg{position:fixed;inset:0;background:rgba(15,25,35,.75);z-index:1000;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .25s}
 .auth-modal-bg.open{opacity:1;pointer-events:all}
-.auth-modal{background:var(–white);border-radius:24px;width:min(480px,95vw);box-shadow:0 32px 80px rgba(0,0,0,.2);overflow:hidden}
+.auth-modal{background:#ffffff;border-radius:24px;width:min(480px,95vw);box-shadow:0 32px 80px rgba(0,0,0,.3);overflow:hidden;position:relative;z-index:1001}
 .auth-tabs{display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid var(–border)}
 .auth-tab{padding:16px;text-align:center;font-weight:700;font-size:.9rem;cursor:pointer;color:var(–muted);border-bottom:2px solid transparent;transition:color .2s,border-color .2s;background:none;border-top:none;border-left:none;border-right:none;font-family:‘Plus Jakarta Sans’,sans-serif}
 .auth-tab.active{color:var(–blue);border-bottom-color:var(–blue)}
@@ -394,9 +394,9 @@ footer a:hover{color:#fff}
 .auth-divider::before,.auth-divider::after{content:’’;flex:1;height:1px;background:var(–border)}
 
 /* ── PROFILE SETUP MODAL ── */
-.setup-modal-bg{position:fixed;inset:0;background:rgba(15,25,35,.55);z-index:1001;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .25s;backdrop-filter:blur(6px)}
+.setup-modal-bg{position:fixed;inset:0;background:rgba(15,25,35,.75);z-index:1001;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .25s}
 .setup-modal-bg.open{opacity:1;pointer-events:all}
-.setup-modal{background:var(–white);border-radius:24px;width:min(600px,95vw);max-height:92vh;overflow-y:auto;box-shadow:0 32px 80px rgba(0,0,0,.2)}
+.setup-modal{background:#ffffff;border-radius:24px;width:min(600px,95vw);max-height:92vh;overflow-y:auto;box-shadow:0 32px 80px rgba(0,0,0,.3);position:relative;z-index:1002}
 .setup-header{padding:24px 28px 0;background:#1a6bfa;color:#fff}
 .setup-header-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
 .setup-title{font-family:‘Bricolage Grotesque’,sans-serif;font-weight:800;font-size:1.3rem}
@@ -503,7 +503,7 @@ footer{padding:28px 20px;flex-direction:column;text-align:center;gap:12px}
         <div class="auth-form-group"><label>Mot de passe</label><input type="password" id="login-pwd" placeholder="••••••••"></div>
         <button class="auth-btn" onclick="doLogin()">Se connecter</button>
         <div class="auth-divider"><span>Pas encore de compte ?</span></div>
-        <button class="auth-btn" style="background:var(--bg);color:var(--blue);box-shadow:none;border:1.5px solid var(--border)" onclick="switchAuthTab('register')">Créer un compte gratuit</button>
+        <button class="auth-btn" style="background:#f7f9ff;color:#1a6bfa;-webkit-text-fill-color:#1a6bfa;box-shadow:none;border:1.5px solid #e2e8f5;margin-top:8px" onclick="switchAuthTab('register')">Créer un compte gratuit</button>
       </div>
       <!-- REGISTER -->
       <div class="auth-panel" id="panel-register">
