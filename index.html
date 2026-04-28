@@ -1119,8 +1119,117 @@ function buildTotals(ht,tva,ttc){
 }
 
 let currentDevisData={};
+let demoUsed = parseInt(localStorage.getItem('fd_demo_used')||'0');
+
+function showPaywall(){
+  // Build paywall overlay
+  const overlay = document.createElement('div');
+  overlay.id = 'paywall-overlay';
+  overlay.style.cssText = `
+    position:fixed;inset:0;background:rgba(15,25,35,.7);z-index:2000;
+    display:flex;align-items:center;justify-content:center;
+    backdrop-filter:blur(8px);padding:20px;
+  `;
+  overlay.innerHTML = `
+    <div style="background:#fff;border-radius:24px;width:min(520px,95vw);overflow:hidden;box-shadow:0 32px 80px rgba(0,0,0,.25)">
+      <!-- Header orange -->
+      <div style="background:linear-gradient(135deg,var(--orange),#e83a00);padding:28px 28px 24px;text-align:center">
+        <div style="width:56px;height:56px;background:rgba(255,255,255,.2);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 14px">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:1.4rem;color:#fff;margin-bottom:6px">Vous avez utilisé votre démo gratuite</div>
+        <div style="font-size:.88rem;color:rgba(255,255,255,.8);line-height:1.5">Ceci était un aperçu. La vraie application est bien plus puissante.</div>
+      </div>
+
+      <!-- Body -->
+      <div style="padding:28px">
+
+        <!-- Ce que la demo ne fait PAS -->
+        <div style="background:#fff7f3;border:1.5px solid #ffd4b8;border-radius:14px;padding:16px;margin-bottom:20px">
+          <div style="font-size:.76rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--orange);margin-bottom:12px">Ce que la démo ne fait PAS</div>
+          <div style="display:flex;flex-direction:column;gap:8px">
+            <div style="display:flex;align-items:center;gap:10px;font-size:.84rem;color:#7a3d1a">
+              <span style="width:18px;height:18px;background:#ffd4b8;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:.7rem">✕</span>
+              Votre logo et vos coordonnées réelles sur le PDF
+            </div>
+            <div style="display:flex;align-items:center;gap:10px;font-size:.84rem;color:#7a3d1a">
+              <span style="width:18px;height:18px;background:#ffd4b8;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:.7rem">✕</span>
+              Envoi réel par WhatsApp, SMS ou Email en 1 clic
+            </div>
+            <div style="display:flex;align-items:center;gap:10px;font-size:.84rem;color:#7a3d1a">
+              <span style="width:18px;height:18px;background:#ffd4b8;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:.7rem">✕</span>
+              Sauvegarde automatique de vos clients et devis
+            </div>
+            <div style="display:flex;align-items:center;gap:10px;font-size:.84rem;color:#7a3d1a">
+              <span style="width:18px;height:18px;background:#ffd4b8;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:.7rem">✕</span>
+              Relances automatiques J+2, J+5, J+7
+            </div>
+            <div style="display:flex;align-items:center;gap:10px;font-size:.84rem;color:#7a3d1a">
+              <span style="width:18px;height:18px;background:#ffd4b8;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:.7rem">✕</span>
+              Vos tarifs pré-enregistrés pour chaque prestation
+            </div>
+          </div>
+        </div>
+
+        <!-- Ce que l'abo donne -->
+        <div style="background:#f0fff9;border:1.5px solid #86efcb;border-radius:14px;padding:16px;margin-bottom:24px">
+          <div style="font-size:.76rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--green);margin-bottom:12px">Avec un abonnement FastDevis</div>
+          <div style="display:flex;flex-direction:column;gap:8px">
+            <div style="display:flex;align-items:center;gap:10px;font-size:.84rem;color:#064e35">
+              <span style="width:18px;height:18px;background:#86efcb;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:.7rem">✓</span>
+              Devis illimités avec vos vraies informations
+            </div>
+            <div style="display:flex;align-items:center;gap:10px;font-size:.84rem;color:#064e35">
+              <span style="width:18px;height:18px;background:#86efcb;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:.7rem">✓</span>
+              PDF professionnel téléchargeable en 1 clic
+            </div>
+            <div style="display:flex;align-items:center;gap:10px;font-size:.84rem;color:#064e35">
+              <span style="width:18px;height:18px;background:#86efcb;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:.7rem">✓</span>
+              Envoi WhatsApp / SMS / Email automatique
+            </div>
+            <div style="display:flex;align-items:center;gap:10px;font-size:.84rem;color:#064e35">
+              <span style="width:18px;height:18px;background:#86efcb;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:.7rem">✓</span>
+              CRM clients + relances automatiques
+            </div>
+            <div style="display:flex;align-items:center;gap:10px;font-size:.84rem;color:#064e35">
+              <span style="width:18px;height:18px;background:#86efcb;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:.7rem">✓</span>
+              14 jours d'essai gratuit — sans carte bancaire
+            </div>
+          </div>
+        </div>
+
+        <!-- Prix et CTA -->
+        <div style="text-align:center;margin-bottom:16px">
+          <div style="font-size:.78rem;color:var(--muted);margin-bottom:4px">A partir de</div>
+          <div style="font-family:'Bricolage Grotesque',sans-serif;font-size:2.4rem;font-weight:800;color:var(--ink);line-height:1">29 <span style="font-size:1.1rem;font-weight:500">€/mois</span></div>
+          <div style="font-size:.76rem;color:var(--muted);margin-top:2px">Rentabilisé dès le 1er chantier signé en plus</div>
+        </div>
+
+        <button onclick="closePaywall();openAuth('register')" style="width:100%;padding:16px;background:linear-gradient(135deg,var(--orange),#ff4500);color:#fff;border:none;border-radius:14px;font-family:'Bricolage Grotesque',sans-serif;font-size:1.05rem;font-weight:700;cursor:pointer;box-shadow:0 8px 24px rgba(255,107,43,.4);margin-bottom:10px">
+          Commencer l'essai gratuit de 14 jours
+        </button>
+        <button onclick="closePaywall()" style="width:100%;padding:12px;background:none;border:none;font-size:.82rem;color:var(--muted);cursor:pointer">
+          Retourner à la démo
+        </button>
+      </div>
+    </div>
+  `;
+  document.body.appendChild(overlay);
+  overlay.addEventListener('click', e=>{ if(e.target===overlay) closePaywall(); });
+}
+
+function closePaywall(){
+  const el = document.getElementById('paywall-overlay');
+  if(el) el.remove();
+}
 
 async function genererDevis(){
+  // Check demo limit
+  if(demoUsed >= 1){
+    showPaywall();
+    return;
+  }
+
   const metier=document.getElementById('metier').value;
   const demande=document.getElementById('demande').value.trim();
   const client=document.getElementById('client-name').value.trim()||'M. Martin';
@@ -1154,12 +1263,19 @@ async function genererDevis(){
 
   currentDevisData={client,clientTel,clientEmail,prestataire,numDevis,ht,tva,ttc,metier};
 
+  // Mark demo as used
+  demoUsed = 1;
+  localStorage.setItem('fd_demo_used', '1');
+
   // Meta bloc
   const metaHTML=`<div class="devis-meta-box">
 <strong>Devis N° ${numDevis}</strong> &nbsp;·&nbsp; Emis le ${dateStr} &nbsp;·&nbsp; <strong>Valable jusqu'au ${expiryStr}</strong><br>
 <strong>Prestataire :</strong> ${prestataire} · ${adresse}<br>
 <strong>SIRET :</strong> ${siret} &nbsp;|&nbsp; <strong>RC Pro :</strong> ${rcpro}<br>
 <strong>Client :</strong> ${client} · ${clientAdresse} · ${clientTel} · ${clientEmail}
+</div>
+<div style="background:linear-gradient(135deg,#fff7f3,#fff0e8);border:1.5px solid #ffd4b8;border-radius:10px;padding:12px 14px;margin-bottom:14px;font-size:.78rem;color:#7a3d1a;line-height:1.6">
+  <strong style="color:var(--orange)">Ceci est votre démo unique et gratuite.</strong> Les prix, l'envoi WhatsApp et le PDF sont simulés. Avec un abonnement, vos vraies informations entreprise sont pré-remplies automatiquement et tout fonctionne réellement. <a href="#pricing" onclick="closePaywall()" style="color:var(--orange);font-weight:700;text-decoration:underline">Voir les offres</a>
 </div>`;
 
   // Editable lines
@@ -1187,7 +1303,7 @@ async function genererDevis(){
   document.getElementById('devis-output').innerHTML=
     metaHTML+linesHTML+`<div id="demo-totals">${buildTotals(ht,tva,ttc)}</div>`+legalHTML;
 
-  // WhatsApp message (hidden until button clicked)
+  // WhatsApp message
   document.getElementById('wa-output').textContent=
 `Bonjour ${client},
 
@@ -1205,16 +1321,37 @@ ${prestataire} — ${metierLabel[metier]}`;
   await sleep(150);
   document.getElementById('rc-devis').classList.add('show');
   await sleep(180);
+
+  // Send/accept cards replaced by upgrade prompt after demo
+  document.getElementById('rc-send').innerHTML = `
+    <div class="rc-header"><div class="rc-dot" style="background:var(--muted)"></div>Envoyer le devis</div>
+    <div class="rc-body">
+      <div style="background:var(--bg);border-radius:12px;padding:16px;text-align:center;border:1.5px dashed var(--border)">
+        <div style="font-size:.82rem;color:var(--ink2);margin-bottom:12px;line-height:1.5">L'envoi réel par <strong>WhatsApp, SMS et Email</strong> est disponible avec un abonnement FastDevis.</div>
+        <button onclick="openAuth('register')" style="padding:11px 24px;background:linear-gradient(135deg,var(--orange),#ff4500);color:#fff;border:none;border-radius:100px;font-weight:700;font-size:.875rem;cursor:pointer;box-shadow:0 4px 16px rgba(255,107,43,.35)">Démarrer l'essai gratuit</button>
+      </div>
+    </div>`;
   document.getElementById('rc-send').classList.add('show');
+
   await sleep(180);
+  document.getElementById('rc-accept').innerHTML = `
+    <div class="rc-header"><div class="rc-dot" style="background:var(--muted)"></div>PDF et signature</div>
+    <div class="rc-body">
+      <div style="background:var(--bg);border-radius:12px;padding:16px;text-align:center;border:1.5px dashed var(--border)">
+        <div style="font-size:.82rem;color:var(--ink2);margin-bottom:12px;line-height:1.5">Le <strong>PDF avec votre logo</strong> et la <strong>signature électronique client</strong> sont disponibles avec un abonnement.</div>
+        <button onclick="openAuth('register')" style="padding:11px 24px;background:linear-gradient(135deg,var(--blue),var(--blue-dark));color:#fff;border:none;border-radius:100px;font-weight:700;font-size:.875rem;cursor:pointer;box-shadow:0 4px 16px rgba(26,107,250,.3)">Voir les offres à partir de 29 €/mois</button>
+      </div>
+    </div>`;
   document.getElementById('rc-accept').classList.add('show');
+
   await sleep(180);
   document.getElementById('rc-relance').classList.add('show');
 
-  btn.innerHTML='Devis généré — Recommencer';
-  btn.style.background='linear-gradient(135deg,var(--green),#00a878)';
+  // Change button to show paywall on next click
+  btn.innerHTML='Démo utilisée — S\'abonner pour continuer';
+  btn.style.background='linear-gradient(135deg,var(--muted),#5a7a90)';
   btn.disabled=false;
-  setTimeout(()=>{btn.innerHTML='Générer le devis';btn.style.background=''},3500);
+  btn.onclick = ()=>showPaywall();
 }
 
 function toggleLegal(btn){
