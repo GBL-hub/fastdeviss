@@ -872,58 +872,67 @@ footer{padding:28px 20px;flex-direction:column;text-align:center;gap:12px}
     <h2 class="section-title">Un chantier signé de plus<br>rembourse l'abonnement</h2>
     <p class="section-sub">Sans engagement. Changez ou annulez à tout moment. 14 jours d'essai gratuit sur tous les plans.</p>
     <div class="pricing-grid">
-      <div class="price-card reveal">
-        <div class="plan-name">Starter</div>
-        <div class="plan-price"><sup>€</sup>29</div>
-        <div class="plan-period">par mois · sans engagement</div>
-        <div class="plan-divider"></div>
-        <ul class="plan-features">
-          <li>10 devis par mois</li>
-          <li>PDF avec mentions légales complètes</li>
-          <li>Envoi WhatsApp / SMS / Email</li>
-          <li>Historique 30 jours</li>
-          <li>1 métier configuré</li>
-          <li>Support email</li>
-        </ul>
-        <a href="#" class="plan-btn btn-plan-outline">Commencer gratuitement</a>
-      </div>
-      <div class="price-card featured reveal">
-        <div class="popular-pill" style="background:linear-gradient(135deg,#ff6b2b,#ff4500);color:#fff">Le plus populaire</div>
-        <div class="plan-name" style="color:rgba(255,255,255,.7)">Pro</div>
-        <div class="plan-price" style="color:#fff"><sup style="color:#fff">€</sup>59</div>
-        <div class="plan-period" style="color:rgba(255,255,255,.6)">par mois · sans engagement</div>
-        <div class="plan-divider" style="background:rgba(255,255,255,.2)"></div>
-        <ul class="plan-features" style="color:rgba(255,255,255,.9)">
-          <li style="color:rgba(255,255,255,.9)">Devis illimités</li>
-          <li style="color:rgba(255,255,255,.9)">PDF avec votre logo et branding</li>
-          <li style="color:rgba(255,255,255,.9)">Relances automatiques J+2, J+5, J+7</li>
-          <li style="color:rgba(255,255,255,.9)">Bouton "Accepter le devis" client</li>
-          <li style="color:rgba(255,255,255,.9)">Signature digitale (IP + horodatage)</li>
-          <li style="color:rgba(255,255,255,.9)">CRM clients intégré</li>
-          <li style="color:rgba(255,255,255,.9)">Ajustement des prix en direct</li>
-          <li style="color:rgba(255,255,255,.9)">Support prioritaire</li>
-        </ul>
-        <a href="#" class="plan-btn btn-plan-featured" style="background:#ff6b2b;background-image:linear-gradient(135deg,#ff6b2b,#ff4500);color:#fff;-webkit-text-fill-color:#fff;display:block;text-align:center;text-decoration:none">Commencer gratuitement</a>
-      </div>
-      <div class="price-card reveal">
-        <div class="plan-name">Premium</div>
-        <div class="plan-price"><sup>€</sup>99</div>
-        <div class="plan-period">par mois · sans engagement</div>
-        <div class="plan-divider"></div>
-        <ul class="plan-features">
-          <li>Tout le plan Pro</li>
-          <li>Connexion WhatsApp Business</li>
-          <li>Devis par dictée vocale</li>
-          <li>Photos chantier vers estimation</li>
-          <li>Signature électronique légale</li>
-          <li>Facturation automatique</li>
-          <li>Assistant commercial complet</li>
-          <li>Onboarding personnalisé</li>
-        </ul>
-        <a href="#" class="plan-btn btn-plan-outline">Commencer gratuitement</a>
-      </div>
-    </div>
-    <p style="text-align:center;margin-top:28px;font-size:.85rem;color:var(--muted)">Aucune carte bancaire requise · Résiliation en 1 clic · Support 7j/7</p>
+
+```
+  <!-- STARTER avec Stripe -->
+  <div class="price-card reveal" style="background:#fff;border:2px solid #e2e8f5;border-radius:20px;padding:32px 24px;display:flex;flex-direction:column;box-shadow:0 4px 24px rgba(26,107,250,.08)">
+    <div class="plan-name" style="font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#7a8fa6;margin-bottom:12px">Starter</div>
+    <div style="font-family:'Bricolage Grotesque',sans-serif;font-size:3rem;font-weight:800;letter-spacing:-.05em;line-height:1;color:#0f1923"><sup style="font-size:1.3rem;font-weight:500;vertical-align:super">€</sup>29</div>
+    <div style="font-size:.83rem;color:#7a8fa6;margin-bottom:24px">par mois · sans engagement</div>
+    <div style="height:1px;background:#e2e8f5;margin-bottom:24px"></div>
+    <ul style="list-style:none;flex:1;display:flex;flex-direction:column;gap:12px;margin-bottom:32px">
+      <li style="font-size:.875rem;display:flex;gap:10px;align-items:flex-start;color:#3d4f60"><span style="width:18px;height:18px;border-radius:50%;background:#e8f0ff;flex-shrink:0;display:inline-block;margin-top:1px;background-image:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 6l3 3 5-5' stroke='%231a6bfa' stroke-width='1.8' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\");background-size:12px;background-repeat:no-repeat;background-position:center"></span>10 devis par mois</li>
+      <li style="font-size:.875rem;display:flex;gap:10px;align-items:flex-start;color:#3d4f60"><span style="width:18px;height:18px;border-radius:50%;background:#e8f0ff;flex-shrink:0;display:inline-block;margin-top:1px;background-image:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 6l3 3 5-5' stroke='%231a6bfa' stroke-width='1.8' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\");background-size:12px;background-repeat:no-repeat;background-position:center"></span>PDF avec mentions légales complètes</li>
+      <li style="font-size:.875rem;display:flex;gap:10px;align-items:flex-start;color:#3d4f60"><span style="width:18px;height:18px;border-radius:50%;background:#e8f0ff;flex-shrink:0;display:inline-block;margin-top:1px;background-image:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 6l3 3 5-5' stroke='%231a6bfa' stroke-width='1.8' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\");background-size:12px;background-repeat:no-repeat;background-position:center"></span>Envoi WhatsApp / SMS / Email</li>
+      <li style="font-size:.875rem;display:flex;gap:10px;align-items:flex-start;color:#3d4f60"><span style="width:18px;height:18px;border-radius:50%;background:#e8f0ff;flex-shrink:0;display:inline-block;margin-top:1px;background-image:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 6l3 3 5-5' stroke='%231a6bfa' stroke-width='1.8' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\");background-size:12px;background-repeat:no-repeat;background-position:center"></span>Historique 30 jours</li>
+      <li style="font-size:.875rem;display:flex;gap:10px;align-items:flex-start;color:#3d4f60"><span style="width:18px;height:18px;border-radius:50%;background:#e8f0ff;flex-shrink:0;display:inline-block;margin-top:1px;background-image:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 6l3 3 5-5' stroke='%231a6bfa' stroke-width='1.8' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\");background-size:12px;background-repeat:no-repeat;background-position:center"></span>1 métier configuré</li>
+      <li style="font-size:.875rem;display:flex;gap:10px;align-items:flex-start;color:#3d4f60"><span style="width:18px;height:18px;border-radius:50%;background:#e8f0ff;flex-shrink:0;display:inline-block;margin-top:1px;background-image:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 6l3 3 5-5' stroke='%231a6bfa' stroke-width='1.8' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\");background-size:12px;background-repeat:no-repeat;background-position:center"></span>Support email</li>
+    </ul>
+    <a href="https://buy.stripe.com/00waEX5bd4czaGaeauffy00" target="_blank" style="display:block;text-align:center;padding:15px 24px;border-radius:100px;font-weight:700;font-size:.95rem;text-decoration:none;background:#0f1923;color:#fff;-webkit-text-fill-color:#fff;border:2px solid #0f1923;transition:transform .2s">Commencer — 14 jours gratuits</a>
+  </div>
+
+  <!-- PRO featured -->
+  <div class="price-card featured reveal" style="background:#1a6bfa;border:2px solid #1a6bfa;border-radius:20px;padding:32px 24px;display:flex;flex-direction:column;position:relative;box-shadow:0 24px 64px rgba(26,107,250,.4)">
+    <div style="position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:#ff6b2b;color:#fff;-webkit-text-fill-color:#fff;font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:5px 18px;border-radius:100px;white-space:nowrap;box-shadow:0 4px 16px rgba(255,107,43,.4)">Le plus populaire</div>
+    <div style="font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.65);margin-bottom:12px">Pro</div>
+    <div style="font-family:'Bricolage Grotesque',sans-serif;font-size:3rem;font-weight:800;letter-spacing:-.05em;line-height:1;color:#fff"><sup style="font-size:1.3rem;font-weight:500;vertical-align:super;color:#fff">€</sup>59</div>
+    <div style="font-size:.83rem;color:rgba(255,255,255,.55);margin-bottom:24px">par mois · sans engagement</div>
+    <div style="height:1px;background:rgba(255,255,255,.2);margin-bottom:24px"></div>
+    <ul style="list-style:none;flex:1;display:flex;flex-direction:column;gap:12px;margin-bottom:32px">
+      <li style="font-size:.875rem;display:flex;gap:10px;align-items:flex-start;color:rgba(255,255,255,.9)"><span style="width:18px;height:18px;border-radius:50%;background:rgba(255,255,255,.2);flex-shrink:0;display:inline-block;margin-top:1px;background-image:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 6l3 3 5-5' stroke='%23ffffff' stroke-width='1.8' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\");background-size:12px;background-repeat:no-repeat;background-position:center"></span>Devis illimités</li>
+      <li style="font-size:.875rem;display:flex;gap:10px;align-items:flex-start;color:rgba(255,255,255,.9)"><span style="width:18px;height:18px;border-radius:50%;background:rgba(255,255,255,.2);flex-shrink:0;display:inline-block;margin-top:1px;background-image:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 6l3 3 5-5' stroke='%23ffffff' stroke-width='1.8' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\");background-size:12px;background-repeat:no-repeat;background-position:center"></span>PDF avec votre logo et branding</li>
+      <li style="font-size:.875rem;display:flex;gap:10px;align-items:flex-start;color:rgba(255,255,255,.9)"><span style="width:18px;height:18px;border-radius:50%;background:rgba(255,255,255,.2);flex-shrink:0;display:inline-block;margin-top:1px;background-image:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 6l3 3 5-5' stroke='%23ffffff' stroke-width='1.8' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\");background-size:12px;background-repeat:no-repeat;background-position:center"></span>Relances automatiques J+2, J+5, J+7</li>
+      <li style="font-size:.875rem;display:flex;gap:10px;align-items:flex-start;color:rgba(255,255,255,.9)"><span style="width:18px;height:18px;border-radius:50%;background:rgba(255,255,255,.2);flex-shrink:0;display:inline-block;margin-top:1px;background-image:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 6l3 3 5-5' stroke='%23ffffff' stroke-width='1.8' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\");background-size:12px;background-repeat:no-repeat;background-position:center"></span>Bouton Accepter le devis client</li>
+      <li style="font-size:.875rem;display:flex;gap:10px;align-items:flex-start;color:rgba(255,255,255,.9)"><span style="width:18px;height:18px;border-radius:50%;background:rgba(255,255,255,.2);flex-shrink:0;display:inline-block;margin-top:1px;background-image:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 6l3 3 5-5' stroke='%23ffffff' stroke-width='1.8' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\");background-size:12px;background-repeat:no-repeat;background-position:center"></span>Signature digitale (IP + horodatage)</li>
+      <li style="font-size:.875rem;display:flex;gap:10px;align-items:flex-start;color:rgba(255,255,255,.9)"><span style="width:18px;height:18px;border-radius:50%;background:rgba(255,255,255,.2);flex-shrink:0;display:inline-block;margin-top:1px;background-image:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 6l3 3 5-5' stroke='%23ffffff' stroke-width='1.8' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\");background-size:12px;background-repeat:no-repeat;background-position:center"></span>CRM clients intégré</li>
+      <li style="font-size:.875rem;display:flex;gap:10px;align-items:flex-start;color:rgba(255,255,255,.9)"><span style="width:18px;height:18px;border-radius:50%;background:rgba(255,255,255,.2);flex-shrink:0;display:inline-block;margin-top:1px;background-image:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 6l3 3 5-5' stroke='%23ffffff' stroke-width='1.8' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\");background-size:12px;background-repeat:no-repeat;background-position:center"></span>Support prioritaire</li>
+    </ul>
+    <a href="#" style="display:block;text-align:center;padding:15px 24px;border-radius:100px;font-weight:700;font-size:.95rem;text-decoration:none;background:#ff6b2b;color:#fff;-webkit-text-fill-color:#fff;box-shadow:0 8px 24px rgba(255,107,43,.4)">Commencer — 14 jours gratuits</a>
+  </div>
+
+  <!-- PREMIUM -->
+  <div class="price-card reveal" style="background:#fff;border:2px solid #e2e8f5;border-radius:20px;padding:32px 24px;display:flex;flex-direction:column;box-shadow:0 4px 24px rgba(26,107,250,.08)">
+    <div class="plan-name" style="font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#7a8fa6;margin-bottom:12px">Premium</div>
+    <div style="font-family:'Bricolage Grotesque',sans-serif;font-size:3rem;font-weight:800;letter-spacing:-.05em;line-height:1;color:#0f1923"><sup style="font-size:1.3rem;font-weight:500;vertical-align:super">€</sup>99</div>
+    <div style="font-size:.83rem;color:#7a8fa6;margin-bottom:24px">par mois · sans engagement</div>
+    <div style="height:1px;background:#e2e8f5;margin-bottom:24px"></div>
+    <ul style="list-style:none;flex:1;display:flex;flex-direction:column;gap:12px;margin-bottom:32px">
+      <li style="font-size:.875rem;display:flex;gap:10px;align-items:flex-start;color:#3d4f60"><span style="width:18px;height:18px;border-radius:50%;background:#e8f0ff;flex-shrink:0;display:inline-block;margin-top:1px;background-image:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 6l3 3 5-5' stroke='%231a6bfa' stroke-width='1.8' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\");background-size:12px;background-repeat:no-repeat;background-position:center"></span>Tout le plan Pro</li>
+      <li style="font-size:.875rem;display:flex;gap:10px;align-items:flex-start;color:#3d4f60"><span style="width:18px;height:18px;border-radius:50%;background:#e8f0ff;flex-shrink:0;display:inline-block;margin-top:1px;background-image:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 6l3 3 5-5' stroke='%231a6bfa' stroke-width='1.8' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\");background-size:12px;background-repeat:no-repeat;background-position:center"></span>Connexion WhatsApp Business</li>
+      <li style="font-size:.875rem;display:flex;gap:10px;align-items:flex-start;color:#3d4f60"><span style="width:18px;height:18px;border-radius:50%;background:#e8f0ff;flex-shrink:0;display:inline-block;margin-top:1px;background-image:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 6l3 3 5-5' stroke='%231a6bfa' stroke-width='1.8' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\");background-size:12px;background-repeat:no-repeat;background-position:center"></span>Devis par dictée vocale</li>
+      <li style="font-size:.875rem;display:flex;gap:10px;align-items:flex-start;color:#3d4f60"><span style="width:18px;height:18px;border-radius:50%;background:#e8f0ff;flex-shrink:0;display:inline-block;margin-top:1px;background-image:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 6l3 3 5-5' stroke='%231a6bfa' stroke-width='1.8' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\");background-size:12px;background-repeat:no-repeat;background-position:center"></span>Photos chantier vers estimation</li>
+      <li style="font-size:.875rem;display:flex;gap:10px;align-items:flex-start;color:#3d4f60"><span style="width:18px;height:18px;border-radius:50%;background:#e8f0ff;flex-shrink:0;display:inline-block;margin-top:1px;background-image:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 6l3 3 5-5' stroke='%231a6bfa' stroke-width='1.8' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\");background-size:12px;background-repeat:no-repeat;background-position:center"></span>Signature électronique légale</li>
+      <li style="font-size:.875rem;display:flex;gap:10px;align-items:flex-start;color:#3d4f60"><span style="width:18px;height:18px;border-radius:50%;background:#e8f0ff;flex-shrink:0;display:inline-block;margin-top:1px;background-image:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 6l3 3 5-5' stroke='%231a6bfa' stroke-width='1.8' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\");background-size:12px;background-repeat:no-repeat;background-position:center"></span>Facturation automatique</li>
+      <li style="font-size:.875rem;display:flex;gap:10px;align-items:flex-start;color:#3d4f60"><span style="width:18px;height:18px;border-radius:50%;background:#e8f0ff;flex-shrink:0;display:inline-block;margin-top:1px;background-image:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 6l3 3 5-5' stroke='%231a6bfa' stroke-width='1.8' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\");background-size:12px;background-repeat:no-repeat;background-position:center"></span>Assistant commercial complet</li>
+      <li style="font-size:.875rem;display:flex;gap:10px;align-items:flex-start;color:#3d4f60"><span style="width:18px;height:18px;border-radius:50%;background:#e8f0ff;flex-shrink:0;display:inline-block;margin-top:1px;background-image:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 6l3 3 5-5' stroke='%231a6bfa' stroke-width='1.8' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\");background-size:12px;background-repeat:no-repeat;background-position:center"></span>Onboarding personnalisé</li>
+    </ul>
+    <a href="#" style="display:block;text-align:center;padding:15px 24px;border-radius:100px;font-weight:700;font-size:.95rem;text-decoration:none;background:#0f1923;color:#fff;-webkit-text-fill-color:#fff;border:2px solid #0f1923">Commencer — 14 jours gratuits</a>
+  </div>
+
+</div>
+<p style="text-align:center;margin-top:28px;font-size:.85rem;color:#7a8fa6">Aucune carte bancaire requise · Résiliation en 1 clic · Support 7j/7</p>
+```
+
   </div>
 </section>
 
