@@ -103,7 +103,7 @@ section{padding:96px 48px}
 .section-inner{max-width:1280px;margin:0 auto}
 .section-label{display:inline-block;background:#e8f0ff;color:#1a6bfa;font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:5px 14px;border-radius:100px;margin-bottom:18px}
 .section-title{font-family:‘Bricolage Grotesque’,sans-serif;font-size:clamp(1.9rem,3.5vw,2.8rem);font-weight:800;letter-spacing:-.04em;line-height:1.12;margin-bottom:18px;color:var(–ink)}
-.section-sub{font-size:1.05rem;color:var(–ink2);max-width:540px;line-height:1.7;margin-bottom:56px}
+.section-sub{font-size:1.05rem;color:#3d4f60;max-width:100%;line-height:1.7;margin-bottom:56px}
 
 /* PAIN */
 #pain{background:var(–white)}
@@ -628,15 +628,17 @@ footer{padding:28px 20px;flex-direction:column;text-align:center;gap:12px}
       <h1>Vos devis en<br><span class="highlight">30 secondes</span><br><span class="orange">signez plus.</span></h1>
       <p class="hero-sub">FastDevis génère automatiquement vos devis professionnels conformes, vos PDFs, vos messages de réponse et relance vos prospects. Vous posez vos outils — FastDevis s'occupe du reste.</p>
       <div class="hero-actions">
-        <a href="#demo" class="btn-primary" style="background:#ff6b2b;background-image:linear-gradient(135deg,#ff6b2b,#ff4500);color:#fff;text-decoration:none;-webkit-text-fill-color:#fff">Essayer gratuitement</a>
-        <a href="#how" class="btn-secondary" style="color:#1a6bfa;text-decoration:none">Voir la démo</a>
+        <a href="#demo" class="btn-primary" style="background:#ff6b2b;color:#fff;text-decoration:none;-webkit-text-fill-color:#fff">Essayer gratuitement</a>
+        <a href="#demo" class="btn-secondary" style="color:#1a6bfa;text-decoration:none">Voir la démo</a>
       </div>
       <div class="hero-trust">
-        <div style="background:#fff;border:1.5px solid #e2e8f5;border-radius:14px;padding:14px 18px;margin-top:8px;display:flex;align-items:center;gap:10px;box-shadow:0 2px 12px rgba(26,107,250,.06)">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1a6bfa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <div style="background:#fff;border:1.5px solid #e2e8f5;border-radius:14px;padding:14px 18px;margin-top:8px;display:flex;align-items:flex-start;gap:10px;box-shadow:0 2px 12px rgba(26,107,250,.06);max-width:400px">
+          <div style="margin-top:2px;flex-shrink:0">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ff6b2b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+          </div>
           <div>
-            <div style="font-size:.8rem;font-weight:700;color:#0f1923">La démo ci-dessous est 100% gratuite</div>
-            <div style="font-size:.74rem;color:#7a8fa6;margin-top:2px">Sans carte bancaire · Sans inscription · Annulation libre</div>
+            <div style="font-size:.82rem;font-weight:700;color:#0f1923">Le bouton ci-dessus lance la démo gratuite</div>
+            <div style="font-size:.74rem;color:#7a8fa6;margin-top:3px">Sans carte bancaire · Sans inscription · Annulation libre</div>
           </div>
         </div>
       </div>
@@ -691,7 +693,7 @@ footer{padding:28px 20px;flex-direction:column;text-align:center;gap:12px}
   <div class="section-inner">
     <div class="section-label">Le problème</div>
     <h2 class="section-title">Vous perdez des chantiers<br>à cause de vos devis lents</h2>
-    <p class="section-sub">Chaque heure de retard, c'est un client qui appelle la concurrence. FastDevis change ça.</p>
+    <p style="font-size:1.05rem;color:#3d4f60;line-height:1.7;margin-bottom:32px">Chaque heure de retard, c'est un client qui appelle la concurrence. FastDevis change ça.</p>
     <div class="pain-grid">
       <div style="background:#fff;border:1.5px solid #e2e8f5;border-radius:18px;padding:24px;box-shadow:0 2px 16px rgba(26,107,250,.07)" class="reveal"><div style="width:44px;height:44px;border-radius:12px;background:#e8f0ff;display:flex;align-items:center;justify-content:center;margin-bottom:14px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1a6bfa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1rem;color:#0f1923;margin-bottom:8px">Devis le soir après le chantier</h3><p style="font-size:.875rem;color:#3d4f60;line-height:1.65">Vous rentrez épuisé mais les demandes s'accumulent. Votre concurrent répond en 10 minutes — vous, en 2 jours.</p></div>
 
@@ -717,7 +719,7 @@ footer{padding:28px 20px;flex-direction:column;text-align:center;gap:12px}
   <div class="section-inner">
     <div class="section-label">Comment ça marche</div>
     <h2 class="section-title">7 étapes automatiques.<br>Zéro effort de votre côté.</h2>
-    <p class="section-sub">De la demande client au devis signé, FastDevis gère tout le processus pour vous.</p>
+    <p style="font-size:1.05rem;color:#3d4f60;line-height:1.7;margin-bottom:32px">De la demande client au devis signé, FastDevis gère tout le processus pour vous.</p>
     <div class="steps-grid">
       <div class="step reveal"><div class="step-bubble">1</div><h3>Demande reçue</h3><p>SMS, WhatsApp ou formulaire. FastDevis comprend le langage naturel.</p></div>
       <div class="step reveal"><div class="step-bubble">2</div><h3>Analyse et chiffrage</h3><p>FastDevis identifie les prestations et applique vos tarifs instantanément.</p></div>
@@ -741,7 +743,7 @@ footer{padding:28px 20px;flex-direction:column;text-align:center;gap:12px}
       <div>
         <div class="section-label">Fonctionnalités</div>
         <h2 class="section-title">Tout ce qu'il vous faut,<br>rien de superflu</h2>
-        <p class="section-sub">Conçu pour les plombiers, électriciens, peintres, menuisiers et tous les artisans du bâtiment.</p>
+        <p style="font-size:1.05rem;color:#3d4f60;line-height:1.7;margin-bottom:32px">Conçu pour les plombiers, électriciens, peintres, menuisiers et tous les artisans du bâtiment.</p>
         <div class="feature-list">
           <div class="feature-item reveal"><div class="feat-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg></div><div class="feat-text"><h4>Génération instantanée</h4><p>Décrivez le travail en langage naturel. FastDevis génère un devis complet avec toutes les lignes de prestations en quelques secondes.</p></div></div>
           <div class="feature-item reveal"><div class="feat-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div><div class="feat-text"><h4>PDF 100 % conforme</h4><p>SIRET, TVA, RC Pro, date limite de validité précise, pénalités de retard, mention acompte. Juridiquement solide.</p></div></div>
@@ -770,7 +772,7 @@ footer{padding:28px 20px;flex-direction:column;text-align:center;gap:12px}
   <div class="section-inner">
     <div class="section-label">Demo interactive</div>
     <h2 class="section-title">Testez FastDevis<br>en direct</h2>
-    <p class="section-sub">Entrez une vraie demande client. Modifiez les prix. Envoyez. C'est aussi simple que ça.</p>
+    <p style="font-size:1.05rem;color:#3d4f60;line-height:1.7;margin-bottom:32px">Entrez une vraie demande client. Modifiez les prix. Envoyez. Simple et rapide.</p>
     <div class="demo-wrapper">
 
 ```
@@ -899,7 +901,7 @@ footer{padding:28px 20px;flex-direction:column;text-align:center;gap:12px}
   <div class="section-inner">
     <div class="section-label">Tarifs</div>
     <h2 class="section-title">Un chantier signé de plus<br>rembourse l'abonnement</h2>
-    <p class="section-sub">Sans engagement. Changez ou annulez à tout moment. 14 jours d'essai gratuit sur tous les plans.</p>
+    <p style="font-size:1.05rem;color:#3d4f60;line-height:1.7;margin-bottom:32px">Sans engagement. Changez ou annulez à tout moment. 14 jours d'essai gratuit sur tous les plans.</p>
     <div class="pricing-grid">
 
 ```
@@ -971,7 +973,7 @@ footer{padding:28px 20px;flex-direction:column;text-align:center;gap:12px}
   <div class="section-inner">
     <div class="section-label">Ils nous font confiance</div>
     <h2 class="section-title">Plus de 1 200 artisans<br>signent plus de chantiers</h2>
-    <p class="section-sub" style="margin-bottom:48px">Des résultats concrets dès la première semaine d'utilisation.</p>
+    <p style="font-size:1.05rem;color:#3d4f60;line-height:1.7;margin-bottom:48px">Des résultats concrets dès la première semaine d'utilisation.</p>
     <div class="testi-grid">
       <div class="testi-card reveal"><div class="testi-stars">★★★★★</div><p class="testi-text">"J'économise au moins 3 heures par semaine. Avant je faisais mes devis le soir sur Excel. Maintenant le client reçoit un PDF conforme en 30 secondes. J'ai signé 4 chantiers de plus le premier mois."</p><div class="testi-author"><div class="testi-av av-blue">LM</div><div><div class="testi-name">Laurent <span class="blur-surname">Mercier</span></div><div class="testi-role">Plombier · Lyon</div></div></div></div>
       <div class="testi-card reveal"><div class="testi-stars">★★★★★</div><p class="testi-text">"Les relances automatiques, c'est ce qui m'a convaincu. J'oubliais toujours de relancer. Maintenant FastDevis le fait pour moi et je récupère des devis que j'aurais perdus. Rentabilisé en 2 semaines."</p><div class="testi-author"><div class="testi-av av-orange">SB</div><div><div class="testi-name">Sophie <span class="blur-surname">Blanchard</span></div><div class="testi-role">Electricienne · Bordeaux</div></div></div></div>
