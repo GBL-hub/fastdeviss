@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FastDevis — Dashboard</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Bricolage+Grotesque:wght@700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{font-family:system-ui,sans-serif}
+body{font-family:'Plus Jakarta Sans',sans-serif;background:#f4f6fb;color:#0f1923;overflow-x:hidden}
+
+/* ── PLAN SELECTOR (demo) ── */
+.plan-bar{background:#0f1923;padding:10px 20px;display:flex;align-items:center;gap:10px;justify-content:center;flex-wrap:wrap}
+.plan-bar span{color:rgba(255,255,255,.5);font-size:.78rem}
+.plan-btn{padding:6px 16px;border-radius:100px;border:1.5px solid rgba(255,255,255,.2);background:transparent;color:rgba(255,255,255,.6);font-size:.78rem;font-weight:600;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;transition:all .2s}
+.plan-btn.active{background:#ff6b2b;color:#fff;border-color:#ff6b2b}
+.plan-btn:hover:not(.active){background:rgba(255,255,255,.1);color:#fff}
+
+/* ── LAYOUT ── */
+.app{display:flex;height:calc(100vh - 40px)}
+
+/* ── SIDEBAR ── */
+.sidebar{width:240px;background:#0f1923;display:flex;flex-direction:column;flex-shrink:0;overflow-y:auto}
+.sidebar-logo{padding:20px 18px 16px;border-bottom:1px solid rgba(255,255,255,.08)}
+.logo-text{font-family:'Bricolage Grotesque',sans-serif;font-size:1.4rem;font-weight:800;color:#fff;letter-spacing:-.03em}
+.logo-text span{color:#ff6b2b}
+.plan-badge{display:inline-block;margin-top:6px;padding:3px 10px;border-radius:100px;font-size:.68rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+.badge-starter{background:rgba(26,107,250,.2);color:#7ab4ff}
+.badge-pro{background:rgba(255,107,43,.2);color:#ffb088}
+.badge-premium{background:rgba(139,92,246,.25);color:#c4b5fd}
+
+.sidebar-nav{flex:1;padding:12px 10px}
+.nav-section{font-size:.62rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.25);padding:10px 8px 5px}
+.nav-item{display:flex;align-items:center;gap:9px;padding:9px 10px;border-radius:9px;cursor:pointer;color:rgba(255,255,255,.5);font-size:.84rem;font-weight:500;margin-bottom:1px;transition:all .15s;border:none;background:none;width:100%;text-align:left;font-family:'Plus Jakarta Sans',sans-serif}
+.nav-item svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
+.nav-item:hover{background:rgba(255,255,255,.07);color:rgba(255,255,255,.8)}
+.nav-item.active{background:rgba(26,107,250,.25);color:#fff}
+.nav-item.locked{opacity:.4;cursor:not-allowed}
+.nav-item.locked:hover{background:none;color:rgba(255,255,255,.4)}
+.lock-icon{width:12px;height:12px;stroke:rgba(255,255,255,.4);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;margin-left:auto;flex-shrink:0}
+
+.sidebar-upgrade{margin:12px 10px;background:linear-gradient(135deg,#ff6b2b,#ff4500);border-radius:12px;padding:14px;cursor:pointer}
+.upgrade-title{font-size:.82rem;font-weight:700;color:#fff;margin-bottom:3px}
+.upgrade-sub{font-size:.72rem;color:rgba(255,255,255,.75)}
+
+/* ── MAIN ── */
+.main{flex:1;display:flex;flex-direction:column;overflow:hidden}
+.topbar{height:56px;background:#fff;border-bottom:1px solid #e2e8f5;display:flex;align-items:center;justify-content:space-between;padding:0 24px;flex-shrink:0;box-shadow:0 1px 8px rgba(26,107,250,.06)}
+.topbar-title{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:1rem;color:#0f1923}
+.topbar-right{display:flex;align-items:center;gap:10px}
+.btn-new{background:#ff6b2b;color:#fff;padding:8px 18px;border-radius:100px;font-size:.82rem;font-weight:700;border:none;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;white-space:nowrap}
+
+.content{flex:1;overflow-y:auto;padding:20px 24px}
+
+/* ── VIEWS ── */
+.view{display:none}
+.view.active{display:block}
+
+/* ── LOCK OVERLAY ── */
+.locked-view{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:60px 20px;text-align:center;min-height:400px}
+.locked-icon{width:64px;height:64px;border-radius:16px;background:#e8f0ff;display:flex;align-items:center;justify-content:center;margin:0 auto 16px}
+.locked-icon svg{width:28px;height:28px;stroke:#1a6bfa;fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.locked-title{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:1.2rem;margin-bottom:8px}
+.locked-sub{font-size:.875rem;color:#7a8fa6;margin-bottom:20px;max-width:360px;line-height:1.6}
+.locked-upgrade-btn{background:#ff6b2b;color:#fff;padding:12px 28px;border-radius:100px;font-weight:700;font-size:.875rem;border:none;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;text-decoration:none;display:inline-block}
+
+/* ── STATS ── */
+.stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:20px}
+.stat-card{background:#fff;border-radius:14px;border:1px solid #e2e8f5;padding:16px 18px;box-shadow:0 2px 8px rgba(26,107,250,.05)}
+.stat-label{font-size:.72rem;font-weight:600;color:#7a8fa6;letter-spacing:.04em;text-transform:uppercase;margin-bottom:8px}
+.stat-value{font-family:'Bricolage Grotesque',sans-serif;font-size:1.8rem;font-weight:800;color:#0f1923;line-height:1}
+.stat-sub{font-size:.72rem;margin-top:5px;font-weight:600}
+.stat-up{color:#00c48c}.stat-warn{color:#f59e0b}.stat-muted{color:#7a8fa6}
+.stat-icon{width:34px;height:34px;border-radius:9px;display:flex;align-items:center;justify-content:center;margin-bottom:10px}
+.stat-icon svg{width:16px;height:16px;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+/* ── CARDS ── */
+.card{background:#fff;border-radius:14px;border:1px solid #e2e8f5;box-shadow:0 2px 8px rgba(26,107,250,.05);margin-bottom:16px;overflow:hidden}
+.card-header{padding:14px 18px;border-bottom:1px solid #e2e8f5;display:flex;align-items:center;justify-content:space-between}
+.card-title{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:.9rem;color:#0f1923}
+.card-body{padding:16px 18px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+
+/* ── TABLE ── */
+.table-wrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse}
+th{font-size:.68rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#7a8fa6;padding:9px 14px;text-align:left;border-bottom:1px solid #e2e8f5;white-space:nowrap;background:#fafbff}
+td{padding:11px 14px;font-size:.84rem;color:#3d4f60;border-bottom:1px solid #e2e8f5;vertical-align:middle}
+tr:last-child td{border:none}
+tr:hover td{background:#fafbff}
+.td-name{font-weight:700;color:#0f1923}
+.blur-name{filter:blur(4px);user-select:none}
+.badge{display:inline-flex;align-items:center;gap:4px;font-size:.68rem;font-weight:700;padding:3px 9px;border-radius:100px}
+.badge::before{content:'';width:5px;height:5px;border-radius:50%}
+.b-signed{background:#e0fff5;color:#007a59}.b-signed::before{background:#00c48c}
+.b-pending{background:#fff7e0;color:#b45309}.b-pending::before{background:#f59e0b}
+.b-sent{background:#e8f0ff;color:#1a6bfa}.b-sent::before{background:#1a6bfa}
+.b-refused{background:#fee2e2;color:#b91c1c}.b-refused::before{background:#ef4444}
+.action-btns{display:flex;gap:5px}
+.btn-sm{padding:5px 12px;border-radius:8px;font-size:.72rem;font-weight:600;border:1.5px solid #e2e8f5;background:#fff;color:#3d4f60;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;white-space:nowrap}
+.btn-sm:hover{border-color:#1a6bfa;color:#1a6bfa}
+.btn-sm.green{background:#00c48c;color:#fff;border-color:#00c48c}
+.btn-sm.orange{background:#ff6b2b;color:#fff;border-color:#ff6b2b}
+
+/* ── DEVIS FORM ── */
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.form-group{display:flex;flex-direction:column;gap:5px}
+.form-group label{font-size:.7rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:#3d4f60}
+.form-group input,.form-group textarea,.form-group select{padding:9px 12px;border:1.5px solid #e2e8f5;border-radius:9px;font-family:'Plus Jakarta Sans',sans-serif;font-size:.85rem;color:#0f1923;background:#f7f9ff;outline:none;transition:border-color .2s;resize:none;width:100%}
+.form-group input:focus,.form-group textarea:focus,.form-group select:focus{border-color:#1a6bfa;background:#fff;box-shadow:0 0 0 3px rgba(26,107,250,.08)}
+.form-group.span2{grid-column:span 2}
+.locked-field{background:#f0f0f0!important;color:#b0bac9!important;cursor:not-allowed;position:relative}
+.field-lock-wrap{position:relative}
+.field-lock-wrap svg{position:absolute;right:10px;top:50%;transform:translateY(-50%);width:14px;height:14px;stroke:#c0ccd8;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+/* LINE TABLE */
+.lines-tbl{width:100%;border-collapse:collapse;margin-bottom:10px}
+.lines-tbl th{font-size:.66rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#7a8fa6;padding:7px 8px;background:#f7f9ff;text-align:left}
+.lines-tbl td{padding:5px 5px}
+.line-input{padding:7px 9px;font-size:.82rem;border:1.5px solid #e2e8f5;border-radius:8px;background:#f7f9ff;font-family:'Plus Jakarta Sans',sans-serif;color:#0f1923;width:100%}
+.line-input:focus{outline:none;border-color:#1a6bfa;background:#fff}
+.del-btn{width:26px;height:26px;border-radius:6px;border:none;background:#fee2e2;color:#ef4444;cursor:pointer;font-size:.9rem;display:flex;align-items:center;justify-content:center}
+.del-btn:hover{background:#ef4444;color:#fff}
+.totals-box{background:#f7f9ff;border-radius:10px;padding:14px 16px;border:1px solid #e2e8f5;margin-bottom:12px}
+.total-row{display:flex;justify-content:space-between;font-size:.84rem;color:#3d4f60;padding:3px 0}
+.total-row.main{padding-top:10px;margin-top:6px;border-top:2px solid #1a6bfa;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:1rem;color:#0f1923}
+.total-row.ttc{border-top:2px solid #ff6b2b;color:#ff6b2b;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:1.05rem;margin-top:5px;padding-top:8px}
+
+/* SEND PANEL */
+.send-row{display:flex;gap:8px;margin-bottom:12px}
+.send-card{flex:1;padding:12px 10px;border-radius:11px;border:1.5px solid #e2e8f5;background:#fff;cursor:pointer;text-align:center;transition:all .2s}
+.send-card:hover{transform:translateY(-2px)}
+.sc-icon{width:36px;height:36px;border-radius:50%;margin:0 auto 6px;display:flex;align-items:center;justify-content:center}
+.sc-icon svg{width:18px;height:18px;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.sc-wa .sc-icon{background:#e8f5e9}.sc-wa .sc-icon svg{stroke:#25d366}
+.sc-wa:hover{border-color:#25d366}
+.sc-sms .sc-icon{background:#e8f0ff}.sc-sms .sc-icon svg{stroke:#1a6bfa}
+.sc-sms:hover{border-color:#1a6bfa}
+.sc-email .sc-icon{background:#fff0e8}.sc-email .sc-icon svg{stroke:#ff6b2b}
+.sc-email:hover{border-color:#ff6b2b}
+.sc-label{font-size:.72rem;font-weight:700;color:#3d4f60}
+.sc-locked{opacity:.4;cursor:not-allowed}
+.sc-locked:hover{transform:none;border-color:#e2e8f5}
+
+/* ACCEPT ZONE */
+.accept-zone{background:#f0fff9;border:1.5px solid #00c48c;border-radius:12px;padding:14px;text-align:center;margin-bottom:12px}
+.accept-btn{background:#00c48c;color:#fff;border:none;padding:11px 20px;border-radius:100px;font-weight:700;font-size:.84rem;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;width:100%}
+.accept-btn:hover{background:#00a878}
+
+/* RELANCE ROWS */
+.relance-row{display:flex;align-items:center;gap:10px;padding:10px 12px;background:#f7f9ff;border-radius:10px;border:1px solid #e2e8f5;margin-bottom:7px}
+.relance-dot{width:28px;height:28px;border-radius:50%;background:#1a6bfa;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.relance-dot svg{width:13px;height:13px;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+/* QUICK btns */
+.quick-row{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px}
+.quick-btn{padding:5px 12px;border-radius:100px;font-size:.72rem;font-weight:600;border:1.5px solid #e2e8f5;background:#fff;color:#3d4f60;cursor:pointer;transition:all .2s;font-family:'Plus Jakarta Sans',sans-serif}
+.quick-btn:hover{background:#1a6bfa;color:#fff;border-color:#1a6bfa}
+
+/* CRM */
+.client-card{background:#fff;border:1px solid #e2e8f5;border-radius:12px;padding:14px 16px;margin-bottom:8px;display:flex;align-items:center;justify-content:space-between;transition:box-shadow .2s}
+.client-card:hover{box-shadow:0 4px 16px rgba(26,107,250,.1)}
+.client-av{width:38px;height:38px;border-radius:50%;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:.85rem;color:#fff;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.ca-blue{background:#1a6bfa}.ca-orange{background:#ff6b2b}.ca-green{background:#00c48c}.ca-purple{background:#8b5cf6}.ca-pink{background:#ec4899}
+
+/* USAGE BAR */
+.usage-bar-wrap{background:#f7f9ff;border-radius:12px;padding:14px 16px;margin-bottom:14px}
+.usage-label{display:flex;justify-content:space-between;font-size:.78rem;margin-bottom:8px}
+.usage-label span:first-child{font-weight:600;color:#0f1923}
+.usage-label span:last-child{color:#7a8fa6}
+.usage-track{height:8px;background:#e2e8f5;border-radius:100px;overflow:hidden}
+.usage-fill{height:100%;border-radius:100px;transition:width .5s ease}
+
+/* TOAST */
+.toast{position:fixed;bottom:20px;right:20px;background:#0f1923;color:#fff;padding:11px 16px;border-radius:11px;font-size:.82rem;font-weight:600;z-index:9999;opacity:0;transform:translateY(8px);transition:all .3s;pointer-events:none;display:flex;align-items:center;gap:8px}
+.toast.show{opacity:1;transform:translateY(0)}
+.toast-g{border-left:4px solid #00c48c}
+.toast-b{border-left:4px solid #1a6bfa}
+.toast-o{border-left:4px solid #ff6b2b}
+
+/* VOCAL / PHOTO btns (premium) */
+.premium-feat{display:flex;gap:10px;margin-bottom:14px}
+.pfeat-btn{flex:1;padding:14px;border-radius:12px;border:1.5px solid #e2e8f5;background:#fff;cursor:pointer;text-align:center;transition:all .2s;font-family:'Plus Jakarta Sans',sans-serif}
+.pfeat-btn:hover{border-color:#8b5cf6;background:#faf5ff}
+.pfeat-icon{font-size:1.5rem;margin-bottom:6px}
+.pfeat-label{font-size:.78rem;font-weight:700;color:#0f1923}
+.pfeat-sub{font-size:.68rem;color:#7a8fa6;margin-top:2px}
+
+/* FACTURATION TABLE */
+.invoice-row{display:flex;justify-content:space-between;align-items:center;padding:11px 0;border-bottom:1px solid #e2e8f5}
+.invoice-row:last-child{border:none}
+.invoice-num{font-weight:700;font-size:.84rem;color:#0f1923}
+.invoice-date{font-size:.76rem;color:#7a8fa6}
+.invoice-amount{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:.9rem}
+.invoice-status{font-size:.68rem;font-weight:700;padding:3px 9px;border-radius:100px;background:#e0fff5;color:#007a59}
+.btn-dl{padding:5px 12px;background:#e8f0ff;color:#1a6bfa;border:none;border-radius:7px;font-size:.72rem;font-weight:700;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif}
+
+/* MOBILE */
+@media(max-width:768px){
+  .sidebar{display:none}
+  .stats-row{grid-template-columns:1fr 1fr}
+  .grid2{grid-template-columns:1fr}
+  .form-grid{grid-template-columns:1fr}
+  .form-group.span2{grid-column:span 1}
+  .send-row{flex-direction:column}
+  .content{padding:14px}
+  .topbar{padding:0 14px}
+}
+</style>
+</head>
+<body>
+
+<div class="toast" id="toast"></div>
+
+<!-- PLAN SELECTOR -->
+<!-- Plan bar hidden for production - plan detected from URL -->
+<div id="plan-bar-demo" style="background:#0f1923;padding:8px 20px;display:flex;align-items:center;gap:10px;justify-content:center;font-size:.74rem;color:rgba(255,255,255,.4)">
+  <span>Aperçu multi-plan (landing) :</span>
+  <button class="plan-btn active" onclick="setPlan('starter')">Starter</button>
+  <button class="plan-btn" onclick="setPlan('pro')">Pro</button>
+  <button class="plan-btn" onclick="setPlan('premium')">Premium</button>
+</div>
+
+<div class="app">
+
+  <!-- SIDEBAR -->
+  <div class="sidebar">
+    <div class="sidebar-logo">
+      <div class="logo-text">Fast<span>Devis</span></div>
+      <div class="plan-badge badge-starter" id="sidebar-badge">Starter</div>
+    </div>
+    <nav class="sidebar-nav" id="sidebar-nav">
+      <!-- filled by JS -->
+    </nav>
+    <div class="sidebar-upgrade" id="sidebar-upgrade" onclick="toast_show('Accédez au plan supérieur sur fastdeviss.vercel.app','o')" style="display:none">
+      <div class="upgrade-title">Passer au Pro</div>
+      <div class="upgrade-sub">Débloquez toutes les fonctions</div>
+    </div>
+  </div>
+
+  <!-- MAIN -->
+  <div class="main">
+    <div class="topbar">
+      <div class="topbar-title" id="topbar-title">Tableau de bord</div>
+      <div class="topbar-right">
+        <button class="btn-new" onclick="showView('nouveau')">+ Nouveau devis</button>
+      </div>
+    </div>
+    <div class="content" id="content">
+      <!-- views injected -->
+    </div>
+  </div>
+</div>
+
+<script>
+// ═══════════════════════
+// DATA & STATE
+// ═══════════════════════
+let plan = 'starter';
+let lineCounter = 0;
+
+const PLANS = {
+  starter: {
+    label: 'Starter',
+    badge: 'badge-starter',
+    color: '#1a6bfa',
+    devisLimit: 10,
+    features: {
+      devis: true, pdf: true, historique: 30,
+      whatsapp: false, sms: false, relances: false,
+      signature: false, crm: false, vocal: false,
+      photos: false, facturation: false, multiMetier: false
+    }
+  },
+  pro: {
+    label: 'Pro',
+    badge: 'badge-pro',
+    color: '#ff6b2b',
+    devisLimit: 999,
+    features: {
+      devis: true, pdf: true, historique: 999,
+      whatsapp: true, sms: true, relances: true,
+      signature: true, crm: true, vocal: false,
+      photos: false, facturation: false, multiMetier: true
+    }
+  },
+  premium: {
+    label: 'Premium',
+    badge: 'badge-premium',
+    color: '#8b5cf6',
+    devisLimit: 999,
+    features: {
+      devis: true, pdf: true, historique: 999,
+      whatsapp: true, sms: true, relances: true,
+      signature: true, crm: true, vocal: true,
+      photos: true, facturation: true, multiMetier: true
+    }
+  }
+};
+
+const DEVIS_DATA = [
+  {num:'D-2026-0142',client:'Martin Dupont',travaux:'Chauffe-eau 200L',date:'27/04/2026',ht:1150,ttc:1265,status:'signé'},
+  {num:'D-2026-0141',client:'Sophie Laurent',travaux:'Tableau électrique',date:'26/04/2026',ht:890,ttc:979,status:'envoyé'},
+  {num:'D-2026-0140',client:'Jean Moreau',travaux:'Peinture salon',date:'24/04/2026',ht:2400,ttc:2640,status:'envoyé'},
+  {num:'D-2026-0139',client:'Anne Petit',travaux:'Fuite + robinet',date:'23/04/2026',ht:340,ttc:374,status:'signé'},
+  {num:'D-2026-0138',client:'Paul Bernard',travaux:'Porte entrée',date:'21/04/2026',ht:1800,ttc:1980,status:'signé'},
+  {num:'D-2026-0137',client:'Clara Martin',travaux:'Carrelage bain',date:'19/04/2026',ht:960,ttc:1056,status:'refusé'},
+];
+
+const CLIENTS = [
+  {initials:'MD',nom:'Martin Dupont',color:'ca-blue',adresse:'Lyon 69001',devis:3,ca:3490},
+  {initials:'SL',nom:'Sophie Laurent',color:'ca-orange',adresse:'Paris 75011',devis:1,ca:979},
+  {initials:'JM',nom:'Jean Moreau',color:'ca-green',adresse:'Bordeaux 33000',devis:2,ca:4200},
+  {initials:'AP',nom:'Anne Petit',color:'ca-purple',adresse:'Marseille 13002',devis:1,ca:374},
+  {initials:'PB',nom:'Paul Bernard',color:'ca-pink',adresse:'Nantes 44000',devis:2,ca:3800},
+];
+
+const quickTemplates = {
+  plombier:[
+    {label:'Fuite évier',lines:[{d:'Diagnostic fuite',q:1,u:'forfait',p:60},{d:'Remplacement joint',q:1,u:'forfait',p:80},{d:'Robinet mitigeur',q:1,u:'u',p:120},{d:'Déplacement',q:1,u:'forfait',p:40}]},
+    {label:'Chauffe-eau',lines:[{d:'Dépose ancien chauffe-eau',q:1,u:'forfait',p:120},{d:'Fourniture 200L',q:1,u:'u',p:650},{d:'Pose raccordements',q:1,u:'forfait',p:280},{d:'Déplacement',q:1,u:'forfait',p:40}]},
+  ],
+  electricien:[
+    {label:'Tableau 13P',lines:[{d:'Fourniture tableau',q:1,u:'u',p:280},{d:'Câblage',q:1,u:'forfait',p:320},{d:'Mise en service',q:1,u:'forfait',p:80},{d:'Déplacement',q:1,u:'forfait',p:40}]},
+  ],
+  peintre:[
+    {label:'Salon+couloir',lines:[{d:'Préparation murs',q:25,u:'m²',p:8},{d:'Peinture 2 couches',q:25,u:'m²',p:14},{d:'Protection sol',q:1,u:'forfait',p:60}]},
+  ],
+  menuisier:[
+    {label:'Porte entrée',lines:[{d:'Dépose porte',q:1,u:'forfait',p:80},{d:'Fourniture porte',q:1,u:'u',p:800},{d:'Pose',q:1,u:'forfait',p:320}]},
+  ],
+  carreleur:[
+    {label:'Carrelage bain',lines:[{d:'Carrelage+colle',q:8,u:'m²',p:35},{d:'Pose',q:8,u:'m²',p:45},{d:'Joints',q:1,u:'forfait',p:80}]},
+  ],
+};
+
+function fmt(n){return Math.round(n).toLocaleString('fr-FR')}
+function toast_show(msg,type='g'){
+  const el=document.getElementById('toast');
+  el.textContent=msg; el.className='toast toast-'+type+' show';
+  clearTimeout(el._t); el._t=setTimeout(()=>el.className='toast',3000);
+}
+
+// ═══════════════════════
+// PLAN SWITCH
+// ═══════════════════════
+function setPlan(p){
+  plan = p;
+  document.querySelectorAll('.plan-btn').forEach((b,i)=>b.classList.toggle('active',['starter','pro','premium'][i]===p));
+  const cfg = PLANS[p];
+  const badge = document.getElementById('sidebar-badge');
+  badge.textContent = cfg.label;
+  badge.className = 'plan-badge '+cfg.badge;
+  document.getElementById('sidebar-upgrade').style.display = p==='premium'?'none':'block';
+  document.getElementById('sidebar-upgrade').querySelector('.upgrade-title').textContent = p==='starter'?'Passer au Pro':'Passer au Premium';
+  buildNav();
+  showView('dashboard');
+}
+
+// ═══════════════════════
+// NAVIGATION
+// ═══════════════════════
+const NAV_ITEMS = [
+  {id:'dashboard',label:'Tableau de bord',plan:'all',icon:'<rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/>',section:'Principal'},
+  {id:'nouveau',label:'Nouveau devis',plan:'all',icon:'<circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/>'},
+  {id:'devis',label:'Mes devis',plan:'all',icon:'<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/>'},
+  {id:'clients',label:'Clients / CRM',plan:'pro',icon:'<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/>',section:'Gestion'},
+  {id:'relances',label:'Relances auto',plan:'pro',icon:'<path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/>'},
+  {id:'signature',label:'Signatures',plan:'pro',icon:'<polyline points="20 6 9 17 4 12"/>'},
+  {id:'vocal',label:'Devis vocal',plan:'premium',icon:'<path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/>',section:'Premium'},
+  {id:'photos',label:'Photo → Devis',plan:'premium',icon:'<rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/>'},
+  {id:'facturation',label:'Facturation auto',plan:'premium',icon:'<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/>'},
+  {id:'stats',label:'Statistiques',plan:'pro',icon:'<polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>',section:'Analyse'},
+];
+
+function planLevel(p){return{starter:0,pro:1,premium:2}[p]}
+
+function buildNav(){
+  const nav = document.getElementById('sidebar-nav');
+  nav.innerHTML = '';
+  let lastSection = '';
+  NAV_ITEMS.forEach(item=>{
+    const accessible = planLevel(plan) >= planLevel(item.plan==='all'?'starter':item.plan);
+    if(item.section && item.section!==lastSection){
+      lastSection=item.section;
+      const s=document.createElement('div');
+      s.className='nav-section';s.textContent=item.section;nav.appendChild(s);
+    }
+    const btn=document.createElement('button');
+    btn.className='nav-item'+(accessible?'':' locked');
+    btn.onclick=accessible?()=>showView(item.id):()=>toast_show('Disponible avec le plan '+(item.plan==='pro'?'Pro':'Premium'),'o');
+    btn.innerHTML=`<svg viewBox="0 0 24 24">${item.icon}</svg>${item.label}${!accessible?'<svg class="lock-icon" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>':''}`;
+    nav.appendChild(btn);
+  });
+}
+
+function showView(id){
+  document.getElementById('topbar-title').textContent = NAV_ITEMS.find(n=>n.id===id)?.label||'Dashboard';
+  document.querySelectorAll('.nav-item').forEach(n=>{
+    n.classList.remove('active');
+    if(n.textContent.trim().startsWith(NAV_ITEMS.find(x=>x.id===id)?.label?.slice(0,8)||'__')) n.classList.add('active');
+  });
+  const content = document.getElementById('content');
+
+  const f = PLANS[plan].features;
+  const accessible = {
+    dashboard:true, nouveau:true, devis:true,
+    clients:f.crm, relances:f.relances, signature:f.signature,
+    vocal:f.vocal, photos:f.photos, facturation:f.facturation, stats:f.relances
+  };
+
+  if(!accessible[id]){
+    const needPlan = ['clients','relances','signature','stats'].includes(id)?'Pro':'Premium';
+    const upgradeLink = needPlan==='Pro'?'https://buy.stripe.com/aFacN5335gZl01w2rMffy03':'https://buy.stripe.com/8x23cveLN5gDeWq1nIffy02';
+    content.innerHTML=`<div class="locked-view">
+      <div class="locked-icon"><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+      <h3 class="locked-title">Disponible avec le plan ${needPlan}</h3>
+      <p class="locked-sub">Cette fonctionnalité est réservée aux abonnés ${needPlan}. Passez au plan supérieur pour y accéder immédiatement.</p>
+      <a href="${upgradeLink}" target="_blank" class="locked-upgrade-btn">Passer au plan ${needPlan} →</a>
+    </div>`;
+    return;
+  }
+
+  // Render view
+  if(id==='dashboard') renderDashboard(content);
+  else if(id==='nouveau') renderNouveau(content);
+  else if(id==='devis') renderDevis(content);
+  else if(id==='clients') renderClients(content);
+  else if(id==='relances') renderRelances(content);
+  else if(id==='signature') renderSignature(content);
+  else if(id==='vocal') renderVocal(content);
+  else if(id==='photos') renderPhotos(content);
+  else if(id==='facturation') renderFacturation(content);
+  else if(id==='stats') renderStats(content);
+}
+
+// ═══════════════════════
+// DASHBOARD
+// ═══════════════════════
+function renderDashboard(c){
+  const f = PLANS[plan].features;
+  const signed = DEVIS_DATA.filter(d=>d.status==='signé');
+  const ca = signed.reduce((s,d)=>s+d.ttc,0);
+  const pending = DEVIS_DATA.filter(d=>d.status==='envoyé').length;
+  const usagePercent = plan==='starter'?Math.round(DEVIS_DATA.length/10*100):100;
+
+  c.innerHTML=`
+  <div class="stats-row">
+    <div class="stat-card"><div class="stat-icon" style="background:#1a6bfa"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div><div class="stat-label">Devis ce mois</div><div class="stat-value">${DEVIS_DATA.length}</div><div class="stat-sub stat-muted">${plan==='starter'?`${DEVIS_DATA.length}/10 utilisés`:'Illimité'}</div></div>
+    <div class="stat-card"><div class="stat-icon" style="background:#00c48c"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div><div class="stat-label">Signés</div><div class="stat-value">${signed.length}</div><div class="stat-sub stat-up">${Math.round(signed.length/DEVIS_DATA.length*100)}% de conversion</div></div>
+    <div class="stat-card"><div class="stat-icon" style="background:#ff6b2b"><svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div><div class="stat-label">CA signé</div><div class="stat-value">${fmt(ca)} €</div><div class="stat-sub stat-up">Ce mois</div></div>
+    <div class="stat-card"><div class="stat-icon" style="background:#f59e0b"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><div class="stat-label">En attente</div><div class="stat-value">${pending}</div><div class="stat-sub stat-warn">À relancer${!f.relances?' (Pro)':''}</div></div>
+  </div>
+
+  ${plan==='starter'?`<div class="card"><div class="card-header"><div class="card-title">Utilisation du plan Starter</div></div><div class="card-body">
+    <div class="usage-bar-wrap"><div class="usage-label"><span>Devis ce mois</span><span>${DEVIS_DATA.length} / 10</span></div><div class="usage-track"><div class="usage-fill" style="width:${usagePercent}%;background:${usagePercent>=80?'#ef4444':'#1a6bfa'}"></div></div></div>
+    <p style="font-size:.78rem;color:#7a8fa6;margin-top:6px">Passez au <a href="https://buy.stripe.com/aFacN5335gZl01w2rMffy03" target="_blank" style="color:#ff6b2b;font-weight:700">plan Pro</a> pour des devis illimités.</p>
+  </div></div>`:''}
+
+  <div class="card"><div class="card-header"><div class="card-title">Derniers devis</div><button class="btn-sm" onclick="showView('devis')">Voir tout</button></div>
+  <div class="table-wrap"><table><thead><tr><th>N°</th><th>Client</th><th>Travaux</th><th>Date</th><th>Montant TTC</th><th>Statut</th><th>Actions</th></tr></thead><tbody>
+  ${DEVIS_DATA.slice(0,4).map(d=>`<tr>
+    <td class="td-name">${d.num}</td>
+    <td>${d.client.split(' ')[0]} <span class="blur-name">${d.client.split(' ').slice(1).join(' ')}</span></td>
+    <td>${d.travaux}</td><td>${d.date}</td>
+    <td style="font-weight:700">${fmt(d.ttc)} €</td>
+    <td><span class="badge b-${d.status}">${d.status}</span></td>
+    <td><div class="action-btns">
+      <button class="btn-sm" onclick="toast_show('PDF téléchargé','g')">PDF</button>
+      ${f.whatsapp?`<button class="btn-sm green" onclick="toast_show('WhatsApp ouvert','g')">WA</button>`:''}
+      ${d.status==='envoyé'?`<button class="btn-sm orange" onclick="toast_show('Devis signé !','g')">Signer</button>`:''}
+    </div></td>
+  </tr>`).join('')}
+  </tbody></table></div></div>`;
+}
+
+// ═══════════════════════
+// NOUVEAU DEVIS
+// ═══════════════════════
+function renderNouveau(c){
+  const f = PLANS[plan].features;
+  lineCounter = 0;
+  c.innerHTML=`<div style="display:grid;grid-template-columns:1.1fr 1fr;gap:18px;align-items:start">
+  <div>
+    <div class="card">
+      <div class="card-header"><div class="card-title">Informations client</div></div>
+      <div class="card-body">
+        <div class="form-grid">
+          <div class="form-group"><label>Nom complet</label><input id="f-client" placeholder="M. Jean Martin"></div>
+          <div class="form-group"><label>Téléphone</label><input id="f-tel" placeholder="06 12 34 56 78"></div>
+          ${f.crm?`<div class="form-group"><label>Email</label><input id="f-email" placeholder="jean@email.fr"></div><div class="form-group"><label>Adresse chantier</label><input id="f-adresse" placeholder="5 rue de la Paix, Lyon"></div>`
+          :`<div class="form-group"><label style="display:flex;align-items:center;gap:5px">Email <span style="background:#e8f0ff;color:#1a6bfa;font-size:.58rem;font-weight:700;padding:2px 7px;border-radius:100px">Pro</span></label><div class="field-lock-wrap"><input disabled class="locked-field" placeholder="Plan Pro requis"><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div></div>
+          <div class="form-group"><label style="display:flex;align-items:center;gap:5px">Adresse <span style="background:#e8f0ff;color:#1a6bfa;font-size:.58rem;font-weight:700;padding:2px 7px;border-radius:100px">Pro</span></label><div class="field-lock-wrap"><input disabled class="locked-field" placeholder="Plan Pro requis"><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div></div>`}
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header"><div class="card-title">Prestations</div><button class="btn-sm" onclick="addLine()">+ Ajouter</button></div>
+      <div class="card-body">
+        <div class="quick-row" id="quick-row"></div>
+        <div style="overflow-x:auto"><table class="lines-tbl"><thead><tr><th style="width:42%">Description</th><th style="width:10%">Qté</th><th style="width:10%">Unité</th><th style="width:14%">Prix HT</th><th style="width:14%;text-align:right">Total HT</th><th style="width:40px"></th></tr></thead><tbody id="lines-body"></tbody></table></div>
+        <div class="totals-box">
+          <div class="total-row"><span>Sous-total HT</span><span id="t-ht">0 €</span></div>
+          <div class="total-row"><span>TVA 10%</span><span id="t-tva">0 €</span></div>
+          <div class="total-row main"><span>Total HT</span><span id="t-total">0 €</span></div>
+          <div class="total-row ttc"><span>Total TTC</span><span id="t-ttc">0 €</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header"><div class="card-title">Conditions</div></div>
+      <div class="card-body">
+        <div class="form-grid">
+          <div class="form-group"><label>Délai d'exécution</label><input id="f-delai" value="3 à 5 jours ouvrés"></div>
+          <div class="form-group"><label>Validité (jours)</label><input id="f-validite" type="number" value="30"></div>
+          <div class="form-group span2"><label>Notes</label><textarea id="f-notes" rows="2" placeholder="Informations complémentaires..."></textarea></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="position:sticky;top:0">
+    <div class="card">
+      <div class="card-header"><div class="card-title">Envoyer le devis</div></div>
+      <div class="card-body">
+        <div class="send-row">
+          <div class="send-card sc-wa${f.whatsapp?'':' sc-locked'}" onclick="${f.whatsapp?"sendDevis('wa')":`toast_show('WhatsApp disponible avec le plan Pro','o')`}">
+            <div class="sc-icon"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></div>
+            <div class="sc-label">WhatsApp${!f.whatsapp?' 🔒':''}</div>
+          </div>
+          <div class="send-card sc-sms${f.sms?'':' sc-locked'}" onclick="${f.sms?"sendDevis('sms')":`toast_show('SMS disponible avec le plan Pro','o')`}">
+            <div class="sc-icon"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+            <div class="sc-label">SMS${!f.sms?' 🔒':''}</div>
+          </div>
+          <div class="send-card sc-email" onclick="sendDevis('email')">
+            <div class="sc-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+            <div class="sc-label">Email</div>
+          </div>
+        </div>
+
+        <button class="btn-sm orange" style="width:100%;padding:11px;border-radius:10px;font-size:.84rem;margin-bottom:10px" onclick="saveDraft()">Sauvegarder</button>
+        <button class="btn-sm" style="width:100%;padding:11px;border-radius:10px;font-size:.84rem;background:#1a6bfa;color:#fff;border-color:#1a6bfa;margin-bottom:14px" onclick="downloadPDF()">Télécharger PDF</button>
+
+        ${f.signature?`<div class="accept-zone"><p style="font-size:.78rem;color:#3d4f60;margin-bottom:10px">Bouton de signature pour votre client</p><button class="accept-btn" onclick="toast_show('Lien de signature envoyé au client !','g')">Envoyer le lien de signature</button></div>`:`<div style="background:#f7f9ff;border-radius:10px;padding:12px;text-align:center;border:1.5px dashed #e2e8f5;margin-bottom:12px"><p style="font-size:.78rem;color:#7a8fa6;margin-bottom:8px">Signature électronique disponible avec le plan Pro</p><a href="https://buy.stripe.com/aFacN5335gZl01w2rMffy03" target="_blank" style="font-size:.76rem;color:#ff6b2b;font-weight:700">Passer au Pro →</a></div>`}
+
+        ${f.relances?`<div style="margin-top:2px"><div style="font-size:.76rem;font-weight:700;color:#3d4f60;margin-bottom:8px;text-transform:uppercase;letter-spacing:.06em">Relances automatiques</div>
+          <div class="relance-row"><div class="relance-dot"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><div><strong style="font-size:.78rem">J+2</strong><div style="font-size:.72rem;color:#7a8fa6">"Avez-vous pu consulter le devis ?"</div></div></div>
+          <div class="relance-row"><div class="relance-dot"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><div><strong style="font-size:.78rem">J+5</strong><div style="font-size:.72rem;color:#7a8fa6">"Je reste disponible pour toute question."</div></div></div>
+          <div class="relance-row"><div class="relance-dot"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><div><strong style="font-size:.78rem">J+7</strong><div style="font-size:.72rem;color:#7a8fa6">"Devis valable encore X jours."</div></div></div>
+        </div>`:`<div style="background:#f7f9ff;border-radius:10px;padding:12px;text-align:center;border:1.5px dashed #e2e8f5"><p style="font-size:.78rem;color:#7a8fa6;margin-bottom:6px">Relances auto disponibles avec le plan Pro</p><a href="https://buy.stripe.com/aFacN5335gZl01w2rMffy03" target="_blank" style="font-size:.76rem;color:#ff6b2b;font-weight:700">Passer au Pro →</a></div>`}
+      </div>
+    </div>
+
+    ${f.vocal?`<div class="card"><div class="card-header"><div class="card-title">Fonctions Premium</div></div><div class="card-body">
+      <div class="premium-feat">
+        <div class="pfeat-btn" onclick="toast_show('Enregistrement vocal démarré...','b')"><div class="pfeat-icon">🎤</div><div class="pfeat-label">Devis vocal</div><div class="pfeat-sub">Dictez le travail</div></div>
+        <div class="pfeat-btn" onclick="toast_show('Ouvre la caméra pour estimer...','b')"><div class="pfeat-icon">📷</div><div class="pfeat-label">Photo → Devis</div><div class="pfeat-sub">Photographiez le chantier</div></div>
+      </div>
+    </div></div>`:''}
+  </div>
+</div>`;
+
+  // Build quick buttons
+  const metier = 'plombier';
+  const qr = document.getElementById('quick-row');
+  (quickTemplates[metier]||[]).forEach(t=>{
+    const b=document.createElement('button');
+    b.className='quick-btn';b.textContent=t.label;
+    b.onclick=()=>{document.getElementById('lines-body').innerHTML='';lineCounter=0;t.lines.forEach(l=>addLine(l));calcTotals();};
+    qr.appendChild(b);
+  });
+  addLine();
+}
+
+function addLine(data=null){
+  const id=lineCounter++;
+  const tr=document.createElement('tr');
+  tr.id='ln-'+id;
+  tr.innerHTML=`<td><input class="line-input" placeholder="Prestation..." value="${data?data.d:''}" oninput="calcTotals()"></td>
+  <td><input class="line-input" type="number" value="${data?data.q:1}" style="width:56px" oninput="calcTotals()"></td>
+  <td><input class="line-input" value="${data?data.u:'u'}" style="width:52px"></td>
+  <td><input class="line-input" type="number" value="${data?data.p:0}" style="width:70px" oninput="calcTotals()"></td>
+  <td style="text-align:right;padding-right:8px"><strong id="lt-${id}" style="font-size:.82rem">0 €</strong></td>
+  <td><button class="del-btn" onclick="document.getElementById('ln-${id}').remove();calcTotals()">×</button></td>`;
+  document.getElementById('lines-body')?.appendChild(tr);
+  calcTotals();
+}
+
+function calcTotals(){
+  const rows=document.querySelectorAll('#lines-body tr');
+  let ht=0;
+  rows.forEach((tr,i)=>{
+    const inputs=tr.querySelectorAll('input');
+    const q=parseFloat(inputs[1]?.value)||0;
+    const p=parseFloat(inputs[3]?.value)||0;
+    const t=q*p; ht+=t;
+    const el=document.getElementById('lt-'+i);
+    if(el) el.textContent=Math.round(t).toLocaleString('fr-FR')+' €';
+  });
+  const tva=ht*.1,ttc=ht+tva;
+  ['t-ht','t-total'].forEach(id=>{const el=document.getElementById(id);if(el)el.textContent=Math.round(ht).toLocaleString('fr-FR')+' €'});
+  const tvael=document.getElementById('t-tva');if(tvael)tvael.textContent=Math.round(tva).toLocaleString('fr-FR')+' €';
+  const ttcel=document.getElementById('t-ttc');if(ttcel)ttcel.textContent=Math.round(ttc).toLocaleString('fr-FR')+' €';
+}
+
+function sendDevis(ch){
+  const client=document.getElementById('f-client')?.value||'le client';
+  const tel=document.getElementById('f-tel')?.value||'';
+  if(ch==='wa'){window.open('https://wa.me/'+tel.replace(/\D/g,'')+'?text='+encodeURIComponent(`Bonjour ${client}, veuillez trouver votre devis ci-joint.`));}
+  else if(ch==='sms'){window.location.href='sms:'+tel.replace(/\D/g,'')+'?body=Bonjour, votre devis FastDevis est prêt.';}
+  else if(ch==='email'){window.location.href='mailto:?subject=Votre devis FastDevis&body=Bonjour '+client+', veuillez trouver votre devis ci-joint.';}
+  toast_show('Devis envoyé à '+client,'g');
+}
+
+function saveDraft(){toast_show('Devis sauvegardé','g')}
+function downloadPDF(){toast_show('PDF téléchargé','g')}
+
+// ═══════════════════════
+// DEVIS LIST
+// ═══════════════════════
+function renderDevis(c){
+  const f=PLANS[plan].features;
+  const limit=plan==='starter'?10:999;
+  c.innerHTML=`${plan==='starter'?`<div style="background:#e8f0ff;border-radius:10px;padding:10px 16px;margin-bottom:14px;font-size:.82rem;color:#1a6bfa;display:flex;justify-content:space-between;align-items:center"><span><strong>${DEVIS_DATA.length}/10</strong> devis utilisés ce mois</span><a href="https://buy.stripe.com/aFacN5335gZl01w2rMffy03" target="_blank" style="font-weight:700;color:#ff6b2b;font-size:.76rem">Passer au Pro illimité →</a></div>`:''}
+  <div class="card"><div class="card-header"><div class="card-title">Tous mes devis</div><button class="btn-sm orange" onclick="showView('nouveau')">+ Nouveau</button></div>
+  <div class="table-wrap"><table><thead><tr><th>N°</th><th>Client</th><th>Travaux</th><th>Date</th><th>Montant TTC</th><th>Statut</th><th>Actions</th></tr></thead><tbody>
+  ${DEVIS_DATA.map(d=>`<tr>
+    <td class="td-name">${d.num}</td>
+    <td>${d.client.split(' ')[0]} <span class="blur-name">${d.client.split(' ').slice(1).join(' ')}</span></td>
+    <td>${d.travaux}</td><td>${d.date}</td>
+    <td style="font-weight:700">${fmt(d.ttc)} €</td>
+    <td><span class="badge b-${d.status}">${d.status}</span></td>
+    <td><div class="action-btns">
+      <button class="btn-sm" onclick="toast_show('PDF téléchargé','g')">PDF</button>
+      ${f.whatsapp?`<button class="btn-sm green" onclick="toast_show('WhatsApp ouvert','g')">WA</button>`:`<button class="btn-sm" onclick="toast_show('WhatsApp dispo avec Pro','o')">WA 🔒</button>`}
+      ${f.relances&&d.status==='envoyé'?`<button class="btn-sm" onclick="toast_show('Relance envoyée !','g')">Relancer</button>`:''}
+      ${d.status==='envoyé'?`<button class="btn-sm orange" onclick="toast_show('Devis signé !','g')">Signer</button>`:''}
+    </div></td>
+  </tr>`).join('')}
+  </tbody></table></div></div>`;
+}
+
+// ═══════════════════════
+// CLIENTS CRM
+// ═══════════════════════
+function renderClients(c){
+  c.innerHTML=`<div class="stats-row" style="grid-template-columns:repeat(3,1fr)">
+    <div class="stat-card"><div class="stat-label">Total clients</div><div class="stat-value">${CLIENTS.length}</div></div>
+    <div class="stat-card"><div class="stat-label">CA total</div><div class="stat-value">${fmt(CLIENTS.reduce((s,cl)=>s+cl.ca,0))} €</div></div>
+    <div class="stat-card"><div class="stat-label">Devis moyens / client</div><div class="stat-value">${(DEVIS_DATA.length/CLIENTS.length).toFixed(1)}</div></div>
+  </div>
+  <div class="card"><div class="card-header"><div class="card-title">Base clients</div><input placeholder="Rechercher..." style="padding:6px 12px;border:1.5px solid #e2e8f5;border-radius:8px;font-size:.8rem;color:#0f1923;background:#f7f9ff;outline:none;font-family:'Plus Jakarta Sans',sans-serif" oninput="filterClients(this.value)"></div>
+  <div class="card-body" id="clients-list">
+  ${CLIENTS.map(cl=>`<div class="client-card">
+    <div style="display:flex;align-items:center;gap:12px">
+      <div class="client-av ${cl.color}">${cl.initials}</div>
+      <div><div style="font-weight:700;font-size:.875rem">${cl.nom.split(' ')[0]} <span class="blur-name">${cl.nom.split(' ').slice(1).join(' ')}</span></div><div style="font-size:.74rem;color:#7a8fa6">${cl.adresse}</div></div>
+    </div>
+    <div style="display:flex;align-items:center;gap:16px">
+      <div style="text-align:right"><div style="font-size:.72rem;color:#7a8fa6">${cl.devis} devis</div><div style="font-weight:700;font-size:.875rem">${fmt(cl.ca)} €</div></div>
+      <button class="btn-sm orange" onclick="toast_show('Nouveau devis pour '+this.textContent,'g');showView('nouveau')">Nouveau devis</button>
+      <button class="btn-sm" onclick="toast_show('WhatsApp ouvert','g')">WA</button>
+    </div>
+  </div>`).join('')}
+  </div></div>`;
+}
+function filterClients(q){
+  document.querySelectorAll('.client-card').forEach(card=>{card.style.display=card.textContent.toLowerCase().includes(q.toLowerCase())?'flex':'none'});
+}
+
+// ═══════════════════════
+// RELANCES
+// ═══════════════════════
+function renderRelances(c){
+  const pending=DEVIS_DATA.filter(d=>d.status==='envoyé');
+  c.innerHTML=`<div class="card"><div class="card-header"><div class="card-title">Relances en cours — ${pending.length} devis</div></div>
+  <div class="table-wrap"><table><thead><tr><th>Client</th><th>Devis</th><th>Envoyé le</th><th>Montant</th><th>Prochain rappel</th><th>Actions</th></tr></thead><tbody>
+  ${pending.map(d=>{const diff=Math.floor(Math.random()*7)+1;const urgence=diff>=5?'#ef4444':diff>=2?'#f59e0b':'#00c48c';
+  return`<tr>
+    <td class="td-name">${d.client.split(' ')[0]} <span class="blur-name">${d.client.split(' ').slice(1).join(' ')}</span></td>
+    <td>${d.num}</td><td>${d.date}</td>
+    <td style="font-weight:700">${fmt(d.ttc)} €</td>
+    <td><span style="font-weight:700;color:${urgence}">J+${diff}</span></td>
+    <td><div class="action-btns">
+      <button class="btn-sm green" onclick="toast_show('Relance WhatsApp envoyée !','g')">Relancer WA</button>
+      <button class="btn-sm" onclick="toast_show('Relance SMS envoyée !','b')">SMS</button>
+      <button class="btn-sm orange" onclick="toast_show('Devis signé !','g')">Signé</button>
+    </div></td>
+  </tr>`}).join('')}
+  </tbody></table></div></div>
+  <div class="card"><div class="card-header"><div class="card-title">Configuration des relances</div></div><div class="card-body">
+    <div class="relance-row"><div class="relance-dot"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><div style="flex:1"><strong style="font-size:.84rem">Relance J+2</strong><div style="font-size:.76rem;color:#7a8fa6">"Bonjour, avez-vous pu consulter le devis ?"</div></div><button class="btn-sm" onclick="toast_show('Message modifié','g')">Modifier</button></div>
+    <div class="relance-row"><div class="relance-dot"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><div style="flex:1"><strong style="font-size:.84rem">Relance J+5</strong><div style="font-size:.76rem;color:#7a8fa6">"Je reste disponible pour toute question."</div></div><button class="btn-sm" onclick="toast_show('Message modifié','g')">Modifier</button></div>
+    <div class="relance-row"><div class="relance-dot"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><div style="flex:1"><strong style="font-size:.84rem">Relance J+7</strong><div style="font-size:.76rem;color:#7a8fa6">"Dernière relance — devis valable encore X jours."</div></div><button class="btn-sm" onclick="toast_show('Message modifié','g')">Modifier</button></div>
+  </div></div>`;
+}
+
+// ═══════════════════════
+// SIGNATURE
+// ═══════════════════════
+function renderSignature(c){
+  c.innerHTML=`<div class="card"><div class="card-header"><div class="card-title">Signatures électroniques</div></div>
+  <div class="table-wrap"><table><thead><tr><th>Devis</th><th>Client</th><th>Envoyé</th><th>Statut</th><th>IP + Horodatage</th></tr></thead><tbody>
+  ${DEVIS_DATA.filter(d=>d.status==='signé').map(d=>`<tr>
+    <td class="td-name">${d.num}</td>
+    <td>${d.client.split(' ')[0]} <span class="blur-name">${d.client.split(' ').slice(1).join(' ')}</span></td>
+    <td>${d.date}</td>
+    <td><span class="badge b-signed">Signé</span></td>
+    <td style="font-size:.74rem;color:#7a8fa6">192.168.${Math.floor(Math.random()*255)}.${Math.floor(Math.random()*255)} — ${d.date} 14:${Math.floor(Math.random()*59).toString().padStart(2,'0')}</td>
+  </tr>`).join('')}
+  </tbody></table></div></div>`;
+}
+
+// ═══════════════════════
+// VOCAL (Premium)
+// ═══════════════════════
+function renderVocal(c){
+  c.innerHTML=`<div class="card"><div class="card-header"><div class="card-title">Devis par dictée vocale</div></div><div class="card-body">
+    <div style="text-align:center;padding:32px 20px">
+      <div style="width:80px;height:80px;border-radius:50%;background:#f0fff9;border:3px solid #00c48c;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;cursor:pointer" onclick="toast_show('Enregistrement démarré — parlez maintenant...','b')">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#00c48c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
+      </div>
+      <h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:1.1rem;margin-bottom:8px">Appuyez pour dicter</h3>
+      <p style="font-size:.84rem;color:#7a8fa6;margin-bottom:20px">Dites par exemple : "Remplacement chauffe-eau 200 litres, purge installation, déplacement inclus"</p>
+      <button class="btn-sm orange" style="padding:12px 28px;font-size:.875rem" onclick="toast_show('Devis généré depuis la dictée vocale !','g');showView('nouveau')">Démarrer l'enregistrement</button>
+    </div>
+    <div style="background:#f7f9ff;border-radius:10px;padding:14px;margin-top:8px">
+      <div style="font-size:.76rem;font-weight:700;color:#3d4f60;margin-bottom:8px">Exemples de phrases reconnues</div>
+      ${['Remplacement chauffe-eau 200 litres + purge','Tableau électrique 13 postes pose complète','Peinture salon 25m² deux couches','Fuite sous évier remplacement robinet'].map(e=>`<div style="font-size:.78rem;color:#7a8fa6;padding:5px 0;border-bottom:1px solid #e2e8f5">"${e}"</div>`).join('')}
+    </div>
+  </div></div>`;
+}
+
+// ═══════════════════════
+// PHOTOS (Premium)
+// ═══════════════════════
+function renderPhotos(c){
+  c.innerHTML=`<div class="card"><div class="card-header"><div class="card-title">Photo chantier → Estimation</div></div><div class="card-body">
+    <div style="border:2px dashed #e2e8f5;border-radius:14px;padding:40px 20px;text-align:center;cursor:pointer;transition:border-color .2s" onmouseover="this.style.borderColor='#8b5cf6'" onmouseout="this.style.borderColor='#e2e8f5'" onclick="toast_show('Ouvre la caméra pour analyser le chantier...','b')">
+      <div style="font-size:2.5rem;margin-bottom:12px">📷</div>
+      <h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:1rem;margin-bottom:6px">Photographiez le chantier</h3>
+      <p style="font-size:.82rem;color:#7a8fa6">Prenez une photo et FastDevis estime automatiquement les travaux nécessaires</p>
+    </div>
+    <div style="margin-top:16px;background:#f7f9ff;border-radius:10px;padding:14px">
+      <div style="font-size:.76rem;font-weight:700;color:#3d4f60;margin-bottom:10px">Estimation exemple — Cuisine à rénover</div>
+      ${[{l:'Carrelage sol (8m²)',p:560},{l:'Peinture murs (24m²)',p:340},{l:'Remplacement robinetterie',p:180},{l:'Déplacement',p:40}].map(item=>`<div style="display:flex;justify-content:space-between;font-size:.82rem;padding:6px 0;border-bottom:1px solid #e2e8f5"><span style="color:#3d4f60">${item.l}</span><span style="font-weight:700">${item.p} €</span></div>`).join('')}
+      <div style="display:flex;justify-content:space-between;font-weight:800;margin-top:8px;padding-top:8px;border-top:2px solid #8b5cf6;font-size:.9rem"><span>Total estimé HT</span><span style="color:#8b5cf6">1 120 €</span></div>
+      <button class="btn-sm orange" style="margin-top:12px;width:100%;padding:10px" onclick="toast_show('Devis créé depuis la photo !','g');showView('nouveau')">Créer le devis depuis cette estimation</button>
+    </div>
+  </div></div>`;
+}
+
+// ═══════════════════════
+// FACTURATION (Premium)
+// ═══════════════════════
+function renderFacturation(c){
+  c.innerHTML=`<div class="card"><div class="card-header"><div class="card-title">Facturation automatique</div><button class="btn-sm orange" onclick="toast_show('Facture générée automatiquement !','g')">Générer une facture</button></div><div class="card-body">
+    ${DEVIS_DATA.filter(d=>d.status==='signé').map((d,i)=>`<div class="invoice-row">
+      <div><div class="invoice-num">FAC-2026-${String(i+1).padStart(4,'0')}</div><div class="invoice-date">${d.client.split(' ')[0]} — ${d.travaux}</div></div>
+      <div style="display:flex;align-items:center;gap:12px">
+        <div class="invoice-amount">${fmt(d.ttc)} €</div>
+        <div class="invoice-status">Payée</div>
+        <button class="btn-dl" onclick="toast_show('Facture téléchargée','g')">Télécharger</button>
+      </div>
+    </div>`).join('')}
+    <div style="margin-top:14px;padding-top:14px;border-top:2px solid #0f1923;display:flex;justify-content:space-between;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:1rem"><span>Total facturé ce mois</span><span style="color:#ff6b2b">${fmt(DEVIS_DATA.filter(d=>d.status==='signé').reduce((s,d)=>s+d.ttc,0))} €</span></div>
+  </div></div>`;
+}
+
+// ═══════════════════════
+// STATS
+// ═══════════════════════
+function renderStats(c){
+  const months=['Jan','Fév','Mar','Avr','Mai','Juin'];
+  const values=[2100,3400,2800,4200,3900,6580];
+  const max=Math.max(...values);
+  c.innerHTML=`<div class="grid2">
+    <div class="card"><div class="card-header"><div class="card-title">CA mensuel (€ TTC)</div></div><div class="card-body">
+      <div style="display:flex;align-items:flex-end;gap:8px;height:140px">
+        ${months.map((m,i)=>`<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:4px">
+          <div style="font-size:.68rem;font-weight:700;color:#0f1923">${fmt(values[i])}</div>
+          <div style="width:100%;background:#1a6bfa;border-radius:6px 6px 0 0;height:${Math.round(values[i]/max*120)}px;transition:height .5s"></div>
+          <div style="font-size:.68rem;color:#7a8fa6">${m}</div>
+        </div>`).join('')}
+      </div>
+    </div></div>
+    <div class="card"><div class="card-header"><div class="card-title">Taux de conversion</div></div><div class="card-body">
+      <div style="display:flex;flex-direction:column;gap:10px">
+        ${[{label:'Envoyés',val:DEVIS_DATA.length,color:'#1a6bfa'},{label:'Signés',val:DEVIS_DATA.filter(d=>d.status==='signé').length,color:'#00c48c'},{label:'En attente',val:DEVIS_DATA.filter(d=>d.status==='envoyé').length,color:'#f59e0b'},{label:'Refusés',val:DEVIS_DATA.filter(d=>d.status==='refusé').length,color:'#ef4444'}].map(s=>`
+        <div><div style="display:flex;justify-content:space-between;font-size:.78rem;margin-bottom:4px"><span style="font-weight:600">${s.label}</span><span style="font-weight:700">${s.val}</span></div>
+        <div style="height:7px;background:#f0f0f0;border-radius:100px"><div style="height:100%;width:${Math.round(s.val/DEVIS_DATA.length*100)}%;background:${s.color};border-radius:100px"></div></div></div>`).join('')}
+      </div>
+    </div></div>
+  </div>
+  <div class="card"><div class="card-header"><div class="card-title">Temps moyen de signature</div></div><div class="card-body">
+    <div class="grid2">
+      <div style="text-align:center;padding:16px;background:#f7f9ff;border-radius:12px"><div style="font-family:'Bricolage Grotesque',sans-serif;font-size:2rem;font-weight:800;color:#00c48c">2.3j</div><div style="font-size:.78rem;color:#7a8fa6;margin-top:4px">Délai moyen signature</div></div>
+      <div style="text-align:center;padding:16px;background:#f7f9ff;border-radius:12px"><div style="font-family:'Bricolage Grotesque',sans-serif;font-size:2rem;font-weight:800;color:#1a6bfa">67%</div><div style="font-size:.78rem;color:#7a8fa6;margin-top:4px">Taux de conversion</div></div>
+    </div>
+  </div></div>`;
+}
+
+// ═══════════════════════
+// INIT — Auto-detect plan from URL
+// ═══════════════════════
+(function(){
+  const params = new URLSearchParams(window.location.search);
+  const urlPlan = params.get('plan');
+  const stored = localStorage.getItem('fd_plan');
+  
+  // If plan in URL, save it
+  if(urlPlan && ['starter','pro','premium'].includes(urlPlan)){
+    localStorage.setItem('fd_plan', urlPlan);
+  }
+  
+  const activePlan = urlPlan || stored || 'starter';
+  
+  // Hide demo selector if coming from Stripe (real user)
+  if(urlPlan){
+    const bar = document.getElementById('plan-bar-demo');
+    if(bar) bar.style.display = 'none';
+  }
+  
+  setPlan(activePlan);
+})();
+</script>
+</body>
+</html>
