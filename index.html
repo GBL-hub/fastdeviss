@@ -1,12 +1,16 @@
 <!DOCTYPE html>
-
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>FastDevis — Devis en 30 secondes. Signez plus de chantiers.</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Bricolage+Grotesque:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* Prevent layout shift while fonts load */
+html{font-family:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif}
+</style>
 <style>
 :root{
   --blue:#1a6bfa;--blue-dark:#0f4fd6;--blue-light:#e8f0ff;
@@ -24,7 +28,7 @@ body{font-family:'Plus Jakarta Sans',sans-serif;background:#f7f9ff;color:#0f1923
 
 /* NAV */
 nav{position:fixed;top:0;width:100%;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:16px 48px;background:rgba(255,255,255,.95);backdrop-filter:blur(12px);border-bottom:1px solid #e2e8f5;box-shadow:0 2px 16px rgba(26,107,250,.06)}
-.logo{font-family:‘Bricolage Grotesque’,sans-serif;font-weight:800;font-size:1.6rem;letter-spacing:-.04em;color:#0f1923}
+.logo{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:1.6rem;letter-spacing:-.04em;color:#0f1923}
 .logo span{color:#ff6b2b}
 nav ul{list-style:none;display:flex;gap:32px}
 nav ul li a{font-size:.9rem;font-weight:500;color:#3d4f60;text-decoration:none;transition:color .2s}
@@ -34,16 +38,16 @@ nav ul li a:hover{color:#1a6bfa}
 
 /* HERO */
 .hero-wrap{min-height:100vh;background:linear-gradient(135deg,#f0f5ff 0%,#fff7f3 60%,#f0fff9 100%);display:flex;align-items:center;padding:120px 48px 80px;position:relative;overflow:hidden}
-.hero-wrap::before{content:’’;position:absolute;top:-200px;right:-200px;width:700px;height:700px;background:radial-gradient(circle,rgba(26,107,250,.08) 0%,transparent 70%);border-radius:50%;pointer-events:none}
-.hero-wrap::after{content:’’;position:absolute;bottom:-150px;left:-100px;width:500px;height:500px;background:radial-gradient(circle,rgba(255,107,43,.07) 0%,transparent 70%);border-radius:50%;pointer-events:none}
+.hero-wrap::before{content:'';position:absolute;top:-200px;right:-200px;width:700px;height:700px;background:radial-gradient(circle,rgba(26,107,250,.08) 0%,transparent 70%);border-radius:50%;pointer-events:none}
+.hero-wrap::after{content:'';position:absolute;bottom:-150px;left:-100px;width:500px;height:500px;background:radial-gradient(circle,rgba(255,107,43,.07) 0%,transparent 70%);border-radius:50%;pointer-events:none}
 .hero-inner{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;position:relative;z-index:1}
 .hero-badge{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1.5px solid #e2e8f5;border-radius:100px;padding:6px 16px 6px 8px;font-size:.82rem;font-weight:600;color:#3d4f60;margin-bottom:28px;box-shadow:0 4px 24px rgba(26,107,250,.10)}
 .badge-dot{width:22px;height:22px;border-radius:50%;background:linear-gradient(135deg,#1a6bfa,#ff6b2b)}
-.hero h1{font-family:‘Bricolage Grotesque’,sans-serif;font-size:clamp(2.6rem,4.5vw,4rem);font-weight:800;line-height:1.08;letter-spacing:-.04em;margin-bottom:24px;color:#0f1923}
+.hero h1{font-family:'Bricolage Grotesque',sans-serif;font-size:clamp(2.6rem,4.5vw,4rem);font-weight:800;line-height:1.08;letter-spacing:-.04em;margin-bottom:24px;color:#0f1923}
 .hero h1 .highlight{position:relative;color:#1a6bfa;display:inline-block}
-.hero h1 .highlight::after{content:’’;position:absolute;bottom:2px;left:0;right:0;height:4px;background:linear-gradient(90deg,#1a6bfa,#ff6b2b);border-radius:2px;opacity:.4}
+.hero h1 .highlight::after{content:'';position:absolute;bottom:2px;left:0;right:0;height:4px;background:linear-gradient(90deg,#1a6bfa,#ff6b2b);border-radius:2px;opacity:.4}
 .hero h1 .orange{color:#ff6b2b}
-.hero-sub{font-size:1.1rem;line-height:1.75;color:#3d4f60;margin-bottom:40px;max-width:500px}
+.hero-sub{font-size:1.1rem;line-height:1.75;color:#3d4f60;margin-bottom:40px;width:100%}
 .hero-actions{display:flex;gap:14px;align-items:center;flex-wrap:wrap;margin-bottom:40px}
 .btn-primary{background:#ff6b2b;color:#fff;-webkit-text-fill-color:#fff;padding:16px 36px;border-radius:100px;font-size:1rem;font-weight:700;border:none;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:8px;box-shadow:0 8px 28px rgba(255,107,43,.4);transition:transform .2s,box-shadow .2s}
 .btn-primary:hover{transform:translateY(-3px);box-shadow:0 14px 40px rgba(255,107,43,.5)}
@@ -77,7 +81,7 @@ nav ul li a:hover{color:#1a6bfa}
 .dl-row:last-of-type{border:none}
 .dl-row span:first-child{flex:1;min-width:0}
 .dl-price-wrap{display:flex;align-items:center;gap:3px;flex-shrink:0}
-.dl-price-input{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:5px;color:#fff;font-size:.78rem;font-weight:600;width:64px;text-align:right;padding:2px 5px;font-family:‘Plus Jakarta Sans’,sans-serif}
+.dl-price-input{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:5px;color:#fff;font-size:.78rem;font-weight:600;width:64px;text-align:right;padding:2px 5px;font-family:'Plus Jakarta Sans',sans-serif}
 .dl-price-input:focus{outline:none;border-color:#ff6b2b;background:rgba(255,107,43,.15)}
 .dl-price-input::-webkit-outer-spin-button,.dl-price-input::-webkit-inner-spin-button{-webkit-appearance:none}
 .dl-euro{font-size:.72rem;color:rgba(255,255,255,.5)}
@@ -95,15 +99,15 @@ nav ul li a:hover{color:#1a6bfa}
 /* STATS */
 .stats-band{background:linear-gradient(135deg,#1a6bfa,#0f4fd6);padding:48px}
 .stats-inner{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:24px;text-align:center}
-.stat-num{font-family:‘Bricolage Grotesque’,sans-serif;font-size:2.8rem;font-weight:800;color:#fff;line-height:1;margin-bottom:6px}
+.stat-num{font-family:'Bricolage Grotesque',sans-serif;font-size:2.8rem;font-weight:800;color:#fff;line-height:1;margin-bottom:6px}
 .stat-label{font-size:.85rem;color:rgba(255,255,255,.85);line-height:1.4}
 
 /* SECTIONS */
 section{padding:96px 48px}
 .section-inner{max-width:1280px;margin:0 auto}
 .section-label{display:inline-block;background:#e8f0ff;color:#1a6bfa;font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:5px 14px;border-radius:100px;margin-bottom:18px}
-.section-title{font-family:‘Bricolage Grotesque’,sans-serif;font-size:clamp(1.9rem,3.5vw,2.8rem);font-weight:800;letter-spacing:-.04em;line-height:1.12;margin-bottom:18px;color:#0f1923}
-.section-sub{font-size:1.05rem;color:#3d4f60;max-width:100%;line-height:1.7;margin-bottom:56px}
+.section-title{font-family:'Bricolage Grotesque',sans-serif;font-size:clamp(1.9rem,3.5vw,2.8rem);font-weight:800;letter-spacing:-.04em;line-height:1.12;margin-bottom:18px;color:#0f1923}
+.section-sub{font-size:1.05rem;color:#3d4f60;width:100%;line-height:1.7;margin-bottom:32px}
 
 /* PAIN */
 #pain{background:#fff}
@@ -112,17 +116,17 @@ section{padding:96px 48px}
 .pain-card:hover{transform:translateY(-6px);box-shadow:0 16px 48px rgba(26,107,250,.15);border-color:transparent;background:#fff}
 .pain-icon{width:40px;height:40px;border-radius:10px;background:#e8f0ff;margin-bottom:16px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .pain-icon svg{width:20px;height:20px;stroke:#1a6bfa;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-.pain-card h3{font-family:‘Bricolage Grotesque’,sans-serif;font-size:1rem;font-weight:700;margin-bottom:10px;color:#0f1923}
+.pain-card h3{font-family:'Bricolage Grotesque',sans-serif;font-size:1rem;font-weight:700;margin-bottom:10px;color:#0f1923}
 .pain-card p{font-size:.875rem;color:#3d4f60;line-height:1.65}
 
 /* HOW */
 #how{background:linear-gradient(135deg,#f0f5ff,#fff7f3)}
 .steps-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;position:relative}
-.steps-grid::before{content:’’;position:absolute;top:32px;left:8%;right:8%;height:2px;background:linear-gradient(90deg,#1a6bfa,#ff6b2b);opacity:.15;z-index:0}
+.steps-grid::before{content:'';position:absolute;top:32px;left:8%;right:8%;height:2px;background:linear-gradient(90deg,#1a6bfa,#ff6b2b);opacity:.15;z-index:0}
 .step{text-align:center;padding:0 12px;position:relative;z-index:1}
-.step-bubble{width:64px;height:64px;border-radius:50%;background:#1a6bfa;display:flex;align-items:center;justify-content:center;font-family:‘Bricolage Grotesque’,sans-serif;font-weight:800;font-size:1.3rem;color:#fff;margin:0 auto 20px;box-shadow:0 8px 24px rgba(26,107,250,.3)}
+.step-bubble{width:64px;height:64px;border-radius:50%;background:#1a6bfa;display:flex;align-items:center;justify-content:center;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:1.3rem;color:#fff;margin:0 auto 20px;box-shadow:0 8px 24px rgba(26,107,250,.3)}
 .step:nth-child(2n) .step-bubble{background:#ff6b2b;box-shadow:0 8px 24px rgba(255,107,43,.3)}
-.step h3{font-family:‘Bricolage Grotesque’,sans-serif;font-size:.95rem;font-weight:700;margin-bottom:10px;color:#0f1923}
+.step h3{font-family:'Bricolage Grotesque',sans-serif;font-size:.95rem;font-weight:700;margin-bottom:10px;color:#0f1923}
 .step p{font-size:.82rem;color:#3d4f60;line-height:1.6}
 
 /* FEATURES */
@@ -135,17 +139,17 @@ section{padding:96px 48px}
 .feature-item:nth-child(2n) .feat-icon{background:#fff0e8}
 .feat-icon svg{width:22px;height:22px;stroke:#1a6bfa;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 .feature-item:nth-child(2n) .feat-icon svg{stroke:#ff6b2b}
-.feat-text h4{font-family:‘Bricolage Grotesque’,sans-serif;font-weight:700;font-size:1rem;margin-bottom:6px;color:#0f1923}
+.feat-text h4{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1rem;margin-bottom:6px;color:#0f1923}
 .feat-text p{font-size:.875rem;color:#3d4f60;line-height:1.65}
 .dash-card{background:#fff;border:1.5px solid #e2e8f5;border-radius:24px;box-shadow:0 16px 48px rgba(26,107,250,.15);padding:28px}
 .dash-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:22px}
-.dash-title{font-family:‘Bricolage Grotesque’,sans-serif;font-weight:800;font-size:1rem;color:#0f1923}
+.dash-title{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:1rem;color:#0f1923}
 .dash-tag{background:#e0fff5;color:#007a59;font-size:.72rem;font-weight:700;padding:4px 10px;border-radius:100px;display:flex;align-items:center;gap:5px}
-.dash-tag::before{content:’’;width:6px;height:6px;border-radius:50%;background:#00c48c;display:block}
+.dash-tag::before{content:'';width:6px;height:6px;border-radius:50%;background:#00c48c;display:block}
 .crm-row{display:flex;justify-content:space-between;align-items:center;padding:11px 12px;border-radius:10px;margin-bottom:4px;transition:background .2s}
 .crm-row:hover{background:#f7f9ff}
 .crm-left{display:flex;align-items:center;gap:12px}
-.crm-avatar{width:36px;height:36px;border-radius:50%;font-family:‘Bricolage Grotesque’,sans-serif;font-weight:800;font-size:.8rem;display:flex;align-items:center;justify-content:center;color:#fff;flex-shrink:0}
+.crm-avatar{width:36px;height:36px;border-radius:50%;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:.8rem;display:flex;align-items:center;justify-content:center;color:#fff;flex-shrink:0}
 .av-blue{background:#1a6bfa}
 .av-orange{background:#ff6b2b}
 .av-green{background:#00c48c}
@@ -154,33 +158,33 @@ section{padding:96px 48px}
 .crm-name{font-weight:600;font-size:.86rem;color:#0f1923}
 .crm-sub{font-size:.72rem;color:#7a8fa6}
 .crm-right{display:flex;align-items:center;gap:10px}
-.crm-amount{font-family:‘Bricolage Grotesque’,sans-serif;font-weight:800;font-size:.9rem}
+.crm-amount{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:.9rem}
 .crm-badge{font-size:.68rem;font-weight:700;padding:3px 9px;border-radius:100px}
 .b-signed{background:#e0fff5;color:#007a59}
 .b-pending{background:#fff7e0;color:#b45309}
 .b-sent{background:#e8f0ff;color:#1a6bfa}
 .dash-summary{margin-top:18px;padding:18px;background:#1a6bfa;border-radius:14px;display:flex;justify-content:space-between;align-items:center}
 .ds-label{font-size:.76rem;color:rgba(255,255,255,.7);margin-bottom:4px}
-.ds-value{font-family:‘Bricolage Grotesque’,sans-serif;font-weight:800;font-size:1.8rem;color:#fff}
+.ds-value{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:1.8rem;color:#fff}
 .ds-growth{font-size:.78rem;background:rgba(255,255,255,.15);color:#fff;padding:4px 12px;border-radius:100px;font-weight:600}
 .blur-surname{filter:blur(4px);user-select:none;display:inline-block}
 
 /* ══════════════════════════════════
-DEMO SECTION — full redesign
+   DEMO SECTION — full redesign
 ══════════════════════════════════ */
 #demo{background:linear-gradient(135deg,#f0f5ff,#fff7f3)}
 .demo-wrapper{display:grid;grid-template-columns:1fr 1.2fr;gap:32px;align-items:start}
 
 /* Left: form */
 .demo-form-card{background:#fff;border-radius:20px;border:1.5px solid #e2e8f5;box-shadow:0 4px 24px rgba(26,107,250,.10);overflow:hidden}
-.demo-form-header{background:#1a6bfa;padding:16px 22px;color:#fff;font-family:‘Bricolage Grotesque’,sans-serif;font-weight:700;font-size:.95rem}
+.demo-form-header{background:#1a6bfa;padding:16px 22px;color:#fff;font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:.95rem}
 .demo-form-body{padding:22px}
 .form-group{margin-bottom:14px}
 .form-group label{display:block;font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#3d4f60;margin-bottom:6px}
-.form-group input,.form-group textarea,.form-group select{width:100%;padding:10px 13px;border:1.5px solid #e2e8f5;border-radius:10px;font-family:‘Plus Jakarta Sans’,sans-serif;font-size:.88rem;color:#0f1923;background:#f7f9ff;outline:none;transition:border-color .2s,box-shadow .2s;resize:none}
+.form-group input,.form-group textarea,.form-group select{width:100%;padding:10px 13px;border:1.5px solid #e2e8f5;border-radius:10px;font-family:'Plus Jakarta Sans',sans-serif;font-size:.88rem;color:#0f1923;background:#f7f9ff;outline:none;transition:border-color .2s,box-shadow .2s;resize:none}
 .form-group input:focus,.form-group textarea:focus,.form-group select:focus{border-color:#1a6bfa;box-shadow:0 0 0 3px rgba(26,107,250,.1);background:#fff}
 .form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.gen-btn{width:100%;padding:14px;background:#ff6b2b;color:#fff;-webkit-text-fill-color:#fff;border:none;border-radius:12px;font-family:‘Bricolage Grotesque’,sans-serif;font-size:.95rem;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;box-shadow:0 8px 28px rgba(255,107,43,.35);transition:transform .2s,box-shadow .2s}
+.gen-btn{width:100%;padding:14px;background:#ff6b2b;color:#fff;-webkit-text-fill-color:#fff;border:none;border-radius:12px;font-family:'Bricolage Grotesque',sans-serif;font-size:.95rem;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;box-shadow:0 8px 28px rgba(255,107,43,.35);transition:transform .2s,box-shadow .2s}
 .gen-btn:hover{transform:translateY(-2px);box-shadow:0 14px 36px rgba(255,107,43,.45)}
 .gen-btn:active{transform:translateY(0)}
 .quick-label{font-size:.72rem;color:#7a8fa6;margin-top:12px;margin-bottom:7px}
@@ -203,11 +207,11 @@ DEMO SECTION — full redesign
 .r-dl:last-of-type{border:none}
 .r-dl span:first-child{flex:1;min-width:0}
 .price-edit-wrap{display:flex;align-items:center;gap:4px;flex-shrink:0}
-.price-edit{background:#f7f9ff;border:1.5px solid #e2e8f5;border-radius:6px;color:#0f1923;font-size:.875rem;font-weight:700;width:78px;text-align:right;padding:3px 7px;font-family:‘Plus Jakarta Sans’,sans-serif;transition:border-color .2s}
+.price-edit{background:#f7f9ff;border:1.5px solid #e2e8f5;border-radius:6px;color:#0f1923;font-size:.875rem;font-weight:700;width:78px;text-align:right;padding:3px 7px;font-family:'Plus Jakarta Sans',sans-serif;transition:border-color .2s}
 .price-edit:focus{outline:none;border-color:#1a6bfa;background:#fff}
 .price-edit::-webkit-outer-spin-button,.price-edit::-webkit-inner-spin-button{-webkit-appearance:none}
 .r-euro{font-size:.8rem;color:#7a8fa6}
-.r-total{display:flex;justify-content:space-between;margin-top:10px;padding-top:10px;border-top:2px solid #1a6bfa;font-family:‘Bricolage Grotesque’,sans-serif;font-weight:800;font-size:1.05rem;color:#0f1923}
+.r-total{display:flex;justify-content:space-between;margin-top:10px;padding-top:10px;border-top:2px solid #1a6bfa;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:1.05rem;color:#0f1923}
 .r-total-price{color:#ff6b2b}
 .r-tva{display:flex;justify-content:space-between;font-size:.82rem;color:#3d4f60;margin-top:5px}
 .r-ttc{display:flex;justify-content:space-between;font-weight:800;font-size:1rem;color:#0f1923;margin-top:5px;padding-top:7px;border-top:2px solid #ff6b2b}
@@ -239,7 +243,7 @@ DEMO SECTION — full redesign
 /* Accept button */
 .accept-zone{background:#f0fff9;border:1.5px solid #00c48c;border-radius:14px;padding:18px;text-align:center}
 .accept-zone p{font-size:.82rem;color:#3d4f60;margin-bottom:12px;line-height:1.5}
-.accept-btn{width:100%;padding:14px;background:#00c48c;color:#fff;-webkit-text-fill-color:#fff;border:none;border-radius:10px;font-family:‘Bricolage Grotesque’,sans-serif;font-size:1rem;font-weight:700;cursor:pointer;box-shadow:0 6px 20px rgba(0,196,140,.35);transition:transform .2s,box-shadow .2s;display:flex;align-items:center;justify-content:center;gap:8px}
+.accept-btn{width:100%;padding:14px;background:#00c48c;color:#fff;-webkit-text-fill-color:#fff;border:none;border-radius:10px;font-family:'Bricolage Grotesque',sans-serif;font-size:1rem;font-weight:700;cursor:pointer;box-shadow:0 6px 20px rgba(0,196,140,.35);transition:transform .2s,box-shadow .2s;display:flex;align-items:center;justify-content:center;gap:8px}
 .accept-btn:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(0,196,140,.45)}
 
 /* Relance badge */
@@ -259,7 +263,7 @@ DEMO SECTION — full redesign
 .popular-pill{position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,#ff6b2b,#ff4500);color:#fff;font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:5px 18px;border-radius:100px;box-shadow:0 4px 16px rgba(255,107,43,.4);white-space:nowrap}
 .plan-name{font-size:.8rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#7a8fa6;margin-bottom:14px}
 .price-card.featured .plan-name{color:rgba(255,255,255,.65)}
-.plan-price{font-family:‘Bricolage Grotesque’,sans-serif;font-size:3.2rem;font-weight:800;letter-spacing:-.05em;line-height:1;color:#0f1923}
+.plan-price{font-family:'Bricolage Grotesque',sans-serif;font-size:3.2rem;font-weight:800;letter-spacing:-.05em;line-height:1;color:#0f1923}
 .price-card.featured .plan-price{color:#fff}
 .plan-price sup{font-size:1.3rem;font-weight:500;vertical-align:super}
 .plan-period{font-size:.83rem;color:#7a8fa6;margin-bottom:26px}
@@ -269,8 +273,8 @@ DEMO SECTION — full redesign
 .plan-features{list-style:none;flex:1;display:flex;flex-direction:column;gap:11px;margin-bottom:32px}
 .plan-features li{font-size:.875rem;display:flex;gap:10px;align-items:flex-start;color:#3d4f60}
 .price-card.featured .plan-features li{color:rgba(255,255,255,.85)}
-.plan-features li::before{content:’’;width:18px;height:18px;border-radius:50%;background:#e8f0ff;flex-shrink:0;display:block;margin-top:1px;background-image:url(“data:image/svg+xml,%3Csvg xmlns=‘http://www.w3.org/2000/svg’ viewBox=‘0 0 12 12’%3E%3Cpath d=‘M2 6l3 3 5-5’ stroke=’%231a6bfa’ stroke-width=‘1.8’ fill=‘none’ stroke-linecap=‘round’ stroke-linejoin=‘round’/%3E%3C/svg%3E”);background-size:12px;background-repeat:no-repeat;background-position:center}
-.price-card.featured .plan-features li::before{background-color:rgba(255,255,255,.15);background-image:url(“data:image/svg+xml,%3Csvg xmlns=‘http://www.w3.org/2000/svg’ viewBox=‘0 0 12 12’%3E%3Cpath d=‘M2 6l3 3 5-5’ stroke=’%23ffffff’ stroke-width=‘1.8’ fill=‘none’ stroke-linecap=‘round’ stroke-linejoin=‘round’/%3E%3C/svg%3E”)}
+.plan-features li::before{content:'';width:18px;height:18px;border-radius:50%;background:#e8f0ff;flex-shrink:0;display:block;margin-top:1px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 6l3 3 5-5' stroke='%231a6bfa' stroke-width='1.8' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");background-size:12px;background-repeat:no-repeat;background-position:center}
+.price-card.featured .plan-features li::before{background-color:rgba(255,255,255,.15);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 6l3 3 5-5' stroke='%23ffffff' stroke-width='1.8' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")}
 .plan-btn{display:block;text-align:center;padding:14px 24px;border-radius:100px;font-weight:700;font-size:.95rem;text-decoration:none;cursor:pointer;border:none;transition:transform .2s,box-shadow .2s}
 .btn-plan-outline{background:#fff;color:#1a6bfa;border:2px solid #e2e8f5}
 .btn-plan-outline:hover{border-color:#1a6bfa;background:#e8f0ff}
@@ -285,7 +289,7 @@ DEMO SECTION — full redesign
 .testi-stars{color:#f59e0b;font-size:.85rem;margin-bottom:14px;letter-spacing:2px}
 .testi-text{font-size:.9rem;line-height:1.7;color:#3d4f60;margin-bottom:20px;font-style:italic}
 .testi-author{display:flex;align-items:center;gap:12px}
-.testi-av{width:42px;height:42px;border-radius:50%;font-family:‘Bricolage Grotesque’,sans-serif;font-weight:800;font-size:.85rem;color:#fff;display:flex;align-items:center;justify-content:center}
+.testi-av{width:42px;height:42px;border-radius:50%;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:.85rem;color:#fff;display:flex;align-items:center;justify-content:center}
 .testi-name{font-weight:700;font-size:.88rem;color:#0f1923}
 .testi-role{font-size:.76rem;color:#7a8fa6}
 
@@ -294,7 +298,7 @@ DEMO SECTION — full redesign
 #roadmap-placeholder{display:none}
 .roadmap-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
 .rm-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:20px;padding:28px;position:relative;overflow:hidden}
-.rm-card::before{content:’’;position:absolute;top:0;left:0;right:0;height:3px}
+.rm-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
 .rm-v1::before{background:linear-gradient(90deg,#00c48c,#00a878)}
 .rm-v2::before{background:linear-gradient(90deg,#1a6bfa,#4c8bff)}
 .rm-v3::before{background:linear-gradient(90deg,#ff6b2b,#ff4500)}
@@ -302,11 +306,11 @@ DEMO SECTION — full redesign
 .rm-v1 .rm-version{color:#00c48c}
 .rm-v2 .rm-version{color:#7ab4ff}
 .rm-v3 .rm-version{color:#ff6b2b}
-.rm-title{font-family:‘Bricolage Grotesque’,sans-serif;font-weight:800;font-size:1.1rem;color:#fff;margin-bottom:6px}
+.rm-title{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:1.1rem;color:#fff;margin-bottom:6px}
 .rm-timeline{font-size:.76rem;color:rgba(255,255,255,.4);margin-bottom:18px}
 .rm-list{list-style:none;display:flex;flex-direction:column;gap:9px}
 .rm-list li{font-size:.84rem;color:rgba(255,255,255,.7);display:flex;gap:10px;align-items:flex-start}
-.rm-list li::before{content:’’;width:6px;height:6px;border-radius:50%;flex-shrink:0;margin-top:6px}
+.rm-list li::before{content:'';width:6px;height:6px;border-radius:50%;flex-shrink:0;margin-top:6px}
 .rm-v1 .rm-list li::before{background:#00c48c}
 .rm-v2 .rm-list li::before{background:#7ab4ff}
 .rm-v3 .rm-list li::before{background:#ff6b2b}
@@ -318,21 +322,21 @@ DEMO SECTION — full redesign
 /* TECH STACK */
 .stack-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:40px}
 .stack-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:20px;text-align:center}
-.stack-name{font-family:‘Bricolage Grotesque’,sans-serif;font-weight:700;font-size:.95rem;color:#fff;margin-bottom:4px}
+.stack-name{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:.95rem;color:#fff;margin-bottom:4px}
 .stack-role{font-size:.76rem;color:rgba(255,255,255,.4);line-height:1.4}
 .stack-cost{font-size:.72rem;color:#00c48c;font-weight:700;margin-top:6px}
 
 /* CTA FINAL */
 .cta-final{background:#ff6b2b;padding:100px 48px;text-align:center;position:relative;overflow:hidden}
-.cta-final::before{content:’’;position:absolute;top:-100px;right:-100px;width:400px;height:400px;background:rgba(255,255,255,.08);border-radius:50%;pointer-events:none}
-.cta-final h2{font-family:‘Bricolage Grotesque’,sans-serif;font-size:clamp(2rem,4.5vw,3.4rem);font-weight:800;letter-spacing:-.04em;color:#fff;-webkit-text-fill-color:#fff;margin-bottom:16px;line-height:1.1}
+.cta-final::before{content:'';position:absolute;top:-100px;right:-100px;width:400px;height:400px;background:rgba(255,255,255,.08);border-radius:50%;pointer-events:none}
+.cta-final h2{font-family:'Bricolage Grotesque',sans-serif;font-size:clamp(2rem,4.5vw,3.4rem);font-weight:800;letter-spacing:-.04em;color:#fff;-webkit-text-fill-color:#fff;margin-bottom:16px;line-height:1.1}
 .cta-final p{color:rgba(255,255,255,.85);-webkit-text-fill-color:rgba(255,255,255,.85);font-size:1.05rem;margin-bottom:40px}
 .cta-white{background:#fff;color:#ff6b2b;-webkit-text-fill-color:#ff6b2b;padding:18px 44px;border-radius:100px;font-size:1.05rem;font-weight:700;border:none;cursor:pointer;text-decoration:none;display:inline-block;box-shadow:0 8px 32px rgba(0,0,0,.15);transition:transform .2s,box-shadow .2s}
 .cta-white:hover{transform:translateY(-3px);box-shadow:0 14px 40px rgba(0,0,0,.2)}
 
 /* FOOTER */
 footer{background:#0f1923;color:rgba(255,255,255,.6);padding:36px 48px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
-footer .logo{color:#fff;font-size:1.25rem;font-family:‘Bricolage Grotesque’,sans-serif;font-weight:800;letter-spacing:-.04em}
+footer .logo{color:#fff;font-size:1.25rem;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;letter-spacing:-.04em}
 footer .logo span{color:#ff6b2b}
 footer p{font-size:.82rem;color:rgba(255,255,255,.5)}
 footer a{color:rgba(255,255,255,.45);text-decoration:none;transition:color .2s}
@@ -351,7 +355,7 @@ footer a:hover{color:#fff}
 .nav-auth{display:flex;align-items:center;gap:10px}
 .nav-profile-btn{display:flex;align-items:center;gap:9px;background:#fff;border:1.5px solid #e2e8f5;border-radius:100px;padding:6px 14px 6px 6px;cursor:pointer;transition:border-color .2s,box-shadow .2s;position:relative;box-shadow:0 2px 8px rgba(0,0,0,.06)}
 .nav-profile-btn:hover{border-color:#1a6bfa;box-shadow:0 4px 16px rgba(26,107,250,.12)}
-.nav-avatar{width:30px;height:30px;border-radius:50%;background:#1a6bfa;display:flex;align-items:center;justify-content:center;font-family:‘Bricolage Grotesque’,sans-serif;font-weight:800;font-size:.76rem;color:#fff;flex-shrink:0}
+.nav-avatar{width:30px;height:30px;border-radius:50%;background:#1a6bfa;display:flex;align-items:center;justify-content:center;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:.76rem;color:#fff;flex-shrink:0}
 .nav-avatar.empty{background:#f7f9ff;border:1.5px solid #e2e8f5}
 .nav-avatar.empty svg{width:14px;height:14px;stroke:#7a8fa6;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 .nav-username{font-size:.82rem;font-weight:600;color:#0f1923;max-width:120px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
@@ -362,7 +366,7 @@ footer a:hover{color:#fff}
 .profile-dropdown{position:absolute;top:calc(100% + 10px);right:0;width:240px;background:#fff;border:1.5px solid #e2e8f5;border-radius:16px;box-shadow:0 16px 48px rgba(15,25,35,.14);z-index:200;opacity:0;transform:translateY(-6px);pointer-events:none;transition:opacity .2s,transform .2s;overflow:hidden}
 .profile-dropdown.open{opacity:1;transform:translateY(0);pointer-events:all}
 .dd-header{padding:16px;border-bottom:1px solid #e2e8f5;background:linear-gradient(135deg,#f0f5ff,#fff7f3)}
-.dd-name{font-family:‘Bricolage Grotesque’,sans-serif;font-weight:800;font-size:.95rem;color:#0f1923}
+.dd-name{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:.95rem;color:#0f1923}
 .dd-email{font-size:.74rem;color:#7a8fa6;margin-top:2px}
 .dd-item{display:flex;align-items:center;gap:10px;padding:12px 16px;font-size:.84rem;font-weight:500;color:#3d4f60;cursor:pointer;transition:background .15s}
 .dd-item:hover{background:#f7f9ff;color:#0f1923}
@@ -376,21 +380,21 @@ footer a:hover{color:#fff}
 .auth-modal-bg.open{opacity:1;pointer-events:all}
 .auth-modal{background:#ffffff;border-radius:24px;width:min(480px,95vw);box-shadow:0 32px 80px rgba(0,0,0,.3);overflow:hidden;position:relative;z-index:1001}
 .auth-tabs{display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid #e2e8f5}
-.auth-tab{padding:16px;text-align:center;font-weight:700;font-size:.9rem;cursor:pointer;color:#7a8fa6;border-bottom:2px solid transparent;transition:color .2s,border-color .2s;background:none;border-top:none;border-left:none;border-right:none;font-family:‘Plus Jakarta Sans’,sans-serif}
+.auth-tab{padding:16px;text-align:center;font-weight:700;font-size:.9rem;cursor:pointer;color:#7a8fa6;border-bottom:2px solid transparent;transition:color .2s,border-color .2s;background:none;border-top:none;border-left:none;border-right:none;font-family:'Plus Jakarta Sans',sans-serif}
 .auth-tab.active{color:#1a6bfa;border-bottom-color:#1a6bfa}
 .auth-body{padding:28px}
 .auth-panel{display:none}.auth-panel.active{display:block}
-.auth-title{font-family:‘Bricolage Grotesque’,sans-serif;font-weight:800;font-size:1.3rem;color:#0f1923;margin-bottom:6px}
+.auth-title{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:1.3rem;color:#0f1923;margin-bottom:6px}
 .auth-sub{font-size:.84rem;color:#7a8fa6;margin-bottom:24px;line-height:1.5}
 .auth-form-group{margin-bottom:14px}
 .auth-form-group label{display:block;font-size:.74rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:#3d4f60;margin-bottom:6px}
-.auth-form-group input,.auth-form-group select{width:100%;padding:11px 14px;border:1.5px solid #e2e8f5;border-radius:10px;font-family:‘Plus Jakarta Sans’,sans-serif;font-size:.9rem;color:#0f1923;background:#f7f9ff;outline:none;transition:border-color .2s,box-shadow .2s}
+.auth-form-group input,.auth-form-group select{width:100%;padding:11px 14px;border:1.5px solid #e2e8f5;border-radius:10px;font-family:'Plus Jakarta Sans',sans-serif;font-size:.9rem;color:#0f1923;background:#f7f9ff;outline:none;transition:border-color .2s,box-shadow .2s}
 .auth-form-group input:focus,.auth-form-group select:focus{border-color:#1a6bfa;box-shadow:0 0 0 3px rgba(26,107,250,.1);background:#fff}
-.auth-btn{width:100%;padding:14px;background:#ff6b2b;color:#fff;-webkit-text-fill-color:#fff;border:none;border-radius:12px;font-family:‘Bricolage Grotesque’,sans-serif;font-size:1rem;font-weight:700;cursor:pointer;box-shadow:0 6px 20px rgba(255,107,43,.35);transition:transform .15s,box-shadow .15s;margin-top:6px}
+.auth-btn{width:100%;padding:14px;background:#ff6b2b;color:#fff;-webkit-text-fill-color:#fff;border:none;border-radius:12px;font-family:'Bricolage Grotesque',sans-serif;font-size:1rem;font-weight:700;cursor:pointer;box-shadow:0 6px 20px rgba(255,107,43,.35);transition:transform .15s,box-shadow .15s;margin-top:6px}
 .auth-btn:hover{transform:translateY(-1px);box-shadow:0 10px 28px rgba(255,107,43,.45)}
 .auth-divider{display:flex;align-items:center;gap:12px;margin:18px 0}
 .auth-divider span{font-size:.76rem;color:#7a8fa6;white-space:nowrap}
-.auth-divider::before,.auth-divider::after{content:’’;flex:1;height:1px;background:#e2e8f5}
+.auth-divider::before,.auth-divider::after{content:'';flex:1;height:1px;background:#e2e8f5}
 
 /* ── PROFILE SETUP MODAL ── */
 .setup-modal-bg{position:fixed;inset:0;background:rgba(15,25,35,.75);z-index:1001;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .25s}
@@ -398,7 +402,7 @@ footer a:hover{color:#fff}
 .setup-modal{background:#ffffff;border-radius:24px;width:min(600px,95vw);max-height:92vh;overflow-y:auto;box-shadow:0 32px 80px rgba(0,0,0,.3);position:relative;z-index:1002}
 .setup-header{padding:24px 28px 0;background:#1a6bfa;color:#fff}
 .setup-header-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
-.setup-title{font-family:‘Bricolage Grotesque’,sans-serif;font-weight:800;font-size:1.3rem}
+.setup-title{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:1.3rem}
 .setup-sub{font-size:.84rem;color:rgba(255,255,255,.7);margin-bottom:20px;line-height:1.5}
 .setup-steps{display:flex;gap:0;margin-bottom:0}
 .setup-step-tab{flex:1;padding:10px 8px;text-align:center;font-size:.72rem;font-weight:700;color:rgba(255,255,255,.5);border-bottom:2px solid rgba(255,255,255,.2);transition:color .2s,border-color .2s;cursor:default}
@@ -411,11 +415,11 @@ footer a:hover{color:#fff}
 .setup-form-grid .span2{grid-column:span 2}
 .setup-form-group{display:flex;flex-direction:column;gap:5px}
 .setup-form-group label{font-size:.72rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:#3d4f60}
-.setup-form-group input,.setup-form-group select{padding:10px 12px;border:1.5px solid #e2e8f5;border-radius:10px;font-family:‘Plus Jakarta Sans’,sans-serif;font-size:.875rem;color:#0f1923;background:#f7f9ff;outline:none;transition:border-color .2s,box-shadow .2s;width:100%}
+.setup-form-group input,.setup-form-group select{padding:10px 12px;border:1.5px solid #e2e8f5;border-radius:10px;font-family:'Plus Jakarta Sans',sans-serif;font-size:.875rem;color:#0f1923;background:#f7f9ff;outline:none;transition:border-color .2s,box-shadow .2s;width:100%}
 .setup-form-group input:focus,.setup-form-group select:focus{border-color:#1a6bfa;box-shadow:0 0 0 3px rgba(26,107,250,.1);background:#fff}
 .setup-tip{background:#e8f0ff;border-radius:10px;padding:12px 14px;font-size:.78rem;color:#3d4f60;line-height:1.6;margin-bottom:20px;border-left:3px solid #1a6bfa}
 .setup-tip strong{color:#0f1923}
-.nav-btn{padding:10px 22px;border-radius:100px;font-weight:700;font-size:.875rem;border:none;cursor:pointer;font-family:‘Plus Jakarta Sans’,sans-serif;transition:transform .15s}
+.nav-btn{padding:10px 22px;border-radius:100px;font-weight:700;font-size:.875rem;border:none;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;transition:transform .15s}
 .nav-btn-ghost{background:#f7f9ff;color:#3d4f60;border:1.5px solid #e2e8f5}
 .nav-btn-ghost:hover{border-color:#1a6bfa;color:#1a6bfa}
 .nav-btn-primary{background:#ff6b2b;color:#fff;-webkit-text-fill-color:#fff;box-shadow:0 4px 16px rgba(255,107,43,.3)}
@@ -429,64 +433,62 @@ footer a:hover{color:#fff}
 
 /* RESPONSIVE */
 @media(max-width:960px){
-nav ul{display:none}
-nav{padding:14px 18px}
-.nav-username{display:none}
-.hero-inner{grid-template-columns:1fr;padding:0}
-.hero-card-wrap{display:none}
-.hero-wrap{padding:90px 20px 50px;min-height:auto}
-.hero h1{font-size:2.4rem}
-.hero-sub{font-size:1rem;margin-bottom:24px}
-.hero-actions{flex-direction:column;align-items:stretch;gap:12px}
-.btn-primary,.btn-secondary{justify-content:center;padding:15px 24px}
-.btn-primary{background:linear-gradient(135deg,#ff6b2b,#ff4500)!important;color:#fff!important}
-.hero-trust{flex-direction:column;gap:10px}
-.stats-inner{grid-template-columns:repeat(2,1fr);gap:16px}
-.stats-band{padding:32px 20px;background:#1a6bfa!important}
-.stat-num{font-size:2rem;color:#fff!important}
-.stat-label{color:rgba(255,255,255,.9)!important}
-.pain-grid{grid-template-columns:1fr;gap:14px}
-.steps-grid{grid-template-columns:1fr 1fr}
-.steps-grid::before{display:none}
-.features-grid{grid-template-columns:1fr}
-.demo-wrapper{grid-template-columns:1fr}
-.form-row{grid-template-columns:1fr}
-.send-panel{grid-template-columns:1fr 1fr 1fr}
-.pricing-grid{grid-template-columns:1fr}
-.price-card.featured{transform:none}
-.testi-grid{grid-template-columns:1fr;gap:14px}
-.roadmap-grid{grid-template-columns:1fr}
-.stack-grid{grid-template-columns:1fr 1fr;gap:12px}
-section{padding:56px 20px}
-.section-title{font-size:1.7rem}
-.section-sub{margin-bottom:32px}
-.cta-final{padding:60px 20px}
-.cta-white{padding:15px 32px;font-size:.95rem}
-footer{padding:28px 20px;flex-direction:column;text-align:center;gap:12px}
-.auth-modal{width:95vw}
-.auth-body{padding:20px}
-.setup-modal{width:95vw}
-.setup-body{padding:20px}
-.setup-form-grid{grid-template-columns:1fr}
-.setup-form-grid .span2{grid-column:span 1}
-.setup-nav{flex-direction:column;gap:10px}
-.nav-btn{width:100%;text-align:center}
+  nav ul{display:none}
+  nav{padding:14px 18px}
+  .nav-username{display:none}
+  .hero-inner{grid-template-columns:1fr;padding:0}
+  .hero-card-wrap{display:none}
+  .hero-wrap{padding:90px 20px 50px;min-height:auto}
+  .hero h1{font-size:2.4rem}
+  .hero-sub{font-size:1rem;margin-bottom:24px}
+  .hero-actions{flex-direction:column;align-items:stretch;gap:12px}
+  .btn-primary,.btn-secondary{justify-content:center;padding:15px 24px}
+  .btn-primary{background:linear-gradient(135deg,#ff6b2b,#ff4500)!important;color:#fff!important}
+  .hero-trust{flex-direction:column;gap:10px}
+  .stats-inner{grid-template-columns:repeat(2,1fr);gap:16px}
+  .stats-band{padding:32px 20px;background:#1a6bfa!important}
+  .stat-num{font-size:2rem;color:#fff!important}
+  .stat-label{color:rgba(255,255,255,.9)!important}
+  .pain-grid{grid-template-columns:1fr;gap:14px}
+  .steps-grid{grid-template-columns:1fr 1fr}
+  .steps-grid::before{display:none}
+  .features-grid{grid-template-columns:1fr}
+  .demo-wrapper{grid-template-columns:1fr}
+  .form-row{grid-template-columns:1fr}
+  .send-panel{grid-template-columns:1fr 1fr 1fr}
+  .pricing-grid{grid-template-columns:1fr}
+  .price-card.featured{transform:none}
+  .testi-grid{grid-template-columns:1fr;gap:14px}
+  .roadmap-grid{grid-template-columns:1fr}
+  .stack-grid{grid-template-columns:1fr 1fr;gap:12px}
+  section{padding:56px 20px}
+  .section-title{font-size:1.7rem}
+  .section-sub{margin-bottom:32px}
+  .cta-final{padding:60px 20px}
+  .cta-white{padding:15px 32px;font-size:.95rem}
+  footer{padding:28px 20px;flex-direction:column;text-align:center;gap:12px}
+  .auth-modal{width:95vw}
+  .auth-body{padding:20px}
+  .setup-modal{width:95vw}
+  .setup-body{padding:20px}
+  .setup-form-grid{grid-template-columns:1fr}
+  .setup-form-grid .span2{grid-column:span 1}
+  .setup-nav{flex-direction:column;gap:10px}
+  .nav-btn{width:100%;text-align:center}
 }
 @media(max-width:480px){
-.hero h1{font-size:2rem}
-.steps-grid{grid-template-columns:1fr}
-.send-panel{grid-template-columns:1fr}
-.stack-grid{grid-template-columns:1fr}
+  .hero h1{font-size:2rem}
+  .steps-grid{grid-template-columns:1fr}
+  .send-panel{grid-template-columns:1fr}
+  .stack-grid{grid-template-columns:1fr}
 }
 </style>
-
 </head>
 <body>
 
 <div class="toast" id="toast"></div>
 
 <!-- AUTH MODAL -->
-
 <div class="auth-modal-bg" id="auth-modal">
   <div class="auth-modal">
     <div class="auth-tabs">
@@ -525,7 +527,6 @@ footer{padding:28px 20px;flex-direction:column;text-align:center;gap:12px}
 </div>
 
 <!-- SETUP ENTREPRISE MODAL -->
-
 <div class="setup-modal-bg" id="setup-modal">
   <div class="setup-modal">
     <div class="setup-header">
@@ -542,60 +543,56 @@ footer{padding:28px 20px;flex-direction:column;text-align:center;gap:12px}
     </div>
     <div class="setup-body">
 
-```
-  <!-- STEP 1 -->
-  <div class="setup-panel active" id="spanel-1">
-    <div class="setup-tip"><strong>Pourquoi remplir cela ?</strong> Votre nom, adresse et téléphone apparaîtront automatiquement sur chaque devis. Vous n'aurez plus jamais à les retaper.</div>
-    <div class="setup-form-grid">
-      <div class="setup-form-group span2"><label>Nom de l'entreprise / Raison sociale</label><input id="s-nom" placeholder="Ex: Plomberie Martin"></div>
-      <div class="setup-form-group span2"><label>Adresse complète (siège)</label><input id="s-adresse" placeholder="Ex: 12 rue des Artisans, 69001 Lyon"></div>
-      <div class="setup-form-group"><label>Téléphone</label><input id="s-tel" placeholder="06 12 34 56 78"></div>
-      <div class="setup-form-group"><label>Email professionnel</label><input id="s-email" placeholder="contact@entreprise.fr"></div>
-    </div>
-    <div class="setup-nav">
-      <div style="font-size:.78rem;color:#7a8fa6">Etape 1 sur 3</div>
-      <button class="nav-btn nav-btn-primary" onclick="setupNext(2)">Suivant</button>
-    </div>
-  </div>
+      <!-- STEP 1 -->
+      <div class="setup-panel active" id="spanel-1">
+        <div class="setup-tip"><strong>Pourquoi remplir cela ?</strong> Votre nom, adresse et téléphone apparaîtront automatiquement sur chaque devis. Vous n'aurez plus jamais à les retaper.</div>
+        <div class="setup-form-grid">
+          <div class="setup-form-group span2"><label>Nom de l'entreprise / Raison sociale</label><input id="s-nom" placeholder="Ex: Plomberie Martin"></div>
+          <div class="setup-form-group span2"><label>Adresse complète (siège)</label><input id="s-adresse" placeholder="Ex: 12 rue des Artisans, 69001 Lyon"></div>
+          <div class="setup-form-group"><label>Téléphone</label><input id="s-tel" placeholder="06 12 34 56 78"></div>
+          <div class="setup-form-group"><label>Email professionnel</label><input id="s-email" placeholder="contact@entreprise.fr"></div>
+        </div>
+        <div class="setup-nav">
+          <div style="font-size:.78rem;color:#7a8fa6">Etape 1 sur 3</div>
+          <button class="nav-btn nav-btn-primary" onclick="setupNext(2)">Suivant</button>
+        </div>
+      </div>
 
-  <!-- STEP 2 -->
-  <div class="setup-panel" id="spanel-2">
-    <div class="setup-tip"><strong>Mentions légales obligatoires.</strong> SIRET, TVA et RC Pro protègent votre devis juridiquement et rassurent vos clients professionnels.</div>
-    <div class="setup-form-grid">
-      <div class="setup-form-group"><label>SIRET</label><input id="s-siret" placeholder="XXX XXX XXX 00012"></div>
-      <div class="setup-form-group"><label>N° TVA intracommunautaire</label><input id="s-tva" placeholder="FR XX XXXXXXXXX"></div>
-      <div class="setup-form-group span2"><label>RC Pro — Assureur + N° contrat</label><input id="s-rcpro" placeholder="Ex: Allianz — Contrat n° 12345678"></div>
-      <div class="setup-form-group"><label>Taux TVA appliqué (%)</label><input id="s-taux-tva" type="number" value="10" min="0" max="20"></div>
-      <div class="setup-form-group"><label>Acompte demandé (%)</label><input id="s-acompte" type="number" value="30" min="0" max="100"></div>
-    </div>
-    <div class="setup-nav">
-      <button class="nav-btn nav-btn-ghost" onclick="setupNext(1)">Retour</button>
-      <button class="nav-btn nav-btn-primary" onclick="setupNext(3)">Suivant</button>
-    </div>
-  </div>
+      <!-- STEP 2 -->
+      <div class="setup-panel" id="spanel-2">
+        <div class="setup-tip"><strong>Mentions légales obligatoires.</strong> SIRET, TVA et RC Pro protègent votre devis juridiquement et rassurent vos clients professionnels.</div>
+        <div class="setup-form-grid">
+          <div class="setup-form-group"><label>SIRET</label><input id="s-siret" placeholder="XXX XXX XXX 00012"></div>
+          <div class="setup-form-group"><label>N° TVA intracommunautaire</label><input id="s-tva" placeholder="FR XX XXXXXXXXX"></div>
+          <div class="setup-form-group span2"><label>RC Pro — Assureur + N° contrat</label><input id="s-rcpro" placeholder="Ex: Allianz — Contrat n° 12345678"></div>
+          <div class="setup-form-group"><label>Taux TVA appliqué (%)</label><input id="s-taux-tva" type="number" value="10" min="0" max="20"></div>
+          <div class="setup-form-group"><label>Acompte demandé (%)</label><input id="s-acompte" type="number" value="30" min="0" max="100"></div>
+        </div>
+        <div class="setup-nav">
+          <button class="nav-btn nav-btn-ghost" onclick="setupNext(1)">Retour</button>
+          <button class="nav-btn nav-btn-primary" onclick="setupNext(3)">Suivant</button>
+        </div>
+      </div>
 
-  <!-- STEP 3 -->
-  <div class="setup-panel" id="spanel-3">
-    <div class="setup-tip"><strong>Conditions automatiques.</strong> Ces textes apparaîtront en bas de chaque devis. Vous pouvez les modifier à tout moment.</div>
-    <div class="setup-form-grid">
-      <div class="setup-form-group span2"><label>Délai d'exécution standard</label><input id="s-delai" value="3 à 5 jours ouvrés après réception de l'acompte"></div>
-      <div class="setup-form-group span2"><label>Conditions de paiement</label><input id="s-paiement" value="30 % à la commande, solde à réception de la facture"></div>
-      <div class="setup-form-group span2"><label>Mention pénalités de retard</label><input id="s-penalites" value="Pénalités de retard exigibles après échéance + indemnité forfaitaire de 40 €"></div>
-    </div>
-    <div class="setup-nav">
-      <button class="nav-btn nav-btn-ghost" onclick="setupNext(2)">Retour</button>
-      <button class="nav-btn nav-btn-primary" onclick="finishSetup()">Terminer la configuration</button>
-    </div>
-  </div>
+      <!-- STEP 3 -->
+      <div class="setup-panel" id="spanel-3">
+        <div class="setup-tip"><strong>Conditions automatiques.</strong> Ces textes apparaîtront en bas de chaque devis. Vous pouvez les modifier à tout moment.</div>
+        <div class="setup-form-grid">
+          <div class="setup-form-group span2"><label>Délai d'exécution standard</label><input id="s-delai" value="3 à 5 jours ouvrés après réception de l'acompte"></div>
+          <div class="setup-form-group span2"><label>Conditions de paiement</label><input id="s-paiement" value="30 % à la commande, solde à réception de la facture"></div>
+          <div class="setup-form-group span2"><label>Mention pénalités de retard</label><input id="s-penalites" value="Pénalités de retard exigibles après échéance + indemnité forfaitaire de 40 €"></div>
+        </div>
+        <div class="setup-nav">
+          <button class="nav-btn nav-btn-ghost" onclick="setupNext(2)">Retour</button>
+          <button class="nav-btn nav-btn-primary" onclick="finishSetup()">Terminer la configuration</button>
+        </div>
+      </div>
 
-</div>
-```
-
+    </div>
   </div>
 </div>
 
 <!-- NAV -->
-
 <nav>
   <div class="logo">Fast<span>Devis</span></div>
   <ul>
@@ -619,7 +616,6 @@ footer{padding:28px 20px;flex-direction:column;text-align:center;gap:12px}
 </nav>
 
 <!-- HERO -->
-
 <div class="hero-wrap">
   <div class="hero-inner">
     <div class="hero-left">
@@ -631,7 +627,7 @@ footer{padding:28px 20px;flex-direction:column;text-align:center;gap:12px}
         <a href="#demo" class="btn-secondary" style="color:#1a6bfa;text-decoration:none">Voir la démo</a>
       </div>
       <div class="hero-trust">
-        <div style="background:#fff;border:1.5px solid #e2e8f5;border-radius:14px;padding:14px 18px;margin-top:8px;display:flex;align-items:flex-start;gap:10px;box-shadow:0 2px 12px rgba(26,107,250,.06);max-width:400px">
+        <div style="background:#fff;border:1.5px solid #e2e8f5;border-radius:14px;padding:14px 18px;margin-top:8px;display:flex;align-items:flex-start;gap:10px;box-shadow:0 2px 12px rgba(26,107,250,.06)">
           <div style="margin-top:2px;flex-shrink:0">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ff6b2b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
           </div>
@@ -676,7 +672,6 @@ footer{padding:28px 20px;flex-direction:column;text-align:center;gap:12px}
 </div>
 
 <!-- STATS -->
-
 <div class="stats-band" style="background:#1a6bfa;padding:40px 20px">
   <div class="stats-inner">
     <div><div class="stat-num" style="color:#fff">30s</div><div class="stat-label" style="color:rgba(255,255,255,.85)">pour un devis conforme et complet</div></div>
@@ -687,7 +682,6 @@ footer{padding:28px 20px;flex-direction:column;text-align:center;gap:12px}
 </div>
 
 <!-- PAIN -->
-
 <section id="pain">
   <div class="section-inner">
     <div class="section-label">Le problème</div>
@@ -696,24 +690,20 @@ footer{padding:28px 20px;flex-direction:column;text-align:center;gap:12px}
     <div class="pain-grid">
       <div style="background:#fff;border:1.5px solid #e2e8f5;border-radius:18px;padding:24px;box-shadow:0 2px 16px rgba(26,107,250,.07)" class="reveal"><div style="width:44px;height:44px;border-radius:12px;background:#e8f0ff;display:flex;align-items:center;justify-content:center;margin-bottom:14px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1a6bfa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1rem;color:#0f1923;margin-bottom:8px">Devis le soir après le chantier</h3><p style="font-size:.875rem;color:#3d4f60;line-height:1.65">Vous rentrez épuisé mais les demandes s'accumulent. Votre concurrent répond en 10 minutes — vous, en 2 jours.</p></div>
 
-```
-  <div style="background:#fff;border:1.5px solid #e2e8f5;border-radius:18px;padding:24px;box-shadow:0 2px 16px rgba(26,107,250,.07)" class="reveal"><div style="width:44px;height:44px;border-radius:12px;background:#e8f0ff;display:flex;align-items:center;justify-content:center;margin-bottom:14px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1a6bfa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div><h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1rem;color:#0f1923;margin-bottom:8px">Word, Excel ou papier</h3><p style="font-size:.875rem;color:#3d4f60;line-height:1.65">Pas de template conforme, pas de mentions légales. Le client compare et choisit celui qui paraît le plus sérieux.</p></div>
+      <div style="background:#fff;border:1.5px solid #e2e8f5;border-radius:18px;padding:24px;box-shadow:0 2px 16px rgba(26,107,250,.07)" class="reveal"><div style="width:44px;height:44px;border-radius:12px;background:#e8f0ff;display:flex;align-items:center;justify-content:center;margin-bottom:14px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1a6bfa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div><h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1rem;color:#0f1923;margin-bottom:8px">Word, Excel ou papier</h3><p style="font-size:.875rem;color:#3d4f60;line-height:1.65">Pas de template conforme, pas de mentions légales. Le client compare et choisit celui qui paraît le plus sérieux.</p></div>
 
-  <div style="background:#fff;border:1.5px solid #e2e8f5;border-radius:18px;padding:24px;box-shadow:0 2px 16px rgba(26,107,250,.07)" class="reveal"><div style="width:44px;height:44px;border-radius:12px;background:#e8f0ff;display:flex;align-items:center;justify-content:center;margin-bottom:14px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1a6bfa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.38 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.63a16 16 0 0 0 6 6l.95-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div><h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1rem;color:#0f1923;margin-bottom:8px">Relances oubliées</h3><p style="font-size:.875rem;color:#3d4f60;line-height:1.65">Un devis envoyé sans relance, c'est un chantier perdu. Un message au bon moment peut suffire à signer.</p></div>
+      <div style="background:#fff;border:1.5px solid #e2e8f5;border-radius:18px;padding:24px;box-shadow:0 2px 16px rgba(26,107,250,.07)" class="reveal"><div style="width:44px;height:44px;border-radius:12px;background:#e8f0ff;display:flex;align-items:center;justify-content:center;margin-bottom:14px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1a6bfa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.38 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.63a16 16 0 0 0 6 6l.95-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div><h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1rem;color:#0f1923;margin-bottom:8px">Relances oubliées</h3><p style="font-size:.875rem;color:#3d4f60;line-height:1.65">Un devis envoyé sans relance, c'est un chantier perdu. Un message au bon moment peut suffire à signer.</p></div>
 
-  <div style="background:#fff;border:1.5px solid #e2e8f5;border-radius:18px;padding:24px;box-shadow:0 2px 16px rgba(26,107,250,.07)" class="reveal"><div style="width:44px;height:44px;border-radius:12px;background:#e8f0ff;display:flex;align-items:center;justify-content:center;margin-bottom:14px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1a6bfa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div><h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1rem;color:#0f1923;margin-bottom:8px">Chiffrage qui prend du temps</h3><p style="font-size:.875rem;color:#3d4f60;line-height:1.65">Retrouver les prix de pose, les fournitures, les marges… à chaque devis, vous recommencez tout de zéro.</p></div>
+      <div style="background:#fff;border:1.5px solid #e2e8f5;border-radius:18px;padding:24px;box-shadow:0 2px 16px rgba(26,107,250,.07)" class="reveal"><div style="width:44px;height:44px;border-radius:12px;background:#e8f0ff;display:flex;align-items:center;justify-content:center;margin-bottom:14px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1a6bfa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div><h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1rem;color:#0f1923;margin-bottom:8px">Chiffrage qui prend du temps</h3><p style="font-size:.875rem;color:#3d4f60;line-height:1.65">Retrouver les prix de pose, les fournitures, les marges… à chaque devis, vous recommencez tout de zéro.</p></div>
 
-  <div style="background:#fff;border:1.5px solid #e2e8f5;border-radius:18px;padding:24px;box-shadow:0 2px 16px rgba(26,107,250,.07)" class="reveal"><div style="width:44px;height:44px;border-radius:12px;background:#e8f0ff;display:flex;align-items:center;justify-content:center;margin-bottom:14px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1a6bfa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div><h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1rem;color:#0f1923;margin-bottom:8px">WhatsApp comme CRM</h3><p style="font-size:.875rem;color:#3d4f60;line-height:1.65">Demandes perdues dans les messages, impossible de retrouver les devis envoyés, aucune visibilité sur le pipeline.</p></div>
+      <div style="background:#fff;border:1.5px solid #e2e8f5;border-radius:18px;padding:24px;box-shadow:0 2px 16px rgba(26,107,250,.07)" class="reveal"><div style="width:44px;height:44px;border-radius:12px;background:#e8f0ff;display:flex;align-items:center;justify-content:center;margin-bottom:14px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1a6bfa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div><h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1rem;color:#0f1923;margin-bottom:8px">WhatsApp comme CRM</h3><p style="font-size:.875rem;color:#3d4f60;line-height:1.65">Demandes perdues dans les messages, impossible de retrouver les devis envoyés, aucune visibilité sur le pipeline.</p></div>
 
-  <div style="background:#fff;border:1.5px solid #e2e8f5;border-radius:18px;padding:24px;box-shadow:0 2px 16px rgba(26,107,250,.07)" class="reveal"><div style="width:44px;height:44px;border-radius:12px;background:#e8f0ff;display:flex;align-items:center;justify-content:center;margin-bottom:14px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1a6bfa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div><h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1rem;color:#0f1923;margin-bottom:8px">Chantiers ratés inutilement</h3><p style="font-size:.875rem;color:#3d4f60;line-height:1.65">Un chantier de plus par mois peut valoir 500 à 2 000 €. Combien perdez-vous à cause d'un processus trop lent ?</p></div>
-</div>
-```
-
+      <div style="background:#fff;border:1.5px solid #e2e8f5;border-radius:18px;padding:24px;box-shadow:0 2px 16px rgba(26,107,250,.07)" class="reveal"><div style="width:44px;height:44px;border-radius:12px;background:#e8f0ff;display:flex;align-items:center;justify-content:center;margin-bottom:14px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1a6bfa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div><h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1rem;color:#0f1923;margin-bottom:8px">Chantiers ratés inutilement</h3><p style="font-size:.875rem;color:#3d4f60;line-height:1.65">Un chantier de plus par mois peut valoir 500 à 2 000 €. Combien perdez-vous à cause d'un processus trop lent ?</p></div>
+    </div>
   </div>
 </section>
 
 <!-- HOW -->
-
 <section id="how">
   <div class="section-inner">
     <div class="section-label">Comment ça marche</div>
@@ -735,7 +725,6 @@ footer{padding:28px 20px;flex-direction:column;text-align:center;gap:12px}
 </section>
 
 <!-- FEATURES -->
-
 <section id="features">
   <div class="section-inner">
     <div class="features-grid">
@@ -766,7 +755,6 @@ footer{padding:28px 20px;flex-direction:column;text-align:center;gap:12px}
 </section>
 
 <!-- DEMO -->
-
 <section id="demo">
   <div class="section-inner">
     <div class="section-label">Demo interactive</div>
@@ -774,128 +762,124 @@ footer{padding:28px 20px;flex-direction:column;text-align:center;gap:12px}
     <p style="font-size:1.05rem;color:#3d4f60;line-height:1.7;margin-bottom:32px">Entrez une vraie demande client. Modifiez les prix. Envoyez. Simple et rapide.</p>
     <div class="demo-wrapper">
 
-```
-  <!-- FORM -->
-  <div class="demo-form-card">
-    <div class="demo-form-header">Générateur de devis automatique</div>
-    <div class="demo-form-body">
-      <div class="form-group"><label>Votre métier</label>
-        <select id="metier"><option value="plombier">Plombier</option><option value="electricien">Electricien</option><option value="peintre">Peintre</option><option value="menuisier">Menuisier</option><option value="carreleur">Carreleur</option></select>
-      </div>
-      <div class="form-group"><label>Nom / Entreprise</label><input type="text" id="prestataire" placeholder="Ex: Plomberie Martin"></div>
-      <div class="form-group"><label>Adresse</label><input type="text" id="adresse" placeholder="Ex: 12 rue du Bourg, Lyon"></div>
+      <!-- FORM -->
+      <div class="demo-form-card">
+        <div class="demo-form-header">Générateur de devis automatique</div>
+        <div class="demo-form-body">
+          <div class="form-group"><label>Votre métier</label>
+            <select id="metier"><option value="plombier">Plombier</option><option value="electricien">Electricien</option><option value="peintre">Peintre</option><option value="menuisier">Menuisier</option><option value="carreleur">Carreleur</option></select>
+          </div>
+          <div class="form-group"><label>Nom / Entreprise</label><input type="text" id="prestataire" placeholder="Ex: Plomberie Martin"></div>
+          <div class="form-group"><label>Adresse</label><input type="text" id="adresse" placeholder="Ex: 12 rue du Bourg, Lyon"></div>
 
-      <div class="form-row">
-        <div class="form-group">
-          <label style="display:flex;align-items:center;gap:5px">SIRET <span style="background:#e8f0ff;color:#1a6bfa;font-size:.58rem;font-weight:700;padding:2px 7px;border-radius:100px">Abonnés</span></label>
-          <div style="position:relative"><input disabled placeholder="Abonnement requis" style="width:100%;padding:10px 36px 10px 13px;border:1.5px solid #e2e8f5;border-radius:10px;background:#f7f9ff;color:#b0bac9;font-size:.85rem;font-family:'Plus Jakarta Sans',sans-serif;cursor:not-allowed"><svg style="position:absolute;right:10px;top:50%;transform:translateY(-50%);width:15px;height:15px;stroke:#c0ccd8;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
-        </div>
-        <div class="form-group">
-          <label style="display:flex;align-items:center;gap:5px">RC Pro <span style="background:#e8f0ff;color:#1a6bfa;font-size:.58rem;font-weight:700;padding:2px 7px;border-radius:100px">Abonnés</span></label>
-          <div style="position:relative"><input disabled placeholder="Abonnement requis" style="width:100%;padding:10px 36px 10px 13px;border:1.5px solid #e2e8f5;border-radius:10px;background:#f7f9ff;color:#b0bac9;font-size:.85rem;font-family:'Plus Jakarta Sans',sans-serif;cursor:not-allowed"><svg style="position:absolute;right:10px;top:50%;transform:translateY(-50%);width:15px;height:15px;stroke:#c0ccd8;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
-        </div>
-      </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label style="display:flex;align-items:center;gap:5px">SIRET <span style="background:#e8f0ff;color:#1a6bfa;font-size:.58rem;font-weight:700;padding:2px 7px;border-radius:100px">Abonnés</span></label>
+              <div style="position:relative"><input disabled placeholder="Abonnement requis" style="width:100%;padding:10px 36px 10px 13px;border:1.5px solid #e2e8f5;border-radius:10px;background:#f7f9ff;color:#b0bac9;font-size:.85rem;font-family:'Plus Jakarta Sans',sans-serif;cursor:not-allowed"><svg style="position:absolute;right:10px;top:50%;transform:translateY(-50%);width:15px;height:15px;stroke:#c0ccd8;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+            </div>
+            <div class="form-group">
+              <label style="display:flex;align-items:center;gap:5px">RC Pro <span style="background:#e8f0ff;color:#1a6bfa;font-size:.58rem;font-weight:700;padding:2px 7px;border-radius:100px">Abonnés</span></label>
+              <div style="position:relative"><input disabled placeholder="Abonnement requis" style="width:100%;padding:10px 36px 10px 13px;border:1.5px solid #e2e8f5;border-radius:10px;background:#f7f9ff;color:#b0bac9;font-size:.85rem;font-family:'Plus Jakarta Sans',sans-serif;cursor:not-allowed"><svg style="position:absolute;right:10px;top:50%;transform:translateY(-50%);width:15px;height:15px;stroke:#c0ccd8;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+            </div>
+          </div>
 
-      <div class="form-group"><label>Demande du client</label><textarea id="demande" rows="3" placeholder="Ex: Remplacement chauffe-eau 200L + purge installation. Client dispo semaine prochaine."></textarea></div>
-      <div class="form-group"><label>Nom du client</label><input type="text" id="client-name" placeholder="Ex: M. Martin"></div>
-      <div class="form-group"><label>Téléphone client</label><input type="text" id="client-tel" placeholder="Ex: 06 12 34 56 78"></div>
+          <div class="form-group"><label>Demande du client</label><textarea id="demande" rows="3" placeholder="Ex: Remplacement chauffe-eau 200L + purge installation. Client dispo semaine prochaine."></textarea></div>
+          <div class="form-group"><label>Nom du client</label><input type="text" id="client-name" placeholder="Ex: M. Martin"></div>
+          <div class="form-group"><label>Téléphone client</label><input type="text" id="client-tel" placeholder="Ex: 06 12 34 56 78"></div>
 
-      <div class="form-row">
-        <div class="form-group">
-          <label style="display:flex;align-items:center;gap:5px">Email client <span style="background:#e8f0ff;color:#1a6bfa;font-size:.58rem;font-weight:700;padding:2px 7px;border-radius:100px">Abonnés</span></label>
-          <div style="position:relative"><input disabled placeholder="Abonnement requis" style="width:100%;padding:10px 36px 10px 13px;border:1.5px solid #e2e8f5;border-radius:10px;background:#f7f9ff;color:#b0bac9;font-size:.85rem;font-family:'Plus Jakarta Sans',sans-serif;cursor:not-allowed"><svg style="position:absolute;right:10px;top:50%;transform:translateY(-50%);width:15px;height:15px;stroke:#c0ccd8;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
-        </div>
-        <div class="form-group">
-          <label style="display:flex;align-items:center;gap:5px">Adresse chantier <span style="background:#e8f0ff;color:#1a6bfa;font-size:.58rem;font-weight:700;padding:2px 7px;border-radius:100px">Abonnés</span></label>
-          <div style="position:relative"><input disabled placeholder="Abonnement requis" style="width:100%;padding:10px 36px 10px 13px;border:1.5px solid #e2e8f5;border-radius:10px;background:#f7f9ff;color:#b0bac9;font-size:.85rem;font-family:'Plus Jakarta Sans',sans-serif;cursor:not-allowed"><svg style="position:absolute;right:10px;top:50%;transform:translateY(-50%);width:15px;height:15px;stroke:#c0ccd8;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
-        </div>
-      </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label style="display:flex;align-items:center;gap:5px">Email client <span style="background:#e8f0ff;color:#1a6bfa;font-size:.58rem;font-weight:700;padding:2px 7px;border-radius:100px">Abonnés</span></label>
+              <div style="position:relative"><input disabled placeholder="Abonnement requis" style="width:100%;padding:10px 36px 10px 13px;border:1.5px solid #e2e8f5;border-radius:10px;background:#f7f9ff;color:#b0bac9;font-size:.85rem;font-family:'Plus Jakarta Sans',sans-serif;cursor:not-allowed"><svg style="position:absolute;right:10px;top:50%;transform:translateY(-50%);width:15px;height:15px;stroke:#c0ccd8;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+            </div>
+            <div class="form-group">
+              <label style="display:flex;align-items:center;gap:5px">Adresse chantier <span style="background:#e8f0ff;color:#1a6bfa;font-size:.58rem;font-weight:700;padding:2px 7px;border-radius:100px">Abonnés</span></label>
+              <div style="position:relative"><input disabled placeholder="Abonnement requis" style="width:100%;padding:10px 36px 10px 13px;border:1.5px solid #e2e8f5;border-radius:10px;background:#f7f9ff;color:#b0bac9;font-size:.85rem;font-family:'Plus Jakarta Sans',sans-serif;cursor:not-allowed"><svg style="position:absolute;right:10px;top:50%;transform:translateY(-50%);width:15px;height:15px;stroke:#c0ccd8;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+            </div>
+          </div>
 
-      <div style="background:#e8f0ff;border-radius:10px;padding:10px 14px;margin-bottom:12px;font-size:.74rem;color:#1a6bfa;display:flex;align-items:center;gap:8px;line-height:1.5">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1a6bfa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-        Avec un abonnement, ces champs sont pré-remplis automatiquement depuis votre profil.
-      </div>
+          <div style="background:#e8f0ff;border-radius:10px;padding:10px 14px;margin-bottom:12px;font-size:.74rem;color:#1a6bfa;display:flex;align-items:center;gap:8px;line-height:1.5">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1a6bfa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            Avec un abonnement, ces champs sont pré-remplis automatiquement depuis votre profil.
+          </div>
 
-      <button class="gen-btn" onclick="genererDevis()"><span id="btn-txt">Générer le devis</span></button>
-      <p class="quick-label">Suggestions rapides :</p>
-      <div class="quick-btns">
-        <button class="quick-btn" onclick="fillDemo('Fuite sous évier + remplacement robinet mitigeur')">Fuite évier</button>
-        <button class="quick-btn" onclick="fillDemo('Installation tableau électrique 13 postes')">Tableau électrique</button>
-        <button class="quick-btn" onclick="fillDemo('Peinture salon 25m² + couloir, 2 couches')">Peinture salon</button>
-        <button class="quick-btn" onclick="fillDemo('Pose carrelage salle de bain 8m²')">Carrelage bain</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- RESULTS -->
-  <div class="result-panel">
-
-    <!-- Devis editable -->
-    <div class="result-card" id="rc-devis">
-      <div class="rc-header"><div class="rc-dot" style="background:#1a6bfa"></div>Devis — modifiez les prix directement</div>
-      <div class="rc-body"><div id="devis-output"></div></div>
-    </div>
-
-    <!-- Send buttons -->
-    <div class="result-card" id="rc-send">
-      <div class="rc-header"><div class="rc-dot" style="background:#25d366"></div>Envoyer en 1 clic</div>
-      <div class="rc-body">
-        <div class="send-btns">
-          <button class="send-btn send-btn-wa" onclick="sendAction('WhatsApp')">
-            <svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
-            WhatsApp
-          </button>
-          <button class="send-btn send-btn-sms" onclick="sendAction('SMS')">
-            <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-            SMS
-          </button>
-          <button class="send-btn send-btn-email" onclick="sendAction('Email')">
-            <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-            Email
-          </button>
-        </div>
-        <div class="wa-bubble" id="wa-output" style="margin-top:12px;display:none"></div>
-      </div>
-    </div>
-
-    <!-- Accept button -->
-    <div class="result-card" id="rc-accept">
-      <div class="rc-header"><div class="rc-dot" style="background:#00c48c"></div>Acceptation client</div>
-      <div class="rc-body">
-        <div class="accept-zone">
-          <p>Partagez ce lien avec votre client. Il peut accepter et signer directement depuis son téléphone.</p>
-          <button class="accept-btn" onclick="simulerAcceptation()">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-            J'accepte le devis
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <!-- Relance auto -->
-    <div class="result-card" id="rc-relance">
-      <div class="rc-header"><div class="rc-dot" style="background:#1a6bfa"></div>Relance automatique programmée</div>
-      <div class="rc-body">
-        <div class="relance-badge">
-          <div class="relance-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
-          <div class="relance-text">
-            <strong>Relance J+2 programmée</strong>
-            <p style="margin-top:4px">"Bonjour, avez-vous pu consulter le devis ? Je reste disponible pour toute question."</p>
-            <p style="margin-top:8px;font-size:.74rem;color:#7a8fa6">Puis J+5 et J+7 si pas de réponse · Annulable à tout moment</p>
+          <button class="gen-btn" onclick="genererDevis()"><span id="btn-txt">Générer le devis</span></button>
+          <p class="quick-label">Suggestions rapides :</p>
+          <div class="quick-btns">
+            <button class="quick-btn" onclick="fillDemo('Fuite sous évier + remplacement robinet mitigeur')">Fuite évier</button>
+            <button class="quick-btn" onclick="fillDemo('Installation tableau électrique 13 postes')">Tableau électrique</button>
+            <button class="quick-btn" onclick="fillDemo('Peinture salon 25m² + couloir, 2 couches')">Peinture salon</button>
+            <button class="quick-btn" onclick="fillDemo('Pose carrelage salle de bain 8m²')">Carrelage bain</button>
           </div>
         </div>
       </div>
+
+      <!-- RESULTS -->
+      <div class="result-panel">
+
+        <!-- Devis editable -->
+        <div class="result-card" id="rc-devis">
+          <div class="rc-header"><div class="rc-dot" style="background:#1a6bfa"></div>Devis — modifiez les prix directement</div>
+          <div class="rc-body"><div id="devis-output"></div></div>
+        </div>
+
+        <!-- Send buttons -->
+        <div class="result-card" id="rc-send">
+          <div class="rc-header"><div class="rc-dot" style="background:#25d366"></div>Envoyer en 1 clic</div>
+          <div class="rc-body">
+            <div class="send-btns">
+              <button class="send-btn send-btn-wa" onclick="sendAction('WhatsApp')">
+                <svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+                WhatsApp
+              </button>
+              <button class="send-btn send-btn-sms" onclick="sendAction('SMS')">
+                <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                SMS
+              </button>
+              <button class="send-btn send-btn-email" onclick="sendAction('Email')">
+                <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                Email
+              </button>
+            </div>
+            <div class="wa-bubble" id="wa-output" style="margin-top:12px;display:none"></div>
+          </div>
+        </div>
+
+        <!-- Accept button -->
+        <div class="result-card" id="rc-accept">
+          <div class="rc-header"><div class="rc-dot" style="background:#00c48c"></div>Acceptation client</div>
+          <div class="rc-body">
+            <div class="accept-zone">
+              <p>Partagez ce lien avec votre client. Il peut accepter et signer directement depuis son téléphone.</p>
+              <button class="accept-btn" onclick="simulerAcceptation()">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                J'accepte le devis
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Relance auto -->
+        <div class="result-card" id="rc-relance">
+          <div class="rc-header"><div class="rc-dot" style="background:#1a6bfa"></div>Relance automatique programmée</div>
+          <div class="rc-body">
+            <div class="relance-badge">
+              <div class="relance-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+              <div class="relance-text">
+                <strong>Relance J+2 programmée</strong>
+                <p style="margin-top:4px">"Bonjour, avez-vous pu consulter le devis ? Je reste disponible pour toute question."</p>
+                <p style="margin-top:8px;font-size:.74rem;color:#7a8fa6">Puis J+5 et J+7 si pas de réponse · Annulable à tout moment</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
     </div>
-
-  </div>
-</div>
-```
-
   </div>
 </section>
 
 <!-- PRICING -->
-
 <section id="pricing">
   <div class="section-inner">
     <div class="section-label">Tarifs</div>
@@ -903,71 +887,67 @@ footer{padding:28px 20px;flex-direction:column;text-align:center;gap:12px}
     <p style="font-size:1.05rem;color:#3d4f60;line-height:1.7;margin-bottom:32px">Sans engagement. Changez ou annulez à tout moment. 14 jours d'essai gratuit sur tous les plans.</p>
     <div class="pricing-grid">
 
-```
-  <!-- STARTER avec Stripe -->
-  <div class="price-card reveal" style="background:#fff;border:2px solid #e2e8f5;border-radius:20px;padding:32px 24px;display:flex;flex-direction:column;box-shadow:0 4px 24px rgba(26,107,250,.08)">
-    <div class="plan-name" style="font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#7a8fa6;margin-bottom:12px">Starter</div>
-    <div style="font-family:'Bricolage Grotesque',sans-serif;font-size:3rem;font-weight:800;letter-spacing:-.05em;line-height:1;color:#0f1923"><sup style="font-size:1.3rem;font-weight:500;vertical-align:super">€</sup>29</div>
-    <div style="font-size:.83rem;color:#7a8fa6;margin-bottom:24px">par mois · sans engagement</div>
-    <div style="height:1px;background:#e2e8f5;margin-bottom:24px"></div>
-    <ul style="list-style:none;flex:1;display:flex;flex-direction:column;gap:12px;margin-bottom:32px">
-      <li style="font-size:.875rem;display:flex;gap:10px;align-items:flex-start;color:#3d4f60"><span style="width:18px;height:18px;border-radius:50%;background:#e8f0ff;flex-shrink:0;display:inline-block;margin-top:1px;background-image:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 6l3 3 5-5' stroke='%231a6bfa' stroke-width='1.8' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\");background-size:12px;background-repeat:no-repeat;background-position:center"></span>10 devis par mois</li>
-      <li style="font-size:.875rem;display:flex;gap:10px;align-items:flex-start;color:#3d4f60"><span style="width:18px;height:18px;border-radius:50%;background:#e8f0ff;flex-shrink:0;display:inline-block;margin-top:1px;background-image:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 6l3 3 5-5' stroke='%231a6bfa' stroke-width='1.8' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\");background-size:12px;background-repeat:no-repeat;background-position:center"></span>PDF avec mentions légales complètes</li>
-      <li style="font-size:.875rem;display:flex;gap:10px;align-items:flex-start;color:#3d4f60"><span style="width:18px;height:18px;border-radius:50%;background:#e8f0ff;flex-shrink:0;display:inline-block;margin-top:1px;background-image:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 6l3 3 5-5' stroke='%231a6bfa' stroke-width='1.8' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\");background-size:12px;background-repeat:no-repeat;background-position:center"></span>Envoi WhatsApp / SMS / Email</li>
-      <li style="font-size:.875rem;display:flex;gap:10px;align-items:flex-start;color:#3d4f60"><span style="width:18px;height:18px;border-radius:50%;background:#e8f0ff;flex-shrink:0;display:inline-block;margin-top:1px;background-image:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 6l3 3 5-5' stroke='%231a6bfa' stroke-width='1.8' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\");background-size:12px;background-repeat:no-repeat;background-position:center"></span>Historique 30 jours</li>
-      <li style="font-size:.875rem;display:flex;gap:10px;align-items:flex-start;color:#3d4f60"><span style="width:18px;height:18px;border-radius:50%;background:#e8f0ff;flex-shrink:0;display:inline-block;margin-top:1px;background-image:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 6l3 3 5-5' stroke='%231a6bfa' stroke-width='1.8' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\");background-size:12px;background-repeat:no-repeat;background-position:center"></span>1 métier configuré</li>
-      <li style="font-size:.875rem;display:flex;gap:10px;align-items:flex-start;color:#3d4f60"><span style="width:18px;height:18px;border-radius:50%;background:#e8f0ff;flex-shrink:0;display:inline-block;margin-top:1px;background-image:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 6l3 3 5-5' stroke='%231a6bfa' stroke-width='1.8' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\");background-size:12px;background-repeat:no-repeat;background-position:center"></span>Support email</li>
-    </ul>
-    <a href="https://buy.stripe.com/00waEX5bd4czaGaeauffy00" target="_blank" style="display:block;text-align:center;padding:15px 24px;border-radius:100px;font-weight:700;font-size:.95rem;text-decoration:none;background:#0f1923;color:#fff;-webkit-text-fill-color:#fff;border:2px solid #0f1923;transition:transform .2s">Commencer — 14 jours gratuits</a>
-  </div>
+      <!-- STARTER avec Stripe -->
+      <div class="price-card reveal" style="background:#fff;border:2px solid #e2e8f5;border-radius:20px;padding:32px 24px;display:flex;flex-direction:column;box-shadow:0 4px 24px rgba(26,107,250,.08)">
+        <div class="plan-name" style="font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#7a8fa6;margin-bottom:12px">Starter</div>
+        <div style="font-family:'Bricolage Grotesque',sans-serif;font-size:3rem;font-weight:800;letter-spacing:-.05em;line-height:1;color:#0f1923"><sup style="font-size:1.3rem;font-weight:500;vertical-align:super">€</sup>29</div>
+        <div style="font-size:.83rem;color:#7a8fa6;margin-bottom:24px">par mois · sans engagement</div>
+        <div style="height:1px;background:#e2e8f5;margin-bottom:24px"></div>
+        <ul style="list-style:none;flex:1;display:flex;flex-direction:column;gap:12px;margin-bottom:32px">
+          <li style="font-size:.875rem;display:flex;gap:10px;align-items:flex-start;color:#3d4f60"><span style="width:18px;height:18px;border-radius:50%;background:#e8f0ff;flex-shrink:0;display:inline-block;margin-top:1px;background-image:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 6l3 3 5-5' stroke='%231a6bfa' stroke-width='1.8' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\");background-size:12px;background-repeat:no-repeat;background-position:center"></span>10 devis par mois</li>
+          <li style="font-size:.875rem;display:flex;gap:10px;align-items:flex-start;color:#3d4f60"><span style="width:18px;height:18px;border-radius:50%;background:#e8f0ff;flex-shrink:0;display:inline-block;margin-top:1px;background-image:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 6l3 3 5-5' stroke='%231a6bfa' stroke-width='1.8' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\");background-size:12px;background-repeat:no-repeat;background-position:center"></span>PDF avec mentions légales complètes</li>
+          <li style="font-size:.875rem;display:flex;gap:10px;align-items:flex-start;color:#3d4f60"><span style="width:18px;height:18px;border-radius:50%;background:#e8f0ff;flex-shrink:0;display:inline-block;margin-top:1px;background-image:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 6l3 3 5-5' stroke='%231a6bfa' stroke-width='1.8' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\");background-size:12px;background-repeat:no-repeat;background-position:center"></span>Envoi WhatsApp / SMS / Email</li>
+          <li style="font-size:.875rem;display:flex;gap:10px;align-items:flex-start;color:#3d4f60"><span style="width:18px;height:18px;border-radius:50%;background:#e8f0ff;flex-shrink:0;display:inline-block;margin-top:1px;background-image:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 6l3 3 5-5' stroke='%231a6bfa' stroke-width='1.8' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\");background-size:12px;background-repeat:no-repeat;background-position:center"></span>Historique 30 jours</li>
+          <li style="font-size:.875rem;display:flex;gap:10px;align-items:flex-start;color:#3d4f60"><span style="width:18px;height:18px;border-radius:50%;background:#e8f0ff;flex-shrink:0;display:inline-block;margin-top:1px;background-image:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 6l3 3 5-5' stroke='%231a6bfa' stroke-width='1.8' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\");background-size:12px;background-repeat:no-repeat;background-position:center"></span>1 métier configuré</li>
+          <li style="font-size:.875rem;display:flex;gap:10px;align-items:flex-start;color:#3d4f60"><span style="width:18px;height:18px;border-radius:50%;background:#e8f0ff;flex-shrink:0;display:inline-block;margin-top:1px;background-image:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 6l3 3 5-5' stroke='%231a6bfa' stroke-width='1.8' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\");background-size:12px;background-repeat:no-repeat;background-position:center"></span>Support email</li>
+        </ul>
+        <a href="https://buy.stripe.com/00waEX5bd4czaGaeauffy00" target="_blank" style="display:block;text-align:center;padding:15px 24px;border-radius:100px;font-weight:700;font-size:.95rem;text-decoration:none;background:#0f1923;color:#fff;-webkit-text-fill-color:#fff;border:2px solid #0f1923;transition:transform .2s">Commencer — 14 jours gratuits</a>
+      </div>
 
-  <!-- PRO featured -->
-  <div class="price-card featured reveal" style="background:#1a6bfa;border:2px solid #1a6bfa;border-radius:20px;padding:32px 24px;display:flex;flex-direction:column;position:relative;box-shadow:0 24px 64px rgba(26,107,250,.4)">
-    <div style="position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:#ff6b2b;color:#fff;-webkit-text-fill-color:#fff;font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:5px 18px;border-radius:100px;white-space:nowrap;box-shadow:0 4px 16px rgba(255,107,43,.4)">Le plus populaire</div>
-    <div style="font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.65);margin-bottom:12px">Pro</div>
-    <div style="font-family:'Bricolage Grotesque',sans-serif;font-size:3rem;font-weight:800;letter-spacing:-.05em;line-height:1;color:#fff"><sup style="font-size:1.3rem;font-weight:500;vertical-align:super;color:#fff">€</sup>59</div>
-    <div style="font-size:.83rem;color:rgba(255,255,255,.55);margin-bottom:24px">par mois · sans engagement</div>
-    <div style="height:1px;background:rgba(255,255,255,.2);margin-bottom:24px"></div>
-    <ul style="list-style:none;flex:1;display:flex;flex-direction:column;gap:12px;margin-bottom:32px">
-      <li style="font-size:.875rem;display:flex;gap:10px;align-items:flex-start;color:rgba(255,255,255,.9)"><span style="width:18px;height:18px;border-radius:50%;background:rgba(255,255,255,.2);flex-shrink:0;display:inline-block;margin-top:1px;background-image:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 6l3 3 5-5' stroke='%23ffffff' stroke-width='1.8' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\");background-size:12px;background-repeat:no-repeat;background-position:center"></span>Devis illimités</li>
-      <li style="font-size:.875rem;display:flex;gap:10px;align-items:flex-start;color:rgba(255,255,255,.9)"><span style="width:18px;height:18px;border-radius:50%;background:rgba(255,255,255,.2);flex-shrink:0;display:inline-block;margin-top:1px;background-image:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 6l3 3 5-5' stroke='%23ffffff' stroke-width='1.8' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\");background-size:12px;background-repeat:no-repeat;background-position:center"></span>PDF avec votre logo et branding</li>
-      <li style="font-size:.875rem;display:flex;gap:10px;align-items:flex-start;color:rgba(255,255,255,.9)"><span style="width:18px;height:18px;border-radius:50%;background:rgba(255,255,255,.2);flex-shrink:0;display:inline-block;margin-top:1px;background-image:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 6l3 3 5-5' stroke='%23ffffff' stroke-width='1.8' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\");background-size:12px;background-repeat:no-repeat;background-position:center"></span>Relances automatiques J+2, J+5, J+7</li>
-      <li style="font-size:.875rem;display:flex;gap:10px;align-items:flex-start;color:rgba(255,255,255,.9)"><span style="width:18px;height:18px;border-radius:50%;background:rgba(255,255,255,.2);flex-shrink:0;display:inline-block;margin-top:1px;background-image:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 6l3 3 5-5' stroke='%23ffffff' stroke-width='1.8' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\");background-size:12px;background-repeat:no-repeat;background-position:center"></span>Bouton Accepter le devis client</li>
-      <li style="font-size:.875rem;display:flex;gap:10px;align-items:flex-start;color:rgba(255,255,255,.9)"><span style="width:18px;height:18px;border-radius:50%;background:rgba(255,255,255,.2);flex-shrink:0;display:inline-block;margin-top:1px;background-image:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 6l3 3 5-5' stroke='%23ffffff' stroke-width='1.8' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\");background-size:12px;background-repeat:no-repeat;background-position:center"></span>Signature digitale (IP + horodatage)</li>
-      <li style="font-size:.875rem;display:flex;gap:10px;align-items:flex-start;color:rgba(255,255,255,.9)"><span style="width:18px;height:18px;border-radius:50%;background:rgba(255,255,255,.2);flex-shrink:0;display:inline-block;margin-top:1px;background-image:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 6l3 3 5-5' stroke='%23ffffff' stroke-width='1.8' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\");background-size:12px;background-repeat:no-repeat;background-position:center"></span>CRM clients intégré</li>
-      <li style="font-size:.875rem;display:flex;gap:10px;align-items:flex-start;color:rgba(255,255,255,.9)"><span style="width:18px;height:18px;border-radius:50%;background:rgba(255,255,255,.2);flex-shrink:0;display:inline-block;margin-top:1px;background-image:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 6l3 3 5-5' stroke='%23ffffff' stroke-width='1.8' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\");background-size:12px;background-repeat:no-repeat;background-position:center"></span>Support prioritaire</li>
-    </ul>
-    <a href="#" style="display:block;text-align:center;padding:15px 24px;border-radius:100px;font-weight:700;font-size:.95rem;text-decoration:none;background:#ff6b2b;color:#fff;-webkit-text-fill-color:#fff;box-shadow:0 8px 24px rgba(255,107,43,.4)">Commencer — 14 jours gratuits</a>
-  </div>
+      <!-- PRO featured -->
+      <div class="price-card featured reveal" style="background:#1a6bfa;border:2px solid #1a6bfa;border-radius:20px;padding:32px 24px;display:flex;flex-direction:column;position:relative;box-shadow:0 24px 64px rgba(26,107,250,.4)">
+        <div style="position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:#ff6b2b;color:#fff;-webkit-text-fill-color:#fff;font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:5px 18px;border-radius:100px;white-space:nowrap;box-shadow:0 4px 16px rgba(255,107,43,.4)">Le plus populaire</div>
+        <div style="font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.65);margin-bottom:12px">Pro</div>
+        <div style="font-family:'Bricolage Grotesque',sans-serif;font-size:3rem;font-weight:800;letter-spacing:-.05em;line-height:1;color:#fff"><sup style="font-size:1.3rem;font-weight:500;vertical-align:super;color:#fff">€</sup>59</div>
+        <div style="font-size:.83rem;color:rgba(255,255,255,.55);margin-bottom:24px">par mois · sans engagement</div>
+        <div style="height:1px;background:rgba(255,255,255,.2);margin-bottom:24px"></div>
+        <ul style="list-style:none;flex:1;display:flex;flex-direction:column;gap:12px;margin-bottom:32px">
+          <li style="font-size:.875rem;display:flex;gap:10px;align-items:flex-start;color:rgba(255,255,255,.9)"><span style="width:18px;height:18px;border-radius:50%;background:rgba(255,255,255,.2);flex-shrink:0;display:inline-block;margin-top:1px;background-image:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 6l3 3 5-5' stroke='%23ffffff' stroke-width='1.8' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\");background-size:12px;background-repeat:no-repeat;background-position:center"></span>Devis illimités</li>
+          <li style="font-size:.875rem;display:flex;gap:10px;align-items:flex-start;color:rgba(255,255,255,.9)"><span style="width:18px;height:18px;border-radius:50%;background:rgba(255,255,255,.2);flex-shrink:0;display:inline-block;margin-top:1px;background-image:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 6l3 3 5-5' stroke='%23ffffff' stroke-width='1.8' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\");background-size:12px;background-repeat:no-repeat;background-position:center"></span>PDF avec votre logo et branding</li>
+          <li style="font-size:.875rem;display:flex;gap:10px;align-items:flex-start;color:rgba(255,255,255,.9)"><span style="width:18px;height:18px;border-radius:50%;background:rgba(255,255,255,.2);flex-shrink:0;display:inline-block;margin-top:1px;background-image:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 6l3 3 5-5' stroke='%23ffffff' stroke-width='1.8' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\");background-size:12px;background-repeat:no-repeat;background-position:center"></span>Relances automatiques J+2, J+5, J+7</li>
+          <li style="font-size:.875rem;display:flex;gap:10px;align-items:flex-start;color:rgba(255,255,255,.9)"><span style="width:18px;height:18px;border-radius:50%;background:rgba(255,255,255,.2);flex-shrink:0;display:inline-block;margin-top:1px;background-image:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 6l3 3 5-5' stroke='%23ffffff' stroke-width='1.8' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\");background-size:12px;background-repeat:no-repeat;background-position:center"></span>Bouton Accepter le devis client</li>
+          <li style="font-size:.875rem;display:flex;gap:10px;align-items:flex-start;color:rgba(255,255,255,.9)"><span style="width:18px;height:18px;border-radius:50%;background:rgba(255,255,255,.2);flex-shrink:0;display:inline-block;margin-top:1px;background-image:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 6l3 3 5-5' stroke='%23ffffff' stroke-width='1.8' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\");background-size:12px;background-repeat:no-repeat;background-position:center"></span>Signature digitale (IP + horodatage)</li>
+          <li style="font-size:.875rem;display:flex;gap:10px;align-items:flex-start;color:rgba(255,255,255,.9)"><span style="width:18px;height:18px;border-radius:50%;background:rgba(255,255,255,.2);flex-shrink:0;display:inline-block;margin-top:1px;background-image:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 6l3 3 5-5' stroke='%23ffffff' stroke-width='1.8' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\");background-size:12px;background-repeat:no-repeat;background-position:center"></span>CRM clients intégré</li>
+          <li style="font-size:.875rem;display:flex;gap:10px;align-items:flex-start;color:rgba(255,255,255,.9)"><span style="width:18px;height:18px;border-radius:50%;background:rgba(255,255,255,.2);flex-shrink:0;display:inline-block;margin-top:1px;background-image:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 6l3 3 5-5' stroke='%23ffffff' stroke-width='1.8' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\");background-size:12px;background-repeat:no-repeat;background-position:center"></span>Support prioritaire</li>
+        </ul>
+        <a href="https://buy.stripe.com/aFacN5335gZl01w2rMffy03" target="_blank" style="display:block;text-align:center;padding:15px 24px;border-radius:100px;font-weight:700;font-size:.95rem;text-decoration:none;background:#ff6b2b;color:#fff;-webkit-text-fill-color:#fff;box-shadow:0 8px 24px rgba(255,107,43,.4)">S'abonner au plan Pro</a>
+      </div>
 
-  <!-- PREMIUM -->
-  <div class="price-card reveal" style="background:#fff;border:2px solid #e2e8f5;border-radius:20px;padding:32px 24px;display:flex;flex-direction:column;box-shadow:0 4px 24px rgba(26,107,250,.08)">
-    <div class="plan-name" style="font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#7a8fa6;margin-bottom:12px">Premium</div>
-    <div style="font-family:'Bricolage Grotesque',sans-serif;font-size:3rem;font-weight:800;letter-spacing:-.05em;line-height:1;color:#0f1923"><sup style="font-size:1.3rem;font-weight:500;vertical-align:super">€</sup>99</div>
-    <div style="font-size:.83rem;color:#7a8fa6;margin-bottom:24px">par mois · sans engagement</div>
-    <div style="height:1px;background:#e2e8f5;margin-bottom:24px"></div>
-    <ul style="list-style:none;flex:1;display:flex;flex-direction:column;gap:12px;margin-bottom:32px">
-      <li style="font-size:.875rem;display:flex;gap:10px;align-items:flex-start;color:#3d4f60"><span style="width:18px;height:18px;border-radius:50%;background:#e8f0ff;flex-shrink:0;display:inline-block;margin-top:1px;background-image:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 6l3 3 5-5' stroke='%231a6bfa' stroke-width='1.8' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\");background-size:12px;background-repeat:no-repeat;background-position:center"></span>Tout le plan Pro</li>
-      <li style="font-size:.875rem;display:flex;gap:10px;align-items:flex-start;color:#3d4f60"><span style="width:18px;height:18px;border-radius:50%;background:#e8f0ff;flex-shrink:0;display:inline-block;margin-top:1px;background-image:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 6l3 3 5-5' stroke='%231a6bfa' stroke-width='1.8' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\");background-size:12px;background-repeat:no-repeat;background-position:center"></span>Connexion WhatsApp Business</li>
-      <li style="font-size:.875rem;display:flex;gap:10px;align-items:flex-start;color:#3d4f60"><span style="width:18px;height:18px;border-radius:50%;background:#e8f0ff;flex-shrink:0;display:inline-block;margin-top:1px;background-image:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 6l3 3 5-5' stroke='%231a6bfa' stroke-width='1.8' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\");background-size:12px;background-repeat:no-repeat;background-position:center"></span>Devis par dictée vocale</li>
-      <li style="font-size:.875rem;display:flex;gap:10px;align-items:flex-start;color:#3d4f60"><span style="width:18px;height:18px;border-radius:50%;background:#e8f0ff;flex-shrink:0;display:inline-block;margin-top:1px;background-image:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 6l3 3 5-5' stroke='%231a6bfa' stroke-width='1.8' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\");background-size:12px;background-repeat:no-repeat;background-position:center"></span>Photos chantier vers estimation</li>
-      <li style="font-size:.875rem;display:flex;gap:10px;align-items:flex-start;color:#3d4f60"><span style="width:18px;height:18px;border-radius:50%;background:#e8f0ff;flex-shrink:0;display:inline-block;margin-top:1px;background-image:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 6l3 3 5-5' stroke='%231a6bfa' stroke-width='1.8' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\");background-size:12px;background-repeat:no-repeat;background-position:center"></span>Signature électronique légale</li>
-      <li style="font-size:.875rem;display:flex;gap:10px;align-items:flex-start;color:#3d4f60"><span style="width:18px;height:18px;border-radius:50%;background:#e8f0ff;flex-shrink:0;display:inline-block;margin-top:1px;background-image:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 6l3 3 5-5' stroke='%231a6bfa' stroke-width='1.8' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\");background-size:12px;background-repeat:no-repeat;background-position:center"></span>Facturation automatique</li>
-      <li style="font-size:.875rem;display:flex;gap:10px;align-items:flex-start;color:#3d4f60"><span style="width:18px;height:18px;border-radius:50%;background:#e8f0ff;flex-shrink:0;display:inline-block;margin-top:1px;background-image:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 6l3 3 5-5' stroke='%231a6bfa' stroke-width='1.8' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\");background-size:12px;background-repeat:no-repeat;background-position:center"></span>Assistant commercial complet</li>
-      <li style="font-size:.875rem;display:flex;gap:10px;align-items:flex-start;color:#3d4f60"><span style="width:18px;height:18px;border-radius:50%;background:#e8f0ff;flex-shrink:0;display:inline-block;margin-top:1px;background-image:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 6l3 3 5-5' stroke='%231a6bfa' stroke-width='1.8' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\");background-size:12px;background-repeat:no-repeat;background-position:center"></span>Onboarding personnalisé</li>
-    </ul>
-    <a href="#" style="display:block;text-align:center;padding:15px 24px;border-radius:100px;font-weight:700;font-size:.95rem;text-decoration:none;background:#0f1923;color:#fff;-webkit-text-fill-color:#fff;border:2px solid #0f1923">Commencer — 14 jours gratuits</a>
-  </div>
+      <!-- PREMIUM -->
+      <div class="price-card reveal" style="background:#fff;border:2px solid #e2e8f5;border-radius:20px;padding:32px 24px;display:flex;flex-direction:column;box-shadow:0 4px 24px rgba(26,107,250,.08)">
+        <div class="plan-name" style="font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#7a8fa6;margin-bottom:12px">Premium</div>
+        <div style="font-family:'Bricolage Grotesque',sans-serif;font-size:3rem;font-weight:800;letter-spacing:-.05em;line-height:1;color:#0f1923"><sup style="font-size:1.3rem;font-weight:500;vertical-align:super">€</sup>99</div>
+        <div style="font-size:.83rem;color:#7a8fa6;margin-bottom:24px">par mois · sans engagement</div>
+        <div style="height:1px;background:#e2e8f5;margin-bottom:24px"></div>
+        <ul style="list-style:none;flex:1;display:flex;flex-direction:column;gap:12px;margin-bottom:32px">
+          <li style="font-size:.875rem;display:flex;gap:10px;align-items:flex-start;color:#3d4f60"><span style="width:18px;height:18px;border-radius:50%;background:#e8f0ff;flex-shrink:0;display:inline-block;margin-top:1px;background-image:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 6l3 3 5-5' stroke='%231a6bfa' stroke-width='1.8' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\");background-size:12px;background-repeat:no-repeat;background-position:center"></span>Tout le plan Pro</li>
+          <li style="font-size:.875rem;display:flex;gap:10px;align-items:flex-start;color:#3d4f60"><span style="width:18px;height:18px;border-radius:50%;background:#e8f0ff;flex-shrink:0;display:inline-block;margin-top:1px;background-image:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 6l3 3 5-5' stroke='%231a6bfa' stroke-width='1.8' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\");background-size:12px;background-repeat:no-repeat;background-position:center"></span>Connexion WhatsApp Business</li>
+          <li style="font-size:.875rem;display:flex;gap:10px;align-items:flex-start;color:#3d4f60"><span style="width:18px;height:18px;border-radius:50%;background:#e8f0ff;flex-shrink:0;display:inline-block;margin-top:1px;background-image:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 6l3 3 5-5' stroke='%231a6bfa' stroke-width='1.8' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\");background-size:12px;background-repeat:no-repeat;background-position:center"></span>Devis par dictée vocale</li>
+          <li style="font-size:.875rem;display:flex;gap:10px;align-items:flex-start;color:#3d4f60"><span style="width:18px;height:18px;border-radius:50%;background:#e8f0ff;flex-shrink:0;display:inline-block;margin-top:1px;background-image:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 6l3 3 5-5' stroke='%231a6bfa' stroke-width='1.8' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\");background-size:12px;background-repeat:no-repeat;background-position:center"></span>Photos chantier vers estimation</li>
+          <li style="font-size:.875rem;display:flex;gap:10px;align-items:flex-start;color:#3d4f60"><span style="width:18px;height:18px;border-radius:50%;background:#e8f0ff;flex-shrink:0;display:inline-block;margin-top:1px;background-image:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 6l3 3 5-5' stroke='%231a6bfa' stroke-width='1.8' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\");background-size:12px;background-repeat:no-repeat;background-position:center"></span>Signature électronique légale</li>
+          <li style="font-size:.875rem;display:flex;gap:10px;align-items:flex-start;color:#3d4f60"><span style="width:18px;height:18px;border-radius:50%;background:#e8f0ff;flex-shrink:0;display:inline-block;margin-top:1px;background-image:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 6l3 3 5-5' stroke='%231a6bfa' stroke-width='1.8' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\");background-size:12px;background-repeat:no-repeat;background-position:center"></span>Facturation automatique</li>
+          <li style="font-size:.875rem;display:flex;gap:10px;align-items:flex-start;color:#3d4f60"><span style="width:18px;height:18px;border-radius:50%;background:#e8f0ff;flex-shrink:0;display:inline-block;margin-top:1px;background-image:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 6l3 3 5-5' stroke='%231a6bfa' stroke-width='1.8' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\");background-size:12px;background-repeat:no-repeat;background-position:center"></span>Assistant commercial complet</li>
+          <li style="font-size:.875rem;display:flex;gap:10px;align-items:flex-start;color:#3d4f60"><span style="width:18px;height:18px;border-radius:50%;background:#e8f0ff;flex-shrink:0;display:inline-block;margin-top:1px;background-image:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 6l3 3 5-5' stroke='%231a6bfa' stroke-width='1.8' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\");background-size:12px;background-repeat:no-repeat;background-position:center"></span>Onboarding personnalisé</li>
+        </ul>
+        <a href="https://buy.stripe.com/8x23cveLN5gDeWq1nIffy02" target="_blank" style="display:block;text-align:center;padding:15px 24px;border-radius:100px;font-weight:700;font-size:.95rem;text-decoration:none;background:#0f1923;color:#fff;-webkit-text-fill-color:#fff;border:2px solid #0f1923">S'abonner au plan Premium</a>
+      </div>
 
-</div>
-<p style="text-align:center;margin-top:28px;font-size:.85rem;color:#7a8fa6">Aucune carte bancaire requise · Résiliation en 1 clic · Support 7j/7</p>
-```
-
+    </div>
+    <p style="text-align:center;margin-top:28px;font-size:.85rem;color:#7a8fa6">Aucune carte bancaire requise · Résiliation en 1 clic · Support 7j/7</p>
   </div>
 </section>
 
 <!-- TESTIMONIALS -->
-
 <section id="testimonials">
   <div class="section-inner">
     <div class="section-label">Ils nous font confiance</div>
@@ -982,7 +962,6 @@ footer{padding:28px 20px;flex-direction:column;text-align:center;gap:12px}
 </section>
 
 <!-- CTA FINAL -->
-
 <div class="cta-final">
   <h2>Prêt à signer plus de chantiers ?</h2>
   <p>14 jours gratuits · Sans carte bancaire · Configuré en 2 minutes</p>
@@ -990,7 +969,6 @@ footer{padding:28px 20px;flex-direction:column;text-align:center;gap:12px}
 </div>
 
 <!-- FOOTER -->
-
 <footer>
   <div class="logo">Fast<span>Devis</span></div>
   <p>© 2026 FastDevis · Le devis automatique pour les artisans qui veulent gagner</p>
@@ -1583,6 +1561,5 @@ document.getElementById('setup-modal').addEventListener('click', e=>{ if(e.targe
 // Init on load
 updateNavProfile();
 </script>
-
 </body>
 </html>
