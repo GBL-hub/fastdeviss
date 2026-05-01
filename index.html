@@ -616,8 +616,8 @@ footer a:hover{color:#fff}
       <h1>Vos devis en<br><span class="highlight">30 secondes</span><br><span class="orange">signez plus.</span></h1>
       <p class="hero-sub">FastDevis génère automatiquement vos devis professionnels conformes, vos PDFs, vos messages de réponse et relance vos prospects. Vous posez vos outils — FastDevis s'occupe du reste.</p>
       <div class="hero-actions">
-        <a href="#demo" class="btn-primary" style="background:#ff6b2b;color:#fff;text-decoration:none;-webkit-text-fill-color:#fff">Essayer gratuitement</a>
-        <a href="#demo" class="btn-secondary" style="color:#1a6bfa;text-decoration:none">Voir la démo</a>
+        <a href="https://buy.stripe.com/00waEX5bd4czaGaeauffy00" target="_blank" class="btn-primary" style="background:#ff6b2b;color:#fff;text-decoration:none;-webkit-text-fill-color:#fff">Essayer gratuitement</a>
+        <a href="#demo" class="btn-secondary" style="color:#1a6bfa;text-decoration:none">Voir un exemple de devis</a>
       </div>
       <div class="hero-trust">
         <div style="background:#fff;border:1.5px solid #e2e8f5;border-radius:14px;padding:14px 18px;margin-top:8px;display:flex;align-items:flex-start;gap:10px;box-shadow:0 2px 12px rgba(26,107,250,.06)">
@@ -737,116 +737,145 @@ footer a:hover{color:#fff}
     </div>
   </div>
 </section>
-<!-- DEMO -->
-<section id="demo">
+<!-- DEVIS EXEMPLE -->
+<section id="demo" style="background:#f4f6fb;padding:80px 0">
   <div class="section-inner">
-    <div class="section-label">Demo interactive</div>
-    <h2 class="section-title">Testez FastDevis<br>en direct</h2>
-    <p style="font-size:1.05rem;color:#3d4f60;line-height:1.7;margin-bottom:32px">Entrez une vraie demande client. Modifiez les prix. Envoyez. Simple et rapide.</p>
-    <div class="demo-wrapper">
+    <div class="section-label">Résultat réel</div>
+    <h2 class="section-title">Un devis généré en 20 secondes,<br>prêt à envoyer</h2>
+    <p style="font-size:1.05rem;color:#3d4f60;line-height:1.7;margin-bottom:48px">Voici exactement ce que reçoit votre client. Conforme, professionnel, juridiquement solide.</p>
 
-      <!-- FORM -->
-      <div class="demo-form-card">
-        <div class="demo-form-header">Générateur de devis automatique</div>
-        <div class="demo-form-body">
-          <div class="form-group"><label>Votre métier</label>
-            <select id="metier"><option value="plombier">Plombier</option><option value="electricien">Electricien</option><option value="peintre">Peintre</option><option value="menuisier">Menuisier</option><option value="carreleur">Carreleur</option></select>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start">
+
+      <!-- LEFT: Aperçu du devis -->
+      <div style="background:#fff;border-radius:20px;border:1.5px solid #e2e8f5;box-shadow:0 8px 40px rgba(26,107,250,.12);overflow:hidden">
+
+        <!-- Header devis -->
+        <div style="background:#1a6bfa;padding:20px 24px;display:flex;align-items:center;justify-content:space-between">
+          <div>
+            <div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:1.1rem;color:#fff">DEVIS N° 2026-0142</div>
+            <div style="font-size:.76rem;color:rgba(255,255,255,.7);margin-top:3px">Émis le 27/04/2026 · Valable jusqu'au 27/05/2026</div>
           </div>
-          <div class="form-group"><label>Nom / Entreprise</label><input type="text" id="prestataire" placeholder="Ex: Plomberie Martin"></div>
-          <div class="form-group"><label>Adresse</label><input type="text" id="adresse" placeholder="Ex: 12 rue du Bourg, Lyon"></div>
-<div class="form-row">
-            <div class="form-group">
-              <label style="display:flex;align-items:center;gap:5px">SIRET <span style="background:#e8f0ff;color:#1a6bfa;font-size:.58rem;font-weight:700;padding:2px 7px;border-radius:100px">Abonnés</span></label>
-              <div style="position:relative"><input disabled placeholder="Abonnement requis" style="width:100%;padding:10px 36px 10px 13px;border:1.5px solid #e2e8f5;border-radius:10px;background:#f7f9ff;color:#b0bac9;font-size:.85rem;font-family:'Plus Jakarta Sans',sans-serif;cursor:not-allowed"><svg style="position:absolute;right:10px;top:50%;transform:translateY(-50%);width:15px;height:15px;stroke:#c0ccd8;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
-            </div>
-            <div class="form-group">
-              <label style="display:flex;align-items:center;gap:5px">RC Pro <span style="background:#e8f0ff;color:#1a6bfa;font-size:.58rem;font-weight:700;padding:2px 7px;border-radius:100px">Abonnés</span></label>
-              <div style="position:relative"><input disabled placeholder="Abonnement requis" style="width:100%;padding:10px 36px 10px 13px;border:1.5px solid #e2e8f5;border-radius:10px;background:#f7f9ff;color:#b0bac9;font-size:.85rem;font-family:'Plus Jakarta Sans',sans-serif;cursor:not-allowed"><svg style="position:absolute;right:10px;top:50%;transform:translateY(-50%);width:15px;height:15px;stroke:#c0ccd8;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
-            </div>
-          </div>
-<div class="form-group"><label>Demande du client</label><textarea id="demande" rows="3" placeholder="Ex: Remplacement chauffe-eau 200L + purge installation. Client dispo semaine prochaine."></textarea></div>
-          <div class="form-group"><label>Nom du client</label><input type="text" id="client-name" placeholder="Ex: M. Martin"></div>
-          <div class="form-group"><label>Téléphone client</label><input type="text" id="client-tel" placeholder="Ex: 06 12 34 56 78"></div>
-<div class="form-row">
-            <div class="form-group">
-              <label style="display:flex;align-items:center;gap:5px">Email client <span style="background:#e8f0ff;color:#1a6bfa;font-size:.58rem;font-weight:700;padding:2px 7px;border-radius:100px">Abonnés</span></label>
-              <div style="position:relative"><input disabled placeholder="Abonnement requis" style="width:100%;padding:10px 36px 10px 13px;border:1.5px solid #e2e8f5;border-radius:10px;background:#f7f9ff;color:#b0bac9;font-size:.85rem;font-family:'Plus Jakarta Sans',sans-serif;cursor:not-allowed"><svg style="position:absolute;right:10px;top:50%;transform:translateY(-50%);width:15px;height:15px;stroke:#c0ccd8;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
-            </div>
-            <div class="form-group">
-              <label style="display:flex;align-items:center;gap:5px">Adresse chantier <span style="background:#e8f0ff;color:#1a6bfa;font-size:.58rem;font-weight:700;padding:2px 7px;border-radius:100px">Abonnés</span></label>
-              <div style="position:relative"><input disabled placeholder="Abonnement requis" style="width:100%;padding:10px 36px 10px 13px;border:1.5px solid #e2e8f5;border-radius:10px;background:#f7f9ff;color:#b0bac9;font-size:.85rem;font-family:'Plus Jakarta Sans',sans-serif;cursor:not-allowed"><svg style="position:absolute;right:10px;top:50%;transform:translateY(-50%);width:15px;height:15px;stroke:#c0ccd8;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
-            </div>
-          </div>
-<div style="background:#e8f0ff;border-radius:10px;padding:10px 14px;margin-bottom:12px;font-size:.74rem;color:#1a6bfa;display:flex;align-items:center;gap:8px;line-height:1.5">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1a6bfa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-            Avec un abonnement, ces champs sont pré-remplis automatiquement depuis votre profil.
-          </div>
-          <button class="gen-btn" onclick="genererDevis()"><span id="btn-txt">Générer le devis</span></button>
-          <p class="quick-label">Suggestions rapides :</p>
-          <div class="quick-btns">
-            <button class="quick-btn" onclick="fillDemo('Fuite sous évier + remplacement robinet mitigeur')">Fuite évier</button>
-            <button class="quick-btn" onclick="fillDemo('Installation tableau électrique 13 postes')">Tableau électrique</button>
-            <button class="quick-btn" onclick="fillDemo('Peinture salon 25m² + couloir, 2 couches')">Peinture salon</button>
-            <button class="quick-btn" onclick="fillDemo('Pose carrelage salle de bain 8m²')">Carrelage bain</button>
+          <div style="background:rgba(255,255,255,.15);border-radius:10px;padding:8px 14px;text-align:center">
+            <div style="font-size:.62rem;color:rgba(255,255,255,.7);font-weight:600;text-transform:uppercase;letter-spacing:.06em">Généré en</div>
+            <div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:1.1rem;color:#fff">20 sec</div>
           </div>
         </div>
+
+        <!-- Prestataire / Client -->
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:0;border-bottom:1.5px solid #e2e8f5">
+          <div style="padding:16px 20px;border-right:1px solid #e2e8f5">
+            <div style="font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#7a8fa6;margin-bottom:8px">Prestataire</div>
+            <div style="font-weight:700;font-size:.9rem;color:#0f1923;margin-bottom:3px">Plomberie Durand</div>
+            <div style="font-size:.78rem;color:#3d4f60;line-height:1.6">12 rue des Artisans<br>69001 Lyon<br>06 12 34 56 78</div>
+            <div style="margin-top:8px;font-size:.72rem;color:#7a8fa6">SIRET : 123 456 789 00012<br>TVA : FR12 345678900<br>RC Pro : Allianz — n°12345678</div>
+          </div>
+          <div style="padding:16px 20px">
+            <div style="font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#7a8fa6;margin-bottom:8px">Client</div>
+            <div style="font-weight:700;font-size:.9rem;color:#0f1923;margin-bottom:3px">M. Martin Dupont</div>
+            <div style="font-size:.78rem;color:#3d4f60;line-height:1.6">5 rue de la Paix<br>69003 Lyon<br>06 98 76 54 32</div>
+            <div style="margin-top:8px;font-size:.72rem;color:#7a8fa6">martin.dupont@email.fr</div>
+          </div>
+        </div>
+
+        <!-- Objet -->
+        <div style="padding:14px 20px;background:#f7f9ff;border-bottom:1.5px solid #e2e8f5">
+          <div style="font-size:.72rem;font-weight:700;color:#7a8fa6;text-transform:uppercase;letter-spacing:.06em;margin-bottom:3px">Objet</div>
+          <div style="font-size:.88rem;font-weight:600;color:#0f1923">Remplacement chauffe-eau 200L + purge installation — Chantier Lyon 3e</div>
+        </div>
+
+        <!-- Lignes de prestation -->
+        <div style="padding:0 20px">
+          <table style="width:100%;border-collapse:collapse">
+            <thead>
+              <tr style="border-bottom:2px solid #e2e8f5">
+                <th style="font-size:.66rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#7a8fa6;padding:10px 8px 10px 0;text-align:left">Désignation</th>
+                <th style="font-size:.66rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#7a8fa6;padding:10px 8px;text-align:center;white-space:nowrap">Qté</th>
+                <th style="font-size:.66rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#7a8fa6;padding:10px 8px;text-align:right;white-space:nowrap">PU HT</th>
+                <th style="font-size:.66rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#7a8fa6;padding:10px 0 10px 8px;text-align:right;white-space:nowrap">Total HT</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="border-bottom:1px solid #e2e8f5"><td style="padding:10px 8px 10px 0;font-size:.82rem;color:#0f1923;font-weight:500">Dépose et évacuation ancien chauffe-eau</td><td style="padding:10px 8px;text-align:center;font-size:.82rem;color:#3d4f60">1</td><td style="padding:10px 8px;text-align:right;font-size:.82rem;color:#3d4f60">120,00 €</td><td style="padding:10px 0 10px 8px;text-align:right;font-size:.82rem;font-weight:600;color:#0f1923">120,00 €</td></tr>
+              <tr style="border-bottom:1px solid #e2e8f5"><td style="padding:10px 8px 10px 0;font-size:.82rem;color:#0f1923;font-weight:500">Fourniture chauffe-eau électrique 200L</td><td style="padding:10px 8px;text-align:center;font-size:.82rem;color:#3d4f60">1</td><td style="padding:10px 8px;text-align:right;font-size:.82rem;color:#3d4f60">650,00 €</td><td style="padding:10px 0 10px 8px;text-align:right;font-size:.82rem;font-weight:600;color:#0f1923">650,00 €</td></tr>
+              <tr style="border-bottom:1px solid #e2e8f5"><td style="padding:10px 8px 10px 0;font-size:.82rem;color:#0f1923;font-weight:500">Pose et raccordements électrique + plomberie</td><td style="padding:10px 8px;text-align:center;font-size:.82rem;color:#3d4f60">1</td><td style="padding:10px 8px;text-align:right;font-size:.82rem;color:#3d4f60">280,00 €</td><td style="padding:10px 0 10px 8px;text-align:right;font-size:.82rem;font-weight:600;color:#0f1923">280,00 €</td></tr>
+              <tr style="border-bottom:1px solid #e2e8f5"><td style="padding:10px 8px 10px 0;font-size:.82rem;color:#0f1923;font-weight:500">Purge et mise en service installation</td><td style="padding:10px 8px;text-align:center;font-size:.82rem;color:#3d4f60">1</td><td style="padding:10px 8px;text-align:right;font-size:.82rem;color:#3d4f60">60,00 €</td><td style="padding:10px 0 10px 8px;text-align:right;font-size:.82rem;font-weight:600;color:#0f1923">60,00 €</td></tr>
+              <tr><td style="padding:10px 8px 10px 0;font-size:.82rem;color:#0f1923;font-weight:500">Déplacement</td><td style="padding:10px 8px;text-align:center;font-size:.82rem;color:#3d4f60">1</td><td style="padding:10px 8px;text-align:right;font-size:.82rem;color:#3d4f60">40,00 €</td><td style="padding:10px 0 10px 8px;text-align:right;font-size:.82rem;font-weight:600;color:#0f1923">40,00 €</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Totaux -->
+        <div style="padding:14px 20px;border-top:2px solid #e2e8f5;background:#f7f9ff">
+          <div style="display:flex;justify-content:flex-end">
+            <div style="width:220px">
+              <div style="display:flex;justify-content:space-between;font-size:.82rem;color:#3d4f60;padding:4px 0"><span>Total HT</span><span style="font-weight:600">1 150,00 €</span></div>
+              <div style="display:flex;justify-content:space-between;font-size:.82rem;color:#3d4f60;padding:4px 0;border-bottom:1px solid #e2e8f5"><span>TVA 10 %</span><span style="font-weight:600">115,00 €</span></div>
+              <div style="display:flex;justify-content:space-between;font-size:.95rem;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;color:#0f1923;padding:8px 0"><span>Total TTC</span><span style="color:#1a6bfa">1 265,00 €</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mentions légales -->
+        <div style="padding:14px 20px;border-top:1px solid #e2e8f5;font-size:.72rem;color:#7a8fa6;line-height:1.7">
+          <strong style="color:#3d4f60">Conditions :</strong> Acompte de 30 % à la commande · Solde à réception de la facture · Délai d'exécution : 3 à 5 jours ouvrés après réception de l'acompte · Pénalités de retard exigibles après échéance + indemnité forfaitaire de 40 €<br>
+          <em>Le devis prend effet à réception du devis signé accompagné de l'acompte.</em>
+        </div>
+
+        <!-- Signature -->
+        <div style="padding:14px 20px;border-top:1px solid #e2e8f5;display:flex;align-items:center;gap:10px">
+          <div style="width:16px;height:16px;border-radius:4px;border:2px solid #1a6bfa;flex-shrink:0"></div>
+          <div style="font-size:.76rem;color:#3d4f60;font-style:italic">Bon pour accord — Lu et approuvé + date + signature du client</div>
+        </div>
+
       </div>
-      <!-- RESULTS -->
-      <div class="result-panel">
 
-        <!-- Devis editable -->
-        <div class="result-card" id="rc-devis">
-          <div class="rc-header"><div class="rc-dot" style="background:#1a6bfa"></div>Devis — modifiez les prix directement</div>
-          <div class="rc-body"><div id="devis-output"></div></div>
-        </div>
-        <!-- Send buttons -->
-        <div class="result-card" id="rc-send">
-          <div class="rc-header"><div class="rc-dot" style="background:#25d366"></div>Envoyer en 1 clic</div>
-          <div class="rc-body">
-            <div class="send-btns">
-              <button class="send-btn send-btn-wa" onclick="sendAction('WhatsApp')">
-                <svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
-                WhatsApp
-              </button>
-              <button class="send-btn send-btn-sms" onclick="sendAction('SMS')">
-                <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-                SMS
-              </button>
-              <button class="send-btn send-btn-email" onclick="sendAction('Email')">
-                <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-                Email
-              </button>
-            </div>
-            <div class="wa-bubble" id="wa-output" style="margin-top:12px;display:none"></div>
+      <!-- RIGHT: Ce que ca remplace + CTA -->
+      <div style="display:flex;flex-direction:column;gap:16px">
+
+        <!-- Badge temps -->
+        <div style="background:#0f1923;border-radius:16px;padding:20px 24px;display:flex;align-items:center;gap:16px">
+          <div style="width:52px;height:52px;border-radius:14px;background:#1a6bfa;display:flex;align-items:center;justify-content:center;flex-shrink:0">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <div>
+            <div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:1.3rem;color:#fff">Généré en 20 secondes</div>
+            <div style="font-size:.8rem;color:rgba(255,255,255,.5);margin-top:2px">Vous tapiez la demande client, FastDevis fait le reste</div>
           </div>
         </div>
-        <!-- Accept button -->
-        <div class="result-card" id="rc-accept">
-          <div class="rc-header"><div class="rc-dot" style="background:#00c48c"></div>Acceptation client</div>
-          <div class="rc-body">
-            <div class="accept-zone">
-              <p>Partagez ce lien avec votre client. Il peut accepter et signer directement depuis son téléphone.</p>
-              <button class="accept-btn" onclick="simulerAcceptation()">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                J'accepte le devis
-              </button>
-            </div>
+
+        <!-- Ce que ca remplace -->
+        <div style="background:#fff;border-radius:16px;border:1.5px solid #e2e8f5;padding:20px 24px;box-shadow:0 2px 12px rgba(26,107,250,.06)">
+          <div style="font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#7a8fa6;margin-bottom:14px">Ce devis contient automatiquement</div>
+          <div style="display:flex;flex-direction:column;gap:10px">
+            <div style="display:flex;align-items:center;gap:10px;font-size:.84rem;color:#0f1923"><div style="width:20px;height:20px;border-radius:50%;background:#e0fff5;display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#00c48c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>SIRET + TVA intracommunautaire</div>
+            <div style="display:flex;align-items:center;gap:10px;font-size:.84rem;color:#0f1923"><div style="width:20px;height:20px;border-radius:50%;background:#e0fff5;display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#00c48c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>RC Pro + assureur</div>
+            <div style="display:flex;align-items:center;gap:10px;font-size:.84rem;color:#0f1923"><div style="width:20px;height:20px;border-radius:50%;background:#e0fff5;display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#00c48c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Date de validité précise (pas "30 jours")</div>
+            <div style="display:flex;align-items:center;gap:10px;font-size:.84rem;color:#0f1923"><div style="width:20px;height:20px;border-radius:50%;background:#e0fff5;display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#00c48c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Pénalités de retard légales (40 €)</div>
+            <div style="display:flex;align-items:center;gap:10px;font-size:.84rem;color:#0f1923"><div style="width:20px;height:20px;border-radius:50%;background:#e0fff5;display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#00c48c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Acompte + conditions de paiement</div>
+            <div style="display:flex;align-items:center;gap:10px;font-size:.84rem;color:#0f1923"><div style="width:20px;height:20px;border-radius:50%;background:#e0fff5;display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#00c48c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Coordonnées complètes prestataire + client</div>
+            <div style="display:flex;align-items:center;gap:10px;font-size:.84rem;color:#0f1923"><div style="width:20px;height:20px;border-radius:50%;background:#e0fff5;display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#00c48c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Case signature "Bon pour accord"</div>
           </div>
         </div>
-        <!-- Relance auto -->
-        <div class="result-card" id="rc-relance">
-          <div class="rc-header"><div class="rc-dot" style="background:#1a6bfa"></div>Relance automatique programmée</div>
-          <div class="rc-body">
-            <div class="relance-badge">
-              <div class="relance-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
-              <div class="relance-text">
-                <strong>Relance J+2 programmée</strong>
-                <p style="margin-top:4px">"Bonjour, avez-vous pu consulter le devis ? Je reste disponible pour toute question."</p>
-                <p style="margin-top:8px;font-size:.74rem;color:#7a8fa6">Puis J+5 et J+7 si pas de réponse · Annulable à tout moment</p>
-              </div>
+
+        <!-- Comparaison -->
+        <div style="background:#fff;border-radius:16px;border:1.5px solid #e2e8f5;padding:20px 24px;box-shadow:0 2px 12px rgba(26,107,250,.06)">
+          <div style="font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#7a8fa6;margin-bottom:14px">Sans FastDevis vs Avec FastDevis</div>
+          <div style="display:flex;flex-direction:column;gap:8px">
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 12px;background:#fee2e2;border-radius:8px">
+              <span style="font-size:.82rem;color:#7f1d1d">Excel / Word manuel</span>
+              <span style="font-size:.78rem;font-weight:700;color:#ef4444">45 min</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 12px;background:#e0fff5;border-radius:8px">
+              <span style="font-size:.82rem;color:#064e35;font-weight:600">FastDevis</span>
+              <span style="font-size:.78rem;font-weight:700;color:#00c48c">20 secondes</span>
             </div>
           </div>
+          <div style="margin-top:12px;font-size:.78rem;color:#7a8fa6;text-align:center">Économisez <strong style="color:#0f1923">4h par semaine</strong> — soit un chantier entier</div>
         </div>
+
+        <!-- CTA -->
+        <a href="https://buy.stripe.com/00waEX5bd4czaGaeauffy00" target="_blank" style="display:block;background:#ff6b2b;color:#fff;-webkit-text-fill-color:#fff;text-align:center;padding:18px 24px;border-radius:14px;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:1.05rem;text-decoration:none;box-shadow:0 8px 28px rgba(255,107,43,.4)">Créer mes devis comme ça — dès maintenant</a>
+        <div style="text-align:center;font-size:.76rem;color:#7a8fa6">14 jours gratuits · Sans carte bancaire · Résiliable en 1 clic</div>
       </div>
     </div>
   </div>
