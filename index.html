@@ -10,6 +10,9 @@
 <style>
 /* Prevent layout shift while fonts load */
 html{font-family:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif}
+/* Prevent orphan text nodes from showing */
+.pain-grid,.pricing-grid,.demo-wrapper,.steps-grid,.features-grid,.testi-grid{font-size:0}
+.pain-grid>*,.pricing-grid>*,.demo-wrapper>*,.steps-grid>*,.features-grid>*,.testi-grid>*{font-size:1rem}
 </style>
 <style>
 :root{
@@ -348,9 +351,6 @@ footer a:hover{color:#fff}
 .toast-green{border-left:4px solid #00c48c}
 .toast-blue{border-left:4px solid #1a6bfa}
 
-/* REVEAL - disabled to prevent rendering artifacts */
-.reveal{opacity:1;transform:none}
-
 /* ── AUTH NAV ── */
 .nav-auth{display:flex;align-items:center;gap:10px}
 .nav-profile-btn{display:flex;align-items:center;gap:9px;background:#fff;border:1.5px solid #e2e8f5;border-radius:100px;padding:6px 14px 6px 6px;cursor:pointer;transition:border-color .2s,box-shadow .2s;position:relative;box-shadow:0 2px 8px rgba(0,0,0,.06)}
@@ -487,7 +487,6 @@ footer a:hover{color:#fff}
 <body>
 
 <div class="toast" id="toast"></div>
-
 <!-- AUTH MODAL -->
 <div class="auth-modal-bg" id="auth-modal">
   <div class="auth-modal">
@@ -525,7 +524,6 @@ footer a:hover{color:#fff}
     </div>
   </div>
 </div>
-
 <!-- SETUP ENTREPRISE MODAL -->
 <div class="setup-modal-bg" id="setup-modal">
   <div class="setup-modal">
@@ -557,7 +555,6 @@ footer a:hover{color:#fff}
           <button class="nav-btn nav-btn-primary" onclick="setupNext(2)">Suivant</button>
         </div>
       </div>
-
       <!-- STEP 2 -->
       <div class="setup-panel" id="spanel-2">
         <div class="setup-tip"><strong>Mentions légales obligatoires.</strong> SIRET, TVA et RC Pro protègent votre devis juridiquement et rassurent vos clients professionnels.</div>
@@ -573,7 +570,6 @@ footer a:hover{color:#fff}
           <button class="nav-btn nav-btn-primary" onclick="setupNext(3)">Suivant</button>
         </div>
       </div>
-
       <!-- STEP 3 -->
       <div class="setup-panel" id="spanel-3">
         <div class="setup-tip"><strong>Conditions automatiques.</strong> Ces textes apparaîtront en bas de chaque devis. Vous pouvez les modifier à tout moment.</div>
@@ -587,11 +583,9 @@ footer a:hover{color:#fff}
           <button class="nav-btn nav-btn-primary" onclick="finishSetup()">Terminer la configuration</button>
         </div>
       </div>
-
     </div>
   </div>
 </div>
-
 <!-- NAV -->
 <nav>
   <div class="logo">Fast<span>Devis</span></div>
@@ -614,7 +608,6 @@ footer a:hover{color:#fff}
     </div>
   </div>
 </nav>
-
 <!-- HERO -->
 <div class="hero-wrap">
   <div class="hero-inner">
@@ -670,7 +663,6 @@ footer a:hover{color:#fff}
     </div>
   </div>
 </div>
-
 <!-- STATS -->
 <div class="stats-band" style="background:#1a6bfa;padding:40px 20px">
   <div class="stats-inner">
@@ -680,7 +672,6 @@ footer a:hover{color:#fff}
     <div><div class="stat-num" style="color:#fff">1 200+</div><div class="stat-label" style="color:rgba(255,255,255,.85)">artisans nous font confiance</div></div>
   </div>
 </div>
-
 <!-- PAIN -->
 <section id="pain">
   <div class="section-inner">
@@ -688,21 +679,15 @@ footer a:hover{color:#fff}
     <h2 class="section-title">Vous perdez des chantiers<br>à cause de vos devis lents</h2>
     <p style="font-size:1.05rem;color:#3d4f60;line-height:1.7;margin-bottom:32px">Chaque heure de retard, c'est un client qui appelle la concurrence. FastDevis change ça.</p>
     <div class="pain-grid">
-      <div style="background:#fff;border:1.5px solid #e2e8f5;border-radius:18px;padding:24px;box-shadow:0 2px 16px rgba(26,107,250,.07)" class="reveal"><div style="width:44px;height:44px;border-radius:12px;background:#e8f0ff;display:flex;align-items:center;justify-content:center;margin-bottom:14px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1a6bfa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1rem;color:#0f1923;margin-bottom:8px">Devis le soir après le chantier</h3><p style="font-size:.875rem;color:#3d4f60;line-height:1.65">Vous rentrez épuisé mais les demandes s'accumulent. Votre concurrent répond en 10 minutes — vous, en 2 jours.</p></div>
-
-      <div style="background:#fff;border:1.5px solid #e2e8f5;border-radius:18px;padding:24px;box-shadow:0 2px 16px rgba(26,107,250,.07)" class="reveal"><div style="width:44px;height:44px;border-radius:12px;background:#e8f0ff;display:flex;align-items:center;justify-content:center;margin-bottom:14px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1a6bfa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div><h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1rem;color:#0f1923;margin-bottom:8px">Word, Excel ou papier</h3><p style="font-size:.875rem;color:#3d4f60;line-height:1.65">Pas de template conforme, pas de mentions légales. Le client compare et choisit celui qui paraît le plus sérieux.</p></div>
-
-      <div style="background:#fff;border:1.5px solid #e2e8f5;border-radius:18px;padding:24px;box-shadow:0 2px 16px rgba(26,107,250,.07)" class="reveal"><div style="width:44px;height:44px;border-radius:12px;background:#e8f0ff;display:flex;align-items:center;justify-content:center;margin-bottom:14px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1a6bfa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.38 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.63a16 16 0 0 0 6 6l.95-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div><h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1rem;color:#0f1923;margin-bottom:8px">Relances oubliées</h3><p style="font-size:.875rem;color:#3d4f60;line-height:1.65">Un devis envoyé sans relance, c'est un chantier perdu. Un message au bon moment peut suffire à signer.</p></div>
-
-      <div style="background:#fff;border:1.5px solid #e2e8f5;border-radius:18px;padding:24px;box-shadow:0 2px 16px rgba(26,107,250,.07)" class="reveal"><div style="width:44px;height:44px;border-radius:12px;background:#e8f0ff;display:flex;align-items:center;justify-content:center;margin-bottom:14px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1a6bfa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div><h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1rem;color:#0f1923;margin-bottom:8px">Chiffrage qui prend du temps</h3><p style="font-size:.875rem;color:#3d4f60;line-height:1.65">Retrouver les prix de pose, les fournitures, les marges… à chaque devis, vous recommencez tout de zéro.</p></div>
-
-      <div style="background:#fff;border:1.5px solid #e2e8f5;border-radius:18px;padding:24px;box-shadow:0 2px 16px rgba(26,107,250,.07)" class="reveal"><div style="width:44px;height:44px;border-radius:12px;background:#e8f0ff;display:flex;align-items:center;justify-content:center;margin-bottom:14px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1a6bfa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div><h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1rem;color:#0f1923;margin-bottom:8px">WhatsApp comme CRM</h3><p style="font-size:.875rem;color:#3d4f60;line-height:1.65">Demandes perdues dans les messages, impossible de retrouver les devis envoyés, aucune visibilité sur le pipeline.</p></div>
-
-      <div style="background:#fff;border:1.5px solid #e2e8f5;border-radius:18px;padding:24px;box-shadow:0 2px 16px rgba(26,107,250,.07)" class="reveal"><div style="width:44px;height:44px;border-radius:12px;background:#e8f0ff;display:flex;align-items:center;justify-content:center;margin-bottom:14px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1a6bfa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div><h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1rem;color:#0f1923;margin-bottom:8px">Chantiers ratés inutilement</h3><p style="font-size:.875rem;color:#3d4f60;line-height:1.65">Un chantier de plus par mois peut valoir 500 à 2 000 €. Combien perdez-vous à cause d'un processus trop lent ?</p></div>
+      <div style="background:#fff;border:1.5px solid #e2e8f5;border-radius:18px;padding:24px;box-shadow:0 2px 16px rgba(26,107,250,.07)"><div style="width:44px;height:44px;border-radius:12px;background:#e8f0ff;display:flex;align-items:center;justify-content:center;margin-bottom:14px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1a6bfa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1rem;color:#0f1923;margin-bottom:8px">Devis le soir après le chantier</h3><p style="font-size:.875rem;color:#3d4f60;line-height:1.65">Vous rentrez épuisé mais les demandes s'accumulent. Votre concurrent répond en 10 minutes — vous, en 2 jours.</p></div>
+<div style="background:#fff;border:1.5px solid #e2e8f5;border-radius:18px;padding:24px;box-shadow:0 2px 16px rgba(26,107,250,.07)"><div style="width:44px;height:44px;border-radius:12px;background:#e8f0ff;display:flex;align-items:center;justify-content:center;margin-bottom:14px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1a6bfa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div><h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1rem;color:#0f1923;margin-bottom:8px">Word, Excel ou papier</h3><p style="font-size:.875rem;color:#3d4f60;line-height:1.65">Pas de template conforme, pas de mentions légales. Le client compare et choisit celui qui paraît le plus sérieux.</p></div>
+<div style="background:#fff;border:1.5px solid #e2e8f5;border-radius:18px;padding:24px;box-shadow:0 2px 16px rgba(26,107,250,.07)"><div style="width:44px;height:44px;border-radius:12px;background:#e8f0ff;display:flex;align-items:center;justify-content:center;margin-bottom:14px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1a6bfa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.38 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.63a16 16 0 0 0 6 6l.95-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div><h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1rem;color:#0f1923;margin-bottom:8px">Relances oubliées</h3><p style="font-size:.875rem;color:#3d4f60;line-height:1.65">Un devis envoyé sans relance, c'est un chantier perdu. Un message au bon moment peut suffire à signer.</p></div>
+<div style="background:#fff;border:1.5px solid #e2e8f5;border-radius:18px;padding:24px;box-shadow:0 2px 16px rgba(26,107,250,.07)"><div style="width:44px;height:44px;border-radius:12px;background:#e8f0ff;display:flex;align-items:center;justify-content:center;margin-bottom:14px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1a6bfa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div><h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1rem;color:#0f1923;margin-bottom:8px">Chiffrage qui prend du temps</h3><p style="font-size:.875rem;color:#3d4f60;line-height:1.65">Retrouver les prix de pose, les fournitures, les marges… à chaque devis, vous recommencez tout de zéro.</p></div>
+<div style="background:#fff;border:1.5px solid #e2e8f5;border-radius:18px;padding:24px;box-shadow:0 2px 16px rgba(26,107,250,.07)"><div style="width:44px;height:44px;border-radius:12px;background:#e8f0ff;display:flex;align-items:center;justify-content:center;margin-bottom:14px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1a6bfa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div><h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1rem;color:#0f1923;margin-bottom:8px">WhatsApp comme CRM</h3><p style="font-size:.875rem;color:#3d4f60;line-height:1.65">Demandes perdues dans les messages, impossible de retrouver les devis envoyés, aucune visibilité sur le pipeline.</p></div>
+<div style="background:#fff;border:1.5px solid #e2e8f5;border-radius:18px;padding:24px;box-shadow:0 2px 16px rgba(26,107,250,.07)"><div style="width:44px;height:44px;border-radius:12px;background:#e8f0ff;display:flex;align-items:center;justify-content:center;margin-bottom:14px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1a6bfa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div><h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1rem;color:#0f1923;margin-bottom:8px">Chantiers ratés inutilement</h3><p style="font-size:.875rem;color:#3d4f60;line-height:1.65">Un chantier de plus par mois peut valoir 500 à 2 000 €. Combien perdez-vous à cause d'un processus trop lent ?</p></div>
     </div>
   </div>
 </section>
-
 <!-- HOW -->
 <section id="how">
   <div class="section-inner">
@@ -710,20 +695,19 @@ footer a:hover{color:#fff}
     <h2 class="section-title">7 étapes automatiques.<br>Zéro effort de votre côté.</h2>
     <p style="font-size:1.05rem;color:#3d4f60;line-height:1.7;margin-bottom:32px">De la demande client au devis signé, FastDevis gère tout le processus pour vous.</p>
     <div class="steps-grid">
-      <div class="step reveal"><div class="step-bubble">1</div><h3>Demande reçue</h3><p>SMS, WhatsApp ou formulaire. FastDevis comprend le langage naturel.</p></div>
-      <div class="step reveal"><div class="step-bubble">2</div><h3>Analyse et chiffrage</h3><p>FastDevis identifie les prestations et applique vos tarifs instantanément.</p></div>
-      <div class="step reveal"><div class="step-bubble">3</div><h3>PDF conforme</h3><p>Votre logo, coordonnées complètes, SIRET, RC Pro, toutes les mentions légales.</p></div>
-      <div class="step reveal"><div class="step-bubble">4</div><h3>Envoi en 1 clic</h3><p>WhatsApp, SMS ou email — directement depuis FastDevis, sans copier-coller.</p></div>
+      <div class="step"><div class="step-bubble">1</div><h3>Demande reçue</h3><p>SMS, WhatsApp ou formulaire. FastDevis comprend le langage naturel.</p></div>
+      <div class="step"><div class="step-bubble">2</div><h3>Analyse et chiffrage</h3><p>FastDevis identifie les prestations et applique vos tarifs instantanément.</p></div>
+      <div class="step"><div class="step-bubble">3</div><h3>PDF conforme</h3><p>Votre logo, coordonnées complètes, SIRET, RC Pro, toutes les mentions légales.</p></div>
+      <div class="step"><div class="step-bubble">4</div><h3>Envoi en 1 clic</h3><p>WhatsApp, SMS ou email — directement depuis FastDevis, sans copier-coller.</p></div>
     </div>
     <div class="steps-grid" style="margin-top:28px">
-      <div class="step reveal"><div class="step-bubble">5</div><h3>Relance automatique</h3><p>48h après : "Bonjour, avez-vous pu consulter le devis ?" — envoyé automatiquement.</p></div>
-      <div class="step reveal"><div class="step-bubble">6</div><h3>Acceptation client</h3><p>Le client clique "J'accepte le devis" — signature digitale avec IP, date et heure.</p></div>
-      <div class="step reveal"><div class="step-bubble">7</div><h3>Client dans le CRM</h3><p>Historique complet, coordonnées, montants. Tout en un endroit.</p></div>
-      <div class="step reveal" style="opacity:.3!important"><div class="step-bubble" style="background:linear-gradient(135deg,#00c48c,#00a878);box-shadow:0 8px 24px rgba(0,196,140,.3)">&#10003;</div><h3>Chantier signé</h3><p>Vous posez vos outils. L'argent rentre.</p></div>
+      <div class="step"><div class="step-bubble">5</div><h3>Relance automatique</h3><p>48h après : "Bonjour, avez-vous pu consulter le devis ?" — envoyé automatiquement.</p></div>
+      <div class="step"><div class="step-bubble">6</div><h3>Acceptation client</h3><p>Le client clique "J'accepte le devis" — signature digitale avec IP, date et heure.</p></div>
+      <div class="step"><div class="step-bubble">7</div><h3>Client dans le CRM</h3><p>Historique complet, coordonnées, montants. Tout en un endroit.</p></div>
+      <div class="step" style="opacity:.3!important"><div class="step-bubble" style="background:linear-gradient(135deg,#00c48c,#00a878);box-shadow:0 8px 24px rgba(0,196,140,.3)">&#10003;</div><h3>Chantier signé</h3><p>Vous posez vos outils. L'argent rentre.</p></div>
     </div>
   </div>
 </section>
-
 <!-- FEATURES -->
 <section id="features">
   <div class="section-inner">
@@ -733,13 +717,13 @@ footer a:hover{color:#fff}
         <h2 class="section-title">Tout ce qu'il vous faut,<br>rien de superflu</h2>
         <p style="font-size:1.05rem;color:#3d4f60;line-height:1.7;margin-bottom:32px">Conçu pour les plombiers, électriciens, peintres, menuisiers et tous les artisans du bâtiment.</p>
         <div class="feature-list">
-          <div class="feature-item reveal"><div class="feat-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg></div><div class="feat-text"><h4>Génération instantanée</h4><p>Décrivez le travail en langage naturel. FastDevis génère un devis complet avec toutes les lignes de prestations en quelques secondes.</p></div></div>
-          <div class="feature-item reveal"><div class="feat-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div><div class="feat-text"><h4>PDF 100 % conforme</h4><p>SIRET, TVA, RC Pro, date limite de validité précise, pénalités de retard, mention acompte. Juridiquement solide.</p></div></div>
-          <div class="feature-item reveal"><div class="feat-icon"><svg viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg></div><div class="feat-text"><h4>Relances automatiques</h4><p>48h après envoi : message automatique. Puis J+5, J+7. Vous récupérez des devis que vous auriez perdus.</p></div></div>
-          <div class="feature-item reveal"><div class="feat-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></div><div class="feat-text"><h4>Acceptation + signature</h4><p>Bouton "Accepter le devis" pour le client. Signature digitale avec IP, horodatage et email de confirmation.</p></div></div>
+          <div class="feature-item"><div class="feat-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg></div><div class="feat-text"><h4>Génération instantanée</h4><p>Décrivez le travail en langage naturel. FastDevis génère un devis complet avec toutes les lignes de prestations en quelques secondes.</p></div></div>
+          <div class="feature-item"><div class="feat-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div><div class="feat-text"><h4>PDF 100 % conforme</h4><p>SIRET, TVA, RC Pro, date limite de validité précise, pénalités de retard, mention acompte. Juridiquement solide.</p></div></div>
+          <div class="feature-item"><div class="feat-icon"><svg viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg></div><div class="feat-text"><h4>Relances automatiques</h4><p>48h après envoi : message automatique. Puis J+5, J+7. Vous récupérez des devis que vous auriez perdus.</p></div></div>
+          <div class="feature-item"><div class="feat-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></div><div class="feat-text"><h4>Acceptation + signature</h4><p>Bouton "Accepter le devis" pour le client. Signature digitale avec IP, horodatage et email de confirmation.</p></div></div>
         </div>
       </div>
-      <div class="reveal">
+      <div>
         <div class="dash-card">
           <div class="dash-header"><div class="dash-title">Devis récents</div><div class="dash-tag">En ligne</div></div>
           <div class="crm-row"><div class="crm-left"><div class="crm-avatar av-blue">MD</div><div><div class="crm-name">Martin <span class="blur-surname">Dupont</span></div><div class="crm-sub">Chauffe-eau 200L · il y a 2h</div></div></div><div class="crm-right"><span class="crm-amount">1 150 €</span><span class="crm-badge b-signed">Signé</span></div></div>
@@ -753,7 +737,6 @@ footer a:hover{color:#fff}
     </div>
   </div>
 </section>
-
 <!-- DEMO -->
 <section id="demo">
   <div class="section-inner">
@@ -771,8 +754,7 @@ footer a:hover{color:#fff}
           </div>
           <div class="form-group"><label>Nom / Entreprise</label><input type="text" id="prestataire" placeholder="Ex: Plomberie Martin"></div>
           <div class="form-group"><label>Adresse</label><input type="text" id="adresse" placeholder="Ex: 12 rue du Bourg, Lyon"></div>
-
-          <div class="form-row">
+<div class="form-row">
             <div class="form-group">
               <label style="display:flex;align-items:center;gap:5px">SIRET <span style="background:#e8f0ff;color:#1a6bfa;font-size:.58rem;font-weight:700;padding:2px 7px;border-radius:100px">Abonnés</span></label>
               <div style="position:relative"><input disabled placeholder="Abonnement requis" style="width:100%;padding:10px 36px 10px 13px;border:1.5px solid #e2e8f5;border-radius:10px;background:#f7f9ff;color:#b0bac9;font-size:.85rem;font-family:'Plus Jakarta Sans',sans-serif;cursor:not-allowed"><svg style="position:absolute;right:10px;top:50%;transform:translateY(-50%);width:15px;height:15px;stroke:#c0ccd8;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
@@ -782,12 +764,10 @@ footer a:hover{color:#fff}
               <div style="position:relative"><input disabled placeholder="Abonnement requis" style="width:100%;padding:10px 36px 10px 13px;border:1.5px solid #e2e8f5;border-radius:10px;background:#f7f9ff;color:#b0bac9;font-size:.85rem;font-family:'Plus Jakarta Sans',sans-serif;cursor:not-allowed"><svg style="position:absolute;right:10px;top:50%;transform:translateY(-50%);width:15px;height:15px;stroke:#c0ccd8;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
             </div>
           </div>
-
-          <div class="form-group"><label>Demande du client</label><textarea id="demande" rows="3" placeholder="Ex: Remplacement chauffe-eau 200L + purge installation. Client dispo semaine prochaine."></textarea></div>
+<div class="form-group"><label>Demande du client</label><textarea id="demande" rows="3" placeholder="Ex: Remplacement chauffe-eau 200L + purge installation. Client dispo semaine prochaine."></textarea></div>
           <div class="form-group"><label>Nom du client</label><input type="text" id="client-name" placeholder="Ex: M. Martin"></div>
           <div class="form-group"><label>Téléphone client</label><input type="text" id="client-tel" placeholder="Ex: 06 12 34 56 78"></div>
-
-          <div class="form-row">
+<div class="form-row">
             <div class="form-group">
               <label style="display:flex;align-items:center;gap:5px">Email client <span style="background:#e8f0ff;color:#1a6bfa;font-size:.58rem;font-weight:700;padding:2px 7px;border-radius:100px">Abonnés</span></label>
               <div style="position:relative"><input disabled placeholder="Abonnement requis" style="width:100%;padding:10px 36px 10px 13px;border:1.5px solid #e2e8f5;border-radius:10px;background:#f7f9ff;color:#b0bac9;font-size:.85rem;font-family:'Plus Jakarta Sans',sans-serif;cursor:not-allowed"><svg style="position:absolute;right:10px;top:50%;transform:translateY(-50%);width:15px;height:15px;stroke:#c0ccd8;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
@@ -797,12 +777,10 @@ footer a:hover{color:#fff}
               <div style="position:relative"><input disabled placeholder="Abonnement requis" style="width:100%;padding:10px 36px 10px 13px;border:1.5px solid #e2e8f5;border-radius:10px;background:#f7f9ff;color:#b0bac9;font-size:.85rem;font-family:'Plus Jakarta Sans',sans-serif;cursor:not-allowed"><svg style="position:absolute;right:10px;top:50%;transform:translateY(-50%);width:15px;height:15px;stroke:#c0ccd8;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
             </div>
           </div>
-
-          <div style="background:#e8f0ff;border-radius:10px;padding:10px 14px;margin-bottom:12px;font-size:.74rem;color:#1a6bfa;display:flex;align-items:center;gap:8px;line-height:1.5">
+<div style="background:#e8f0ff;border-radius:10px;padding:10px 14px;margin-bottom:12px;font-size:.74rem;color:#1a6bfa;display:flex;align-items:center;gap:8px;line-height:1.5">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1a6bfa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
             Avec un abonnement, ces champs sont pré-remplis automatiquement depuis votre profil.
           </div>
-
           <button class="gen-btn" onclick="genererDevis()"><span id="btn-txt">Générer le devis</span></button>
           <p class="quick-label">Suggestions rapides :</p>
           <div class="quick-btns">
@@ -813,7 +791,6 @@ footer a:hover{color:#fff}
           </div>
         </div>
       </div>
-
       <!-- RESULTS -->
       <div class="result-panel">
 
@@ -822,7 +799,6 @@ footer a:hover{color:#fff}
           <div class="rc-header"><div class="rc-dot" style="background:#1a6bfa"></div>Devis — modifiez les prix directement</div>
           <div class="rc-body"><div id="devis-output"></div></div>
         </div>
-
         <!-- Send buttons -->
         <div class="result-card" id="rc-send">
           <div class="rc-header"><div class="rc-dot" style="background:#25d366"></div>Envoyer en 1 clic</div>
@@ -844,7 +820,6 @@ footer a:hover{color:#fff}
             <div class="wa-bubble" id="wa-output" style="margin-top:12px;display:none"></div>
           </div>
         </div>
-
         <!-- Accept button -->
         <div class="result-card" id="rc-accept">
           <div class="rc-header"><div class="rc-dot" style="background:#00c48c"></div>Acceptation client</div>
@@ -858,7 +833,6 @@ footer a:hover{color:#fff}
             </div>
           </div>
         </div>
-
         <!-- Relance auto -->
         <div class="result-card" id="rc-relance">
           <div class="rc-header"><div class="rc-dot" style="background:#1a6bfa"></div>Relance automatique programmée</div>
@@ -873,12 +847,10 @@ footer a:hover{color:#fff}
             </div>
           </div>
         </div>
-
       </div>
     </div>
   </div>
 </section>
-
 <!-- PRICING -->
 <section id="pricing">
   <div class="section-inner">
@@ -888,7 +860,7 @@ footer a:hover{color:#fff}
     <div class="pricing-grid">
 
       <!-- STARTER avec Stripe -->
-      <div class="price-card reveal" style="background:#fff;border:2px solid #e2e8f5;border-radius:20px;padding:32px 24px;display:flex;flex-direction:column;box-shadow:0 4px 24px rgba(26,107,250,.08)">
+      <div class="price-card" style="background:#fff;border:2px solid #e2e8f5;border-radius:20px;padding:32px 24px;display:flex;flex-direction:column;box-shadow:0 4px 24px rgba(26,107,250,.08)">
         <div class="plan-name" style="font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#7a8fa6;margin-bottom:12px">Starter</div>
         <div style="font-family:'Bricolage Grotesque',sans-serif;font-size:3rem;font-weight:800;letter-spacing:-.05em;line-height:1;color:#0f1923"><sup style="font-size:1.3rem;font-weight:500;vertical-align:super">€</sup>29</div>
         <div style="font-size:.83rem;color:#7a8fa6;margin-bottom:24px">par mois · sans engagement</div>
@@ -901,11 +873,10 @@ footer a:hover{color:#fff}
           <li style="font-size:.875rem;display:flex;gap:10px;align-items:flex-start;color:#3d4f60"><span style="width:18px;height:18px;border-radius:50%;background:#e8f0ff;flex-shrink:0;display:inline-block;margin-top:1px;background-image:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 6l3 3 5-5' stroke='%231a6bfa' stroke-width='1.8' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\");background-size:12px;background-repeat:no-repeat;background-position:center"></span>1 métier configuré</li>
           <li style="font-size:.875rem;display:flex;gap:10px;align-items:flex-start;color:#3d4f60"><span style="width:18px;height:18px;border-radius:50%;background:#e8f0ff;flex-shrink:0;display:inline-block;margin-top:1px;background-image:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 6l3 3 5-5' stroke='%231a6bfa' stroke-width='1.8' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\");background-size:12px;background-repeat:no-repeat;background-position:center"></span>Support email</li>
         </ul>
-        <a href="https://buy.stripe.com/00waEX5bd4czaGaeauffy00" target="_blank" style="display:block;text-align:center;padding:15px 24px;border-radius:100px;font-weight:700;font-size:.95rem;text-decoration:none;background:#0f1923;color:#fff;-webkit-text-fill-color:#fff;border:2px solid #0f1923;transition:transform .2s">Commencer — 14 jours gratuits</a>
+        <a href="https://buy.stripe.com/00waEX5bd4czaGaeauffy00" target="_blank" style="display:block;text-align:center;padding:15px 24px;border-radius:100px;font-weight:700;font-size:.95rem;text-decoration:none;background:#0f1923;color:#fff;-webkit-text-fill-color:#fff;border:2px solid #0f1923;transition:transform .2s">Commencer — Essai gratuit 14 jours</a>
       </div>
-
       <!-- PRO featured -->
-      <div class="price-card featured reveal" style="background:#1a6bfa;border:2px solid #1a6bfa;border-radius:20px;padding:32px 24px;display:flex;flex-direction:column;position:relative;box-shadow:0 24px 64px rgba(26,107,250,.4)">
+      <div class="price-card featured" style="background:#1a6bfa;border:2px solid #1a6bfa;border-radius:20px;padding:32px 24px;display:flex;flex-direction:column;position:relative;box-shadow:0 24px 64px rgba(26,107,250,.4)">
         <div style="position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:#ff6b2b;color:#fff;-webkit-text-fill-color:#fff;font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:5px 18px;border-radius:100px;white-space:nowrap;box-shadow:0 4px 16px rgba(255,107,43,.4)">Le plus populaire</div>
         <div style="font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.65);margin-bottom:12px">Pro</div>
         <div style="font-family:'Bricolage Grotesque',sans-serif;font-size:3rem;font-weight:800;letter-spacing:-.05em;line-height:1;color:#fff"><sup style="font-size:1.3rem;font-weight:500;vertical-align:super;color:#fff">€</sup>59</div>
@@ -922,9 +893,8 @@ footer a:hover{color:#fff}
         </ul>
         <a href="https://buy.stripe.com/aFacN5335gZl01w2rMffy03" target="_blank" style="display:block;text-align:center;padding:15px 24px;border-radius:100px;font-weight:700;font-size:.95rem;text-decoration:none;background:#ff6b2b;color:#fff;-webkit-text-fill-color:#fff;box-shadow:0 8px 24px rgba(255,107,43,.4)">S'abonner au plan Pro</a>
       </div>
-
       <!-- PREMIUM -->
-      <div class="price-card reveal" style="background:#fff;border:2px solid #e2e8f5;border-radius:20px;padding:32px 24px;display:flex;flex-direction:column;box-shadow:0 4px 24px rgba(26,107,250,.08)">
+      <div class="price-card" style="background:#fff;border:2px solid #e2e8f5;border-radius:20px;padding:32px 24px;display:flex;flex-direction:column;box-shadow:0 4px 24px rgba(26,107,250,.08)">
         <div class="plan-name" style="font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#7a8fa6;margin-bottom:12px">Premium</div>
         <div style="font-family:'Bricolage Grotesque',sans-serif;font-size:3rem;font-weight:800;letter-spacing:-.05em;line-height:1;color:#0f1923"><sup style="font-size:1.3rem;font-weight:500;vertical-align:super">€</sup>99</div>
         <div style="font-size:.83rem;color:#7a8fa6;margin-bottom:24px">par mois · sans engagement</div>
@@ -941,12 +911,10 @@ footer a:hover{color:#fff}
         </ul>
         <a href="https://buy.stripe.com/8x23cveLN5gDeWq1nIffy02" target="_blank" style="display:block;text-align:center;padding:15px 24px;border-radius:100px;font-weight:700;font-size:.95rem;text-decoration:none;background:#0f1923;color:#fff;-webkit-text-fill-color:#fff;border:2px solid #0f1923">S'abonner au plan Premium</a>
       </div>
-
     </div>
     <p style="text-align:center;margin-top:28px;font-size:.85rem;color:#7a8fa6">Aucune carte bancaire requise · Résiliation en 1 clic · Support 7j/7</p>
   </div>
 </section>
-
 <!-- TESTIMONIALS -->
 <section id="testimonials">
   <div class="section-inner">
@@ -954,27 +922,24 @@ footer a:hover{color:#fff}
     <h2 class="section-title">Plus de 1 200 artisans<br>signent plus de chantiers</h2>
     <p style="font-size:1.05rem;color:#3d4f60;line-height:1.7;margin-bottom:48px">Des résultats concrets dès la première semaine d'utilisation.</p>
     <div class="testi-grid">
-      <div class="testi-card reveal"><div class="testi-stars">★★★★★</div><p class="testi-text">"J'économise au moins 3 heures par semaine. Avant je faisais mes devis le soir sur Excel. Maintenant le client reçoit un PDF conforme en 30 secondes. J'ai signé 4 chantiers de plus le premier mois."</p><div class="testi-author"><div class="testi-av av-blue">LM</div><div><div class="testi-name">Laurent <span class="blur-surname">Mercier</span></div><div class="testi-role">Plombier · Lyon</div></div></div></div>
-      <div class="testi-card reveal"><div class="testi-stars">★★★★★</div><p class="testi-text">"Les relances automatiques, c'est ce qui m'a convaincu. J'oubliais toujours de relancer. Maintenant FastDevis le fait pour moi et je récupère des devis que j'aurais perdus. Rentabilisé en 2 semaines."</p><div class="testi-author"><div class="testi-av av-orange">SB</div><div><div class="testi-name">Sophie <span class="blur-surname">Blanchard</span></div><div class="testi-role">Electricienne · Bordeaux</div></div></div></div>
-      <div class="testi-card reveal"><div class="testi-stars">★★★★★</div><p class="testi-text">"Le bouton Accepter le devis, c'est énorme. Mon client clique depuis son téléphone et c'est signé. Plus besoin d'imprimer, scanner, renvoyer. J'ai converti 3 devis en 48h la première semaine."</p><div class="testi-author"><div class="testi-av av-green">TP</div><div><div class="testi-name">Thomas <span class="blur-surname">Petit</span></div><div class="testi-role">Peintre · Paris</div></div></div></div>
+      <div class="testi-card"><div class="testi-stars">★★★★★</div><p class="testi-text">"J'économise au moins 3 heures par semaine. Avant je faisais mes devis le soir sur Excel. Maintenant le client reçoit un PDF conforme en 30 secondes. J'ai signé 4 chantiers de plus le premier mois."</p><div class="testi-author"><div class="testi-av av-blue">LM</div><div><div class="testi-name">Laurent <span class="blur-surname">Mercier</span></div><div class="testi-role">Plombier · Lyon</div></div></div></div>
+      <div class="testi-card"><div class="testi-stars">★★★★★</div><p class="testi-text">"Les relances automatiques, c'est ce qui m'a convaincu. J'oubliais toujours de relancer. Maintenant FastDevis le fait pour moi et je récupère des devis que j'aurais perdus. Rentabilisé en 2 semaines."</p><div class="testi-author"><div class="testi-av av-orange">SB</div><div><div class="testi-name">Sophie <span class="blur-surname">Blanchard</span></div><div class="testi-role">Electricienne · Bordeaux</div></div></div></div>
+      <div class="testi-card"><div class="testi-stars">★★★★★</div><p class="testi-text">"Le bouton Accepter le devis, c'est énorme. Mon client clique depuis son téléphone et c'est signé. Plus besoin d'imprimer, scanner, renvoyer. J'ai converti 3 devis en 48h la première semaine."</p><div class="testi-author"><div class="testi-av av-green">TP</div><div><div class="testi-name">Thomas <span class="blur-surname">Petit</span></div><div class="testi-role">Peintre · Paris</div></div></div></div>
     </div>
   </div>
 </section>
-
 <!-- CTA FINAL -->
 <div class="cta-final">
   <h2>Prêt à signer plus de chantiers ?</h2>
   <p>14 jours gratuits · Sans carte bancaire · Configuré en 2 minutes</p>
   <a href="#pricing" class="cta-white">Démarrer gratuitement</a>
 </div>
-
 <!-- FOOTER -->
 <footer>
   <div class="logo">Fast<span>Devis</span></div>
   <p>© 2026 FastDevis · Le devis automatique pour les artisans qui veulent gagner</p>
   <div style="display:flex;gap:24px"><a href="#">CGV</a><a href="#">Confidentialité</a><a href="#">Contact</a></div>
 </footer>
-
 <script>
 // ── UTILS ──
 function fmt(n){return Math.round(n).toLocaleString('fr-FR')}
@@ -1057,7 +1022,6 @@ function showPaywall(){
         <div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:1.4rem;color:#fff;margin-bottom:6px">Vous avez utilisé votre démo gratuite</div>
         <div style="font-size:.88rem;color:rgba(255,255,255,.8);line-height:1.5">Ceci était un aperçu. La vraie application est bien plus puissante.</div>
       </div>
-
       <!-- Body -->
       <div style="padding:28px">
 
@@ -1087,7 +1051,6 @@ function showPaywall(){
             </div>
           </div>
         </div>
-
         <!-- Ce que l'abo donne -->
         <div style="background:#f0fff9;border:1.5px solid #86efcb;border-radius:14px;padding:16px;margin-bottom:24px">
           <div style="font-size:.76rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#00c48c;margin-bottom:12px">Avec un abonnement FastDevis</div>
@@ -1114,14 +1077,12 @@ function showPaywall(){
             </div>
           </div>
         </div>
-
         <!-- Prix et CTA -->
         <div style="text-align:center;margin-bottom:16px">
           <div style="font-size:.78rem;color:#7a8fa6;margin-bottom:4px">A partir de</div>
           <div style="font-family:'Bricolage Grotesque',sans-serif;font-size:2.4rem;font-weight:800;color:#0f1923;line-height:1">29 <span style="font-size:1.1rem;font-weight:500">€/mois</span></div>
           <div style="font-size:.76rem;color:#7a8fa6;margin-top:2px">Rentabilisé dès le 1er chantier signé en plus</div>
         </div>
-
         <button onclick="closePaywall();openAuth('register')" style="width:100%;padding:16px;background:linear-gradient(135deg,#ff6b2b,#ff4500);color:#fff;border:none;border-radius:14px;font-family:'Bricolage Grotesque',sans-serif;font-size:1.05rem;font-weight:700;cursor:pointer;box-shadow:0 8px 24px rgba(255,107,43,.4);margin-bottom:10px">
           Commencer l'essai gratuit de 14 jours
         </button>
@@ -1304,12 +1265,6 @@ function simulerAcceptation(){
   zone.appendChild(info);
   toastMsg('Devis accepté et signé par le client !','green');
 }
-
-// Scroll reveal
-const ro=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in')});
-},{threshold:.1});
-document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
 
 // ═══════════════════════════════════
 // AUTH SYSTEM
