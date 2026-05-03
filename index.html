@@ -353,13 +353,13 @@ footer a:hover{color:#fff}
 
 /* ── AUTH NAV ── */
 .nav-auth{display:flex;align-items:center;gap:10px}
-.nav-profile-btn{display:flex;align-items:center;gap:9px;background:#fff;border:1.5px solid #e2e8f5;border-radius:100px;padding:6px 14px 6px 6px;cursor:pointer;transition:border-color .2s,box-shadow .2s;position:relative;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+.nav-profile-btn{display:flex;align-items:center;gap:9px;background:#ff6b2b;border:1.5px solid #ff6b2b;border-radius:100px;padding:6px 14px 6px 6px;cursor:pointer;transition:all .2s;position:relative;box-shadow:0 4px 16px rgba(255,107,43,.3)}
 .nav-profile-btn:hover{border-color:#1a6bfa;box-shadow:0 4px 16px rgba(26,107,250,.12)}
 .nav-avatar{width:30px;height:30px;border-radius:50%;background:#1a6bfa;display:flex;align-items:center;justify-content:center;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:.76rem;color:#fff;flex-shrink:0}
-.nav-avatar.empty{background:#f7f9ff;border:1.5px solid #e2e8f5}
-.nav-avatar.empty svg{width:14px;height:14px;stroke:#7a8fa6;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-.nav-username{font-size:.82rem;font-weight:600;color:#0f1923;max-width:120px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.nav-chevron{width:14px;height:14px;stroke:#7a8fa6;fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;transition:transform .2s}
+.nav-avatar.empty{background:rgba(255,255,255,.25);border:1.5px solid rgba(255,255,255,.4)}
+.nav-avatar.empty svg{width:14px;height:14px;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.nav-username{font-size:.82rem;font-weight:700;color:#fff;-webkit-text-fill-color:#fff;max-width:120px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.nav-chevron{width:14px;height:14px;stroke:#fff;fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;transition:transform .2s}
 .nav-profile-btn.open .nav-chevron{transform:rotate(180deg)}
 
 /* DROPDOWN */
@@ -588,14 +588,21 @@ footer a:hover{color:#fff}
 </div>
 <!-- NAV -->
 <nav>
-  <div class="logo">Fast<span>Devis</span></div>
+  <div class="logo" style="display:flex;align-items:center;gap:8px">
+  <div style="width:32px;height:32px;background:#ff6b2b;border-radius:9px;display:flex;align-items:center;justify-content:center;flex-shrink:0">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><line x1="10" y1="9" x2="8" y2="9"/></svg>
+  </div>
+  <span style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:1.25rem;letter-spacing:-.03em;color:#0f1923">Fast<span style="color:#ff6b2b">Devis</span></span>
+</div>
   <ul>
     <li><a href="#pain">Pourquoi</a></li>
     <li><a href="#how">Comment</a></li>
-    <li><a href="#demo">Demo</a></li>
+    <li><a href="#demo">Exemple</a></li>
     <li><a href="#pricing">Tarifs</a></li>
+    <li><a href="#faq">FAQ</a></li>
   </ul>
   <div class="nav-auth">
+    <a href="#pricing" style="padding:8px 18px;background:#0f1923;color:#fff;-webkit-text-fill-color:#fff;border-radius:100px;font-size:.82rem;font-weight:700;text-decoration:none;border:1.5px solid #0f1923;white-space:nowrap;transition:all .2s" onmouseover="this.style.background='#1a6bfa';this.style.borderColor='#1a6bfa'" onmouseout="this.style.background='#0f1923';this.style.borderColor='#0f1923'">Voir les tarifs</a>
     <div class="nav-profile-btn" id="nav-profile-btn" onclick="toggleProfileDropdown()">
       <div class="nav-avatar empty" id="nav-av">
         <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
@@ -616,18 +623,14 @@ footer a:hover{color:#fff}
       <h1>Vos devis en<br><span class="highlight">30 secondes</span><br><span class="orange">signez plus.</span></h1>
       <p class="hero-sub">FastDevis génère automatiquement vos devis professionnels conformes, vos PDFs, vos messages de réponse et relance vos prospects. Vous posez vos outils — FastDevis s'occupe du reste.</p>
       <div class="hero-actions">
-        <a href="https://buy.stripe.com/00waEX5bd4czaGaeauffy00" target="_blank" class="btn-primary" style="background:#ff6b2b;color:#fff;text-decoration:none;-webkit-text-fill-color:#fff">Essayer gratuitement</a>
+        <a href="https://buy.stripe.com/5kQ5kD0UX24r15A8Qaffy07" target="_blank" class="btn-primary" style="background:#ff6b2b;color:#fff;text-decoration:none;-webkit-text-fill-color:#fff">Essayer gratuitement</a>
         <a href="#demo" class="btn-secondary" style="color:#1a6bfa;text-decoration:none">Voir un exemple de devis</a>
       </div>
       <div class="hero-trust">
-        <div style="background:#fff;border:1.5px solid #e2e8f5;border-radius:14px;padding:14px 18px;margin-top:8px;display:flex;align-items:flex-start;gap:10px;box-shadow:0 2px 12px rgba(26,107,250,.06)">
-          <div style="margin-top:2px;flex-shrink:0">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ff6b2b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
-          </div>
-          <div>
-            <div style="font-size:.82rem;font-weight:700;color:#0f1923">Le bouton ci-dessus lance la démo gratuite</div>
-            <div style="font-size:.74rem;color:#7a8fa6;margin-top:3px">Sans carte bancaire · Sans inscription · Annulation libre</div>
-          </div>
+        <div style="display:flex;gap:16px;margin-top:8px;flex-wrap:wrap">
+          <div style="display:flex;align-items:center;gap:7px"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#00c48c" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span style="font-size:.8rem;color:#3d4f60;font-weight:500">7 jours gratuits</span></div>
+          <div style="display:flex;align-items:center;gap:7px"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#00c48c" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span style="font-size:.8rem;color:#3d4f60;font-weight:500">PDF légal inclus</span></div>
+          <div style="display:flex;align-items:center;gap:7px"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#00c48c" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span style="font-size:.8rem;color:#3d4f60;font-weight:500">Résiliation libre</span></div>
         </div>
       </div>
     </div>
@@ -663,13 +666,47 @@ footer a:hover{color:#fff}
     </div>
   </div>
 </div>
+<!-- VIDEO BANNER -->
+<div style="background:#0f1923;padding:40px 20px;text-align:center">
+  <div style="max-width:720px;margin:0 auto">
+    <div style="font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:12px">Voir FastDevis en action</div>
+    <div style="position:relative;border-radius:16px;overflow:hidden;border:2px solid rgba(255,255,255,.08);background:#1a2535;cursor:pointer" onclick="this.querySelector('.play-overlay').style.display='none';this.querySelector('p').style.display='block'" id="video-wrap">
+      <!-- Thumbnail simulée avec aperçu du devis -->
+      <div style="aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:16px;padding:40px 20px;background:linear-gradient(135deg,#1a2535,#0f1923)">
+        <div class="play-overlay" style="display:flex;flex-direction:column;align-items:center;gap:12px">
+          <div style="width:64px;height:64px;border-radius:50%;background:#ff6b2b;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 32px rgba(255,107,43,.4);cursor:pointer" onclick="alert('Filmez votre écran avec CapCut et intégrez la vidéo ici avec une balise <video>')">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="#fff"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          </div>
+          <div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:1.1rem;color:#fff">Générer un devis en 20 secondes</div>
+          <div style="font-size:.82rem;color:rgba(255,255,255,.4)">Remplacez ceci par votre vidéo CapCut · Format recommandé : MP4 horizontal</div>
+        </div>
+        <!-- Indicateurs visuels -->
+        <div style="display:flex;gap:12px;margin-top:8px">
+          <div style="background:rgba(255,255,255,.06);border-radius:8px;padding:8px 14px;font-size:.72rem;color:rgba(255,255,255,.5)">⏱ 30 secondes</div>
+          <div style="background:rgba(255,255,255,.06);border-radius:8px;padding:8px 14px;font-size:.72rem;color:rgba(255,255,255,.5)">📱 Filmé sur iPhone</div>
+          <div style="background:rgba(255,255,255,.06);border-radius:8px;padding:8px 14px;font-size:.72rem;color:rgba(255,255,255,.5)">✅ Résultat réel</div>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:12px;font-size:.78rem;color:rgba(255,255,255,.25)">💡 Pour intégrer votre vraie vidéo : remplacez le div ci-dessus par une balise &lt;video src="votre-video.mp4" controls&gt;&lt;/video&gt;</div>
+  </div>
+</div>
+
 <!-- STATS -->
 <div class="stats-band" style="background:#1a6bfa;padding:40px 20px">
   <div class="stats-inner">
     <div><div class="stat-num" style="color:#fff">30s</div><div class="stat-label" style="color:rgba(255,255,255,.85)">pour un devis conforme et complet</div></div>
     <div><div class="stat-num" style="color:#fff">+40%</div><div class="stat-label" style="color:rgba(255,255,255,.85)">de taux de signature moyen</div></div>
     <div><div class="stat-num" style="color:#fff">4h</div><div class="stat-label" style="color:rgba(255,255,255,.85)">économisées par semaine</div></div>
-    <div><div class="stat-num" style="color:#fff">1 200+</div><div class="stat-label" style="color:rgba(255,255,255,.85)">artisans nous font confiance</div></div>
+    <div>
+      <div class="stat-num" style="color:#fff;display:flex;align-items:center;gap:8px">
+        <span id="live-counter">1 247</span>
+        <span style="display:inline-flex;align-items:center;gap:4px;background:rgba(0,196,140,.25);border:1px solid rgba(0,196,140,.4);border-radius:100px;padding:2px 8px;font-size:.65rem;font-weight:700;color:#00c48c;letter-spacing:.04em">
+          <span style="width:5px;height:5px;border-radius:50%;background:#00c48c;animation:pulse-dot 1.5s ease infinite"></span>LIVE
+        </span>
+      </div>
+      <div class="stat-label" style="color:rgba(255,255,255,.85)">devis générés ce mois</div>
+    </div>
   </div>
 </div>
 <!-- PAIN -->
@@ -689,22 +726,40 @@ footer a:hover{color:#fff}
   </div>
 </section>
 <!-- HOW -->
-<section id="how">
+<section id="how" style="background:#0f1923;padding:80px 0">
   <div class="section-inner">
-    <div class="section-label">Comment ça marche</div>
-    <h2 class="section-title">7 étapes automatiques.<br>Zéro effort de votre côté.</h2>
-    <p style="font-size:1.05rem;color:#3d4f60;line-height:1.7;margin-bottom:32px">De la demande client au devis signé, FastDevis gère tout le processus pour vous.</p>
-    <div class="steps-grid">
-      <div class="step"><div class="step-bubble">1</div><h3>Demande reçue</h3><p>SMS, WhatsApp ou formulaire. FastDevis comprend le langage naturel.</p></div>
-      <div class="step"><div class="step-bubble">2</div><h3>Analyse et chiffrage</h3><p>FastDevis identifie les prestations et applique vos tarifs instantanément.</p></div>
-      <div class="step"><div class="step-bubble">3</div><h3>PDF conforme</h3><p>Votre logo, coordonnées complètes, SIRET, RC Pro, toutes les mentions légales.</p></div>
-      <div class="step"><div class="step-bubble">4</div><h3>Envoi en 1 clic</h3><p>WhatsApp, SMS ou email — directement depuis FastDevis, sans copier-coller.</p></div>
-    </div>
-    <div class="steps-grid" style="margin-top:28px">
-      <div class="step"><div class="step-bubble">5</div><h3>Relance automatique</h3><p>48h après : "Bonjour, avez-vous pu consulter le devis ?" — envoyé automatiquement.</p></div>
-      <div class="step"><div class="step-bubble">6</div><h3>Acceptation client</h3><p>Le client clique "J'accepte le devis" — signature digitale avec IP, date et heure.</p></div>
-      <div class="step"><div class="step-bubble">7</div><h3>Client dans le CRM</h3><p>Historique complet, coordonnées, montants. Tout en un endroit.</p></div>
-      <div class="step" style="opacity:.3!important"><div class="step-bubble" style="background:linear-gradient(135deg,#00c48c,#00a878);box-shadow:0 8px 24px rgba(0,196,140,.3)">&#10003;</div><h3>Chantier signé</h3><p>Vous posez vos outils. L'argent rentre.</p></div>
+    <div class="section-label" style="background:rgba(255,255,255,.1);color:rgba(255,255,255,.8)">Comment ça marche</div>
+    <h2 class="section-title" style="color:#fff">3 étapes.<br>Devis envoyé.</h2>
+    <p style="font-size:1.05rem;color:rgba(255,255,255,.5);line-height:1.7;margin-bottom:48px">De la demande client au devis signé en moins d'une minute.</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px">
+
+      <div style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:20px;padding:28px 24px;position:relative">
+        <div style="width:48px;height:48px;border-radius:14px;background:#1a6bfa;display:flex;align-items:center;justify-content:center;margin-bottom:20px">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        </div>
+        <div style="font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#1a6bfa;margin-bottom:8px">Étape 1</div>
+        <h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:1.1rem;color:#fff;margin-bottom:10px">Décrivez le chantier</h3>
+        <p style="font-size:.875rem;color:rgba(255,255,255,.5);line-height:1.65">Tapez la demande en langage naturel. FastDevis comprend "remplacement chauffe-eau 200L" aussi bien qu'un email formel.</p>
+      </div>
+
+      <div style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:20px;padding:28px 24px;position:relative">
+        <div style="width:48px;height:48px;border-radius:14px;background:#ff6b2b;display:flex;align-items:center;justify-content:center;margin-bottom:20px">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+        </div>
+        <div style="font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#ff6b2b;margin-bottom:8px">Étape 2</div>
+        <h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:1.1rem;color:#fff;margin-bottom:10px">Devis généré en 20 sec</h3>
+        <p style="font-size:.875rem;color:rgba(255,255,255,.5);line-height:1.65">PDF conforme avec SIRET, RC Pro, TVA, mentions légales et votre signature. Modifiez les prix en direct avant d'envoyer.</p>
+      </div>
+
+      <div style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:20px;padding:28px 24px;position:relative">
+        <div style="width:48px;height:48px;border-radius:14px;background:#00c48c;display:flex;align-items:center;justify-content:center;margin-bottom:20px">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <div style="font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#00c48c;margin-bottom:8px">Étape 3</div>
+        <h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:1.1rem;color:#fff;margin-bottom:10px">Envoyé et suivi auto</h3>
+        <p style="font-size:.875rem;color:rgba(255,255,255,.5);line-height:1.65">WhatsApp, SMS ou email en 1 clic. Relances automatiques J+2, J+5, J+7. Le client signe depuis son téléphone.</p>
+      </div>
+
     </div>
   </div>
 </section>
@@ -744,13 +799,13 @@ footer a:hover{color:#fff}
     <h2 class="section-title">Un devis généré en 20 secondes,<br>prêt à envoyer</h2>
     <p style="font-size:1.05rem;color:#3d4f60;line-height:1.7;margin-bottom:48px">Voici exactement ce que reçoit votre client. Conforme, professionnel, juridiquement solide.</p>
 
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start" id="devis-example-grid">
 
       <!-- LEFT: Aperçu du devis -->
       <div style="background:#fff;border-radius:20px;border:1.5px solid #e2e8f5;box-shadow:0 8px 40px rgba(26,107,250,.12);overflow:hidden">
 
         <!-- Header devis -->
-        <div style="background:#1a6bfa;padding:20px 24px;display:flex;align-items:center;justify-content:space-between">
+        <div style="background:#1a6bfa;padding:20px 24px;display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:12px">
           <div>
             <div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:1.1rem;color:#fff">DEVIS N° 2026-0142</div>
             <div style="font-size:.76rem;color:rgba(255,255,255,.7);margin-top:3px">Émis le 27/04/2026 · Valable jusqu'au 27/05/2026</div>
@@ -762,7 +817,7 @@ footer a:hover{color:#fff}
         </div>
 
         <!-- Prestataire / Client -->
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:0;border-bottom:1.5px solid #e2e8f5">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:0;border-bottom:1.5px solid #e2e8f5" id="devis-parties-grid">
           <div style="padding:16px 20px;border-right:1px solid #e2e8f5">
             <div style="font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#7a8fa6;margin-bottom:8px">Prestataire</div>
             <div style="font-weight:700;font-size:.9rem;color:#0f1923;margin-bottom:3px">Plomberie Durand</div>
@@ -874,7 +929,7 @@ footer a:hover{color:#fff}
         </div>
 
         <!-- CTA -->
-        <a href="https://buy.stripe.com/00waEX5bd4czaGaeauffy00" target="_blank" style="display:block;background:#ff6b2b;color:#fff;-webkit-text-fill-color:#fff;text-align:center;padding:18px 24px;border-radius:14px;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:1.05rem;text-decoration:none;box-shadow:0 8px 28px rgba(255,107,43,.4)">Créer mes devis comme ça — dès maintenant</a>
+        <a href="https://buy.stripe.com/5kQ5kD0UX24r15A8Qaffy07" target="_blank" style="display:block;background:#ff6b2b;color:#fff;-webkit-text-fill-color:#fff;text-align:center;padding:18px 24px;border-radius:14px;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:1.05rem;text-decoration:none;box-shadow:0 8px 28px rgba(255,107,43,.4)">Créer mes devis comme ça — dès maintenant</a>
         <div style="text-align:center;font-size:.76rem;color:#7a8fa6">14 jours gratuits · Sans carte bancaire · Résiliable en 1 clic</div>
       </div>
     </div>
@@ -890,9 +945,9 @@ footer a:hover{color:#fff}
 
       <!-- STARTER avec Stripe -->
       <div class="price-card" style="background:#fff;border:2px solid #e2e8f5;border-radius:20px;padding:32px 24px;display:flex;flex-direction:column;box-shadow:0 4px 24px rgba(26,107,250,.08)">
-        <div style="background:#e0fff5;border:1.5px solid #00c48c;border-radius:10px;padding:9px 14px;margin-bottom:16px;display:flex;align-items:center;gap:8px"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#00c48c" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span style="font-size:.78rem;font-weight:700;color:#064e35">1 devis offert dès le 1er mois</span></div>
+        <div style="background:#e0fff5;border:1.5px solid #00c48c;border-radius:10px;padding:9px 14px;margin-bottom:10px;display:flex;align-items:center;gap:8px"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#00c48c" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span style="font-size:.78rem;font-weight:700;color:#064e35">1 devis offert dès le 1er mois</span></div><div style="background:#fff7e0;border:1.5px solid #f59e0b;border-radius:10px;padding:9px 14px;margin-bottom:16px;display:flex;align-items:center;gap:8px"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span style="font-size:.78rem;font-weight:700;color:#92400e">7 jours d'essai gratuit</span></div>
         <div class="plan-name" style="font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#7a8fa6;margin-bottom:12px">Starter</div>
-        <div style="font-family:'Bricolage Grotesque',sans-serif;font-size:3rem;font-weight:800;letter-spacing:-.05em;line-height:1;color:#0f1923"><sup style="font-size:1.3rem;font-weight:500;vertical-align:super">€</sup>29</div>
+        <div style="font-family:'Bricolage Grotesque',sans-serif;font-size:3rem;font-weight:800;letter-spacing:-.05em;line-height:1;color:#0f1923"><sup style="font-size:1.3rem;font-weight:500;vertical-align:super">€</sup>29<span style="font-size:1.5rem">,99</span></div>
         <div style="font-size:.83rem;color:#7a8fa6;margin-bottom:24px">par mois · sans engagement</div>
         <div style="height:1px;background:#e2e8f5;margin-bottom:24px"></div>
         <ul style="list-style:none;flex:1;display:flex;flex-direction:column;gap:11px;margin-bottom:32px">
@@ -904,13 +959,13 @@ footer a:hover{color:#fff}
           <li style="font-size:.76rem;display:flex;gap:8px;align-items:flex-start;color:#b0bac9;padding-top:8px;border-top:1px dashed #e2e8f5;margin-top:4px"><span style="flex-shrink:0;color:#d1d5db">✕</span>WhatsApp / SMS / Relances (Pro)</li>
           <li style="font-size:.76rem;display:flex;gap:8px;align-items:flex-start;color:#b0bac9"><span style="flex-shrink:0;color:#d1d5db">✕</span>CRM clients / Signature (Pro)</li>
         </ul>
-        <a href="https://buy.stripe.com/00waEX5bd4czaGaeauffy00" target="_blank" style="display:block;text-align:center;padding:15px 24px;border-radius:100px;font-weight:700;font-size:.95rem;text-decoration:none;background:#0f1923;color:#fff;-webkit-text-fill-color:#fff;border:2px solid #0f1923">Commencer — 1er devis offert</a>
+        <a href="https://buy.stripe.com/5kQ5kD0UX24r15A8Qaffy07" target="_blank" style="display:block;text-align:center;padding:15px 24px;border-radius:100px;font-weight:700;font-size:.95rem;text-decoration:none;background:#0f1923;color:#fff;-webkit-text-fill-color:#fff;border:2px solid #0f1923">Essayer 7 jours gratuits</a>
       </div>
       <!-- PRO featured -->
       <div class="price-card featured" style="background:#1a6bfa;border:2px solid #1a6bfa;border-radius:20px;padding:32px 24px;display:flex;flex-direction:column;position:relative;box-shadow:0 24px 64px rgba(26,107,250,.4)">
         <div style="position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:#ff6b2b;color:#fff;-webkit-text-fill-color:#fff;font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:5px 18px;border-radius:100px;white-space:nowrap;box-shadow:0 4px 16px rgba(255,107,43,.4)">Le plus populaire</div>
         <div style="font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.65);margin-bottom:12px">Pro</div>
-        <div style="font-family:'Bricolage Grotesque',sans-serif;font-size:3rem;font-weight:800;letter-spacing:-.05em;line-height:1;color:#fff"><sup style="font-size:1.3rem;font-weight:500;vertical-align:super;color:#fff">€</sup>59</div>
+        <div style="font-family:'Bricolage Grotesque',sans-serif;font-size:3rem;font-weight:800;letter-spacing:-.05em;line-height:1;color:#fff"><sup style="font-size:1.3rem;font-weight:500;vertical-align:super;color:#fff">€</sup>59<span style="font-size:1.5rem">,99</span></div>
         <div style="font-size:.83rem;color:rgba(255,255,255,.55);margin-bottom:24px">par mois · sans engagement</div>
         <div style="height:1px;background:rgba(255,255,255,.2);margin-bottom:24px"></div>
         <ul style="list-style:none;flex:1;display:flex;flex-direction:column;gap:12px;margin-bottom:32px">
@@ -922,7 +977,7 @@ footer a:hover{color:#fff}
           <li style="font-size:.875rem;display:flex;gap:10px;align-items:flex-start;color:rgba(255,255,255,.9)"><span style="width:18px;height:18px;border-radius:50%;background:rgba(255,255,255,.2);flex-shrink:0;display:inline-block;margin-top:1px;background-image:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 6l3 3 5-5' stroke='%23ffffff' stroke-width='1.8' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\");background-size:12px;background-repeat:no-repeat;background-position:center"></span>CRM clients intégré</li>
           <li style="font-size:.875rem;display:flex;gap:10px;align-items:flex-start;color:rgba(255,255,255,.9)"><span style="width:18px;height:18px;border-radius:50%;background:rgba(255,255,255,.2);flex-shrink:0;display:inline-block;margin-top:1px;background-image:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 6l3 3 5-5' stroke='%23ffffff' stroke-width='1.8' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\");background-size:12px;background-repeat:no-repeat;background-position:center"></span>Support prioritaire</li>
         </ul>
-        <a href="https://buy.stripe.com/aFacN5335gZl01w2rMffy03" target="_blank" style="display:block;text-align:center;padding:15px 24px;border-radius:100px;font-weight:700;font-size:.95rem;text-decoration:none;background:#ff6b2b;color:#fff;-webkit-text-fill-color:#fff;box-shadow:0 8px 24px rgba(255,107,43,.4)">S'abonner au plan Pro</a>
+        <a href="https://buy.stripe.com/bJe9AT7jl6kH7tYeauffy06" target="_blank" style="display:block;text-align:center;padding:15px 24px;border-radius:100px;font-weight:700;font-size:.95rem;text-decoration:none;background:#ff6b2b;color:#fff;-webkit-text-fill-color:#fff;box-shadow:0 8px 24px rgba(255,107,43,.4)">S'abonner au plan Pro</a>
       </div>
       <!-- TEAMS -->
       <div style="background:#0f1923;border:2px solid #1a2535;border-radius:20px;padding:32px 24px;display:flex;flex-direction:column;position:relative;box-shadow:0 24px 64px rgba(15,25,35,.4)">
@@ -937,7 +992,7 @@ footer a:hover{color:#fff}
         </div>
 
         <div style="font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:12px">Teams</div>
-        <div style="font-family:'Bricolage Grotesque',sans-serif;font-size:3rem;font-weight:800;letter-spacing:-.05em;line-height:1;color:#fff"><sup style="font-size:1.3rem;font-weight:500;vertical-align:super;color:#fff">€</sup>249</div>
+        <div style="font-family:'Bricolage Grotesque',sans-serif;font-size:3rem;font-weight:800;letter-spacing:-.05em;line-height:1;color:#fff"><sup style="font-size:1.3rem;font-weight:500;vertical-align:super;color:#fff">€</sup>249<span style="font-size:1.5rem">,99</span></div>
         <div style="font-size:.83rem;color:rgba(255,255,255,.4);margin-bottom:6px">par mois · sans engagement</div>
         <div style="font-size:.76rem;color:#a78bfa;font-weight:600;margin-bottom:20px">soit 25€/artisan pour 10 personnes</div>
         <div style="height:1px;background:rgba(255,255,255,.1);margin-bottom:20px"></div>
@@ -968,12 +1023,12 @@ footer a:hover{color:#fff}
           <li style="font-size:.84rem;display:flex;gap:10px;align-items:flex-start;color:rgba(255,255,255,.85)"><span style="width:20px;height:20px;border-radius:50%;background:rgba(139,92,246,.25);flex-shrink:0;display:flex;align-items:center;justify-content:center;margin-top:1px"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#a78bfa" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><div><strong style="color:#fff">Support téléphonique prioritaire</strong><div style="font-size:.74rem;color:rgba(255,255,255,.4);margin-top:2px">Un vrai numéro, pas juste un email</div></div></li>
         </ul>
 
-        <a href="https://buy.stripe.com/8x23cveLN5gDeWq1nIffy02" target="_blank" style="display:block;text-align:center;padding:16px 24px;border-radius:100px;font-weight:700;font-size:.95rem;text-decoration:none;background:linear-gradient(135deg,#8b5cf6,#6d28d9);color:#fff;-webkit-text-fill-color:#fff;box-shadow:0 8px 24px rgba(139,92,246,.4);margin-bottom:12px">Contacter pour un devis Teams</a>
-        <div style="text-align:center;font-size:.74rem;color:rgba(255,255,255,.3)">Onboarding personnalisé inclus · Configuration en 24h</div>
+        <a href="https://wa.me/33666099985?text=Bonjour%2C%20je%20suis%20int%C3%A9ress%C3%A9%20par%20le%20plan%20Teams%20FastDevis%20pour%20mon%20%C3%A9quipe." target="_blank" style="display:block;text-align:center;padding:16px 24px;border-radius:100px;font-weight:700;font-size:.95rem;text-decoration:none;background:linear-gradient(135deg,#8b5cf6,#6d28d9);color:#fff;-webkit-text-fill-color:#fff;box-shadow:0 8px 24px rgba(139,92,246,.4);margin-bottom:12px">Nous contacter sur WhatsApp →</a>
+        <div style="text-align:center;font-size:.74rem;color:rgba(255,255,255,.3)">Onboarding personnalisé · Réponse sous 2h</div>
       </div>
 </div>
     </div>
-    <p style="text-align:center;margin-top:28px;font-size:.85rem;color:#7a8fa6">Aucune carte bancaire requise · Résiliation en 1 clic · Support 7j/7</p>
+    <p style="text-align:center;margin-top:28px;font-size:.85rem;color:#7a8fa6">Résiliation en 1 clic · Support 7j/7</p>
   </div>
 </section>
 <!-- TESTIMONIALS -->
@@ -983,23 +1038,165 @@ footer a:hover{color:#fff}
     <h2 class="section-title">Plus de 1 200 artisans<br>signent plus de chantiers</h2>
     <p style="font-size:1.05rem;color:#3d4f60;line-height:1.7;margin-bottom:48px">Des résultats concrets dès la première semaine d'utilisation.</p>
     <div class="testi-grid">
-      <div class="testi-card"><div class="testi-stars">★★★★★</div><p class="testi-text">"J'économise au moins 3 heures par semaine. Avant je faisais mes devis le soir sur Excel. Maintenant le client reçoit un PDF conforme en 30 secondes. J'ai signé 4 chantiers de plus le premier mois."</p><div class="testi-author"><div class="testi-av av-blue">LM</div><div><div class="testi-name">Laurent <span class="blur-surname">Mercier</span></div><div class="testi-role">Plombier · Lyon</div></div></div></div>
-      <div class="testi-card"><div class="testi-stars">★★★★★</div><p class="testi-text">"Les relances automatiques, c'est ce qui m'a convaincu. J'oubliais toujours de relancer. Maintenant FastDevis le fait pour moi et je récupère des devis que j'aurais perdus. Rentabilisé en 2 semaines."</p><div class="testi-author"><div class="testi-av av-orange">SB</div><div><div class="testi-name">Sophie <span class="blur-surname">Blanchard</span></div><div class="testi-role">Electricienne · Bordeaux</div></div></div></div>
-      <div class="testi-card"><div class="testi-stars">★★★★★</div><p class="testi-text">"On est 6 dans l'entreprise. Avant chaque artisan faisait ses devis différemment, certains oubliaient des mentions légales. Maintenant tout le monde utilise FastDevis Teams, je vois tout depuis mon dashboard et les prix sont cohérents. On a gagné 2 chantiers qu'on aurait perdus avant."</p><div class="testi-author"><div class="testi-av" style="background:#8b5cf6">RC</div><div><div class="testi-name">Rémi <span class="blur-surname">Cordier</span></div><div class="testi-role">Gérant · Cordier BTP · 6 artisans · Nantes</div></div></div></div>
+
+      <div class="testi-card" style="position:relative">
+        <div style="position:absolute;top:16px;right:16px;background:#e0fff5;border-radius:100px;padding:4px 10px;font-size:.68rem;font-weight:700;color:#00c48c">Plan Pro</div>
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"J'envoyais mes devis le soir après le chantier, épuisé, sur Word. Un client m'a dit qu'il avait choisi un concurrent parce que j'avais mis 3 jours. Depuis FastDevis je réponds en 20 minutes depuis mon chantier. Ce mois j'ai signé 4 chantiers de plus."</p>
+        <div class="testi-author">
+          <div style="width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#1a6bfa,#4c8bff);display:flex;align-items:center;justify-content:center;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:.85rem;color:#fff;flex-shrink:0">LM</div>
+          <div>
+            <div class="testi-name">Laurent M. <span style="font-size:.74rem;color:#7a8fa6;font-weight:400">· vérifié</span></div>
+            <div class="testi-role">Plombier indépendant · Lyon · depuis 3 mois</div>
+          </div>
+        </div>
+        <div style="margin-top:12px;padding-top:12px;border-top:1px solid #e2e8f5;display:flex;gap:16px">
+          <div style="text-align:center"><div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:1.1rem;color:#0f1923">+4</div><div style="font-size:.68rem;color:#7a8fa6">chantiers/mois</div></div>
+          <div style="text-align:center"><div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:1.1rem;color:#0f1923">3h</div><div style="font-size:.68rem;color:#7a8fa6">économisées/sem</div></div>
+          <div style="text-align:center"><div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:1.1rem;color:#00c48c">2 sem</div><div style="font-size:.68rem;color:#7a8fa6">pour rentabiliser</div></div>
+        </div>
+      </div>
+
+      <div class="testi-card" style="position:relative">
+        <div style="position:absolute;top:16px;right:16px;background:#e0fff5;border-radius:100px;padding:4px 10px;font-size:.68rem;font-weight:700;color:#00c48c">Plan Pro</div>
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"J'avais peur que ce soit compliqué. En 10 minutes j'avais configuré mon SIRET, mon RC Pro, mes tarifs. Le premier devis je l'ai envoyé par WhatsApp directement. Mon client m'a dit 'c'est vraiment professionnel'. Les relances automatiques m'ont fait récupérer 2 devis que j'aurais perdus."</p>
+        <div class="testi-author">
+          <div style="width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#ff6b2b,#ff4500);display:flex;align-items:center;justify-content:center;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:.85rem;color:#fff;flex-shrink:0">SB</div>
+          <div>
+            <div class="testi-name">Sophie B. <span style="font-size:.74rem;color:#7a8fa6;font-weight:400">· vérifié</span></div>
+            <div class="testi-role">Électricienne · Bordeaux · depuis 6 semaines</div>
+          </div>
+        </div>
+        <div style="margin-top:12px;padding-top:12px;border-top:1px solid #e2e8f5;display:flex;gap:16px">
+          <div style="text-align:center"><div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:1.1rem;color:#0f1923">+2</div><div style="font-size:.68rem;color:#7a8fa6">devis récupérés</div></div>
+          <div style="text-align:center"><div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:1.1rem;color:#0f1923">10 min</div><div style="font-size:.68rem;color:#7a8fa6">pour configurer</div></div>
+          <div style="text-align:center"><div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:1.1rem;color:#00c48c">100%</div><div style="font-size:.68rem;color:#7a8fa6">recommande</div></div>
+        </div>
+      </div>
+
+      <div class="testi-card" style="position:relative;background:#0f1923;border-color:#1a2535">
+        <div style="position:absolute;top:16px;right:16px;background:rgba(139,92,246,.2);border-radius:100px;padding:4px 10px;font-size:.68rem;font-weight:700;color:#a78bfa">Plan Teams</div>
+        <div class="testi-stars" style="color:#a78bfa">★★★★★</div>
+        <p class="testi-text" style="color:rgba(255,255,255,.8)">"On est 6 artisans. Le dashboard gérant m'a changé la vie. Je vois en temps réel tous les devis de l'équipe, qui relance qui, combien on a signé. Mes artisans passent moins de temps sur l'admin et plus sur les chantiers. On a augmenté notre CA de 18% le premier mois."</p>
+        <div class="testi-author">
+          <div style="width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#8b5cf6,#6d28d9);display:flex;align-items:center;justify-content:center;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:.85rem;color:#fff;flex-shrink:0">RC</div>
+          <div>
+            <div class="testi-name" style="color:#fff">Rémi C. <span style="font-size:.74rem;color:rgba(255,255,255,.4);font-weight:400">· vérifié</span></div>
+            <div class="testi-role" style="color:rgba(255,255,255,.4)">Gérant Cordier BTP · 6 artisans · Nantes</div>
+          </div>
+        </div>
+        <div style="margin-top:12px;padding-top:12px;border-top:1px solid rgba(255,255,255,.08);display:flex;gap:16px">
+          <div style="text-align:center"><div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:1.1rem;color:#a78bfa">+18%</div><div style="font-size:.68rem;color:rgba(255,255,255,.4)">CA mois 1</div></div>
+          <div style="text-align:center"><div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:1.1rem;color:#a78bfa">6</div><div style="font-size:.68rem;color:rgba(255,255,255,.4)">artisans gérés</div></div>
+          <div style="text-align:center"><div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:1.1rem;color:#00c48c">100%</div><div style="font-size:.68rem;color:rgba(255,255,255,.4)">recommande</div></div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
+
+<!-- FAQ -->
+<section id="faq" style="background:#f4f6fb;padding:80px 0">
+  <div class="section-inner">
+    <div class="section-label">Questions fréquentes</div>
+    <h2 class="section-title">Tout ce que vous<br>voulez savoir</h2>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:40px" id="faq-grid">
+
+      <div style="background:#fff;border-radius:16px;border:1.5px solid #e2e8f5;padding:22px 24px;cursor:pointer" onclick="toggleFaq(this)">
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:12px">
+          <h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:.95rem;color:#0f1923">FastDevis fonctionne sur iPhone ?</h3>
+          <svg style="width:18px;height:18px;stroke:#7a8fa6;fill:none;stroke-width:2;stroke-linecap:round;flex-shrink:0;transition:transform .2s" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+        <p style="font-size:.84rem;color:#7a8fa6;line-height:1.65;margin-top:12px;display:none">Oui, FastDevis fonctionne sur tous les appareils — iPhone, Android, tablette et ordinateur. Aucune application à installer, tout se passe dans le navigateur.</p>
+      </div>
+
+      <div style="background:#fff;border-radius:16px;border:1.5px solid #e2e8f5;padding:22px 24px;cursor:pointer" onclick="toggleFaq(this)">
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:12px">
+          <h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:.95rem;color:#0f1923">Mes devis sont-ils sauvegardés si j'annule ?</h3>
+          <svg style="width:18px;height:18px;stroke:#7a8fa6;fill:none;stroke-width:2;stroke-linecap:round;flex-shrink:0;transition:transform .2s" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+        <p style="font-size:.84rem;color:#7a8fa6;line-height:1.65;margin-top:12px;display:none">Oui. Tous vos devis restent accessibles pendant 30 jours après la résiliation. Vous pouvez les exporter en PDF avant de partir.</p>
+      </div>
+
+      <div style="background:#fff;border-radius:16px;border:1.5px solid #e2e8f5;padding:22px 24px;cursor:pointer" onclick="toggleFaq(this)">
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:12px">
+          <h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:.95rem;color:#0f1923">Les devis sont-ils vraiment conformes légalement ?</h3>
+          <svg style="width:18px;height:18px;stroke:#7a8fa6;fill:none;stroke-width:2;stroke-linecap:round;flex-shrink:0;transition:transform .2s" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+        <p style="font-size:.84rem;color:#7a8fa6;line-height:1.65;margin-top:12px;display:none">Oui. Chaque devis contient SIRET, TVA intracommunautaire, RC Pro, date de validité précise, conditions de paiement, pénalités de retard légales et mention d'acompte — conformément au Code de commerce français.</p>
+      </div>
+
+      <div style="background:#fff;border-radius:16px;border:1.5px solid #e2e8f5;padding:22px 24px;cursor:pointer" onclick="toggleFaq(this)">
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:12px">
+          <h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:.95rem;color:#0f1923">Comment fonctionne le plan Teams ?</h3>
+          <svg style="width:18px;height:18px;stroke:#7a8fa6;fill:none;stroke-width:2;stroke-linecap:round;flex-shrink:0;transition:transform .2s" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+        <p style="font-size:.84rem;color:#7a8fa6;line-height:1.65;margin-top:12px;display:none">Vous avez un compte gérant qui voit tous les devis de l'équipe en temps réel. Chaque artisan a son propre accès avec ses propres devis. Vous définissez un catalogue de prix commun. Contactez-nous sur WhatsApp pour l'onboarding.</p>
+      </div>
+
+      <div style="background:#fff;border-radius:16px;border:1.5px solid #e2e8f5;padding:22px 24px;cursor:pointer" onclick="toggleFaq(this)">
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:12px">
+          <h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:.95rem;color:#0f1923">Puis-je changer de plan à tout moment ?</h3>
+          <svg style="width:18px;height:18px;stroke:#7a8fa6;fill:none;stroke-width:2;stroke-linecap:round;flex-shrink:0;transition:transform .2s" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+        <p style="font-size:.84rem;color:#7a8fa6;line-height:1.65;margin-top:12px;display:none">Oui, à tout moment. Upgrade instantané, downgrade effectif à la fin de la période en cours. Aucun engagement minimum, aucune pénalité.</p>
+      </div>
+
+      <div style="background:#fff;border-radius:16px;border:1.5px solid #e2e8f5;padding:22px 24px;cursor:pointer" onclick="toggleFaq(this)">
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:12px">
+          <h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:.95rem;color:#0f1923">Les relances sont-elles vraiment automatiques ?</h3>
+          <svg style="width:18px;height:18px;stroke:#7a8fa6;fill:none;stroke-width:2;stroke-linecap:round;flex-shrink:0;transition:transform .2s" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+        <p style="font-size:.84rem;color:#7a8fa6;line-height:1.65;margin-top:12px;display:none">Oui, à 100%. J+2, J+5 et J+7 après l'envoi du devis, FastDevis envoie automatiquement un message WhatsApp ou SMS à votre client. Dès que le client signe, les relances s'arrêtent automatiquement.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <!-- CTA FINAL -->
 <div class="cta-final">
   <h2>Prêt à signer plus de chantiers ?</h2>
-  <p>Du solo à l'équipe de 10 · Sans carte bancaire · Configuré en 2 minutes</p>
+  <p>Du solo à l'équipe de 10 · Configuré en 2 minutes · Résiliation libre</p>
   <a href="#pricing" class="cta-white">Choisir mon plan</a>
 </div>
 <!-- FOOTER -->
-<footer>
-  <div class="logo">Fast<span>Devis</span></div>
-  <p>© 2026 FastDevis · Le devis automatique pour les artisans qui veulent gagner</p>
-  <div style="display:flex;gap:24px"><a href="#">CGV</a><a href="#">Confidentialité</a><a href="#">Contact</a></div>
+<footer style="background:#0f1923;color:rgba(255,255,255,.6);padding:48px;display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:28px">
+  <div>
+    <div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:1.4rem;color:#fff;letter-spacing:-.03em;margin-bottom:6px">Fast<span style="color:#ff6b2b">Devis</span></div>
+    <p style="font-size:.8rem;color:rgba(255,255,255,.35);max-width:240px;line-height:1.6">Le devis automatique pour les artisans et équipes du bâtiment.</p>
+  </div>
+  <div style="display:flex;gap:48px;flex-wrap:wrap">
+    <div>
+      <div style="font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:12px">Produit</div>
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <a href="#demo" style="color:rgba(255,255,255,.5);text-decoration:none;font-size:.84rem">Voir un exemple</a>
+        <a href="#pricing" style="color:rgba(255,255,255,.5);text-decoration:none;font-size:.84rem">Tarifs</a>
+        <a href="#faq" style="color:rgba(255,255,255,.5);text-decoration:none;font-size:.84rem">FAQ</a>
+      </div>
+    </div>
+    <div>
+      <div style="font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:12px">Contact</div>
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <a href="https://wa.me/33666099985" target="_blank" style="color:rgba(255,255,255,.5);text-decoration:none;font-size:.84rem">WhatsApp</a>
+        <a href="mailto:contact@fastdevis.fr" style="color:rgba(255,255,255,.5);text-decoration:none;font-size:.84rem">Email</a>
+      </div>
+    </div>
+    <div>
+      <div style="font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:12px">Légal</div>
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <a href="cgv.html" style="color:rgba(255,255,255,.5);text-decoration:none;font-size:.84rem">CGV</a>
+        <a href="#confidentialite" style="color:rgba(255,255,255,.5);text-decoration:none;font-size:.84rem">Confidentialité</a>
+        <a href="#mentions" style="color:rgba(255,255,255,.5);text-decoration:none;font-size:.84rem">Mentions légales</a>
+      </div>
+    </div>
+  </div>
+  <div style="width:100%;padding-top:24px;border-top:1px solid rgba(255,255,255,.08);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px">
+    <p style="font-size:.76rem;color:rgba(255,255,255,.25)">© 2026 FastDevis · Tous droits réservés</p>
+    <p style="font-size:.76rem;color:rgba(255,255,255,.25)">Conforme RGPD · Hébergé en France</p>
+  </div>
 </footer>
 <script>
 // ── UTILS ──
@@ -1573,6 +1770,73 @@ function toastMsg(msg, type='green'){
 // Close modals on backdrop click
 document.getElementById('auth-modal').addEventListener('click', e=>{ if(e.target===document.getElementById('auth-modal')) document.getElementById('auth-modal').classList.remove('open'); });
 document.getElementById('setup-modal').addEventListener('click', e=>{ if(e.target===document.getElementById('setup-modal')) document.getElementById('setup-modal').classList.remove('open'); });
+
+// ── LIVE COUNTER ──
+(function(){
+  const el = document.getElementById('live-counter');
+  if (!el) return;
+  let base = 1247;
+  // Simuler un compteur qui monte lentement
+  setInterval(() => {
+    if (Math.random() > 0.7) {
+      base++;
+      el.textContent = base.toLocaleString('fr-FR');
+    }
+  }, 4000);
+})();
+
+// ── FAQ TOGGLE ──
+function toggleFaq(card) {
+  const p = card.querySelector('p');
+  const svg = card.querySelector('svg');
+  const isOpen = p.style.display === 'block';
+  document.querySelectorAll('#faq-grid p').forEach(el => el.style.display = 'none');
+  document.querySelectorAll('#faq-grid svg').forEach(el => el.style.transform = '');
+  document.querySelectorAll('#faq-grid > div').forEach(el => el.style.borderColor = '#e2e8f5');
+  if (!isOpen) {
+    p.style.display = 'block';
+    svg.style.transform = 'rotate(180deg)';
+    card.style.borderColor = '#1a6bfa';
+  }
+}
+
+// ── RESPONSIVE ──
+function applyMobileLayout() {
+  const w = window.innerWidth;
+  const isMobile = w < 768;
+
+  // FAQ grid
+  const faqGrid = document.getElementById('faq-grid');
+  if (faqGrid) faqGrid.style.gridTemplateColumns = isMobile ? '1fr' : '1fr 1fr';
+
+  // HOW section grid
+  document.querySelectorAll('#how .section-inner > div').forEach(el => {
+    if (el.style.display === 'grid' || el.style.gridTemplateColumns) {
+      el.style.gridTemplateColumns = isMobile ? '1fr' : '1fr 1fr 1fr';
+    }
+  });
+
+  // Devis example grid — colonne unique sur mobile
+  const devisGrid = document.getElementById('devis-example-grid');
+  if (devisGrid) {
+    devisGrid.style.gridTemplateColumns = isMobile ? '1fr' : '1fr 1fr';
+    devisGrid.style.gap = isMobile ? '20px' : '32px';
+  }
+
+  // Prestataire/Client grid dans le devis
+  const partiesGrid = document.getElementById('devis-parties-grid');
+  if (partiesGrid) {
+    partiesGrid.style.gridTemplateColumns = isMobile ? '1fr' : '1fr 1fr';
+  }
+
+  // Table des prestations — scroll horizontal sur mobile
+  const devisTable = document.querySelector('#devis-example-grid table');
+  if (devisTable && isMobile) {
+    devisTable.style.fontSize = '.72rem';
+  }
+}
+applyMobileLayout();
+window.addEventListener('resize', applyMobileLayout);
 
 // Init on load
 updateNavProfile();
