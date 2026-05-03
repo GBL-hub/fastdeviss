@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CGV — Conditions Générales de Vente · FastDevis</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Bricolage+Grotesque:wght@700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{font-family:system-ui,sans-serif;scroll-behavior:smooth}
+body{font-family:'Plus Jakarta Sans',sans-serif;background:#fafafa;color:#0f1923;line-height:1.7}
+
+/* ── NAV ── */
+nav{background:#fff;border-bottom:1px solid #e2e8f5;padding:16px 48px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+.nav-logo{display:flex;align-items:center;gap:8px;text-decoration:none}
+.nav-logo-icon{width:30px;height:30px;background:#ff6b2b;border-radius:8px;display:flex;align-items:center;justify-content:center}
+.nav-logo-icon svg{width:16px;height:16px;stroke:#fff;fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+.nav-logo-text{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:1.1rem;color:#0f1923}
+.nav-logo-text span{color:#ff6b2b}
+.nav-back{font-size:.84rem;color:#7a8fa6;text-decoration:none;display:flex;align-items:center;gap:6px;transition:color .2s}
+.nav-back:hover{color:#0f1923}
+.nav-back svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+/* ── HERO ── */
+.hero{background:#0f1923;padding:64px 48px 48px;text-align:center}
+.hero-label{display:inline-block;background:rgba(255,107,43,.15);color:#ff6b2b;font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:5px 16px;border-radius:100px;margin-bottom:16px}
+.hero h1{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(1.8rem,4vw,2.8rem);color:#fff;letter-spacing:-.04em;line-height:1.1;margin-bottom:12px}
+.hero-sub{font-size:.9rem;color:rgba(255,255,255,.4);margin-bottom:24px}
+.hero-meta{display:flex;align-items:center;justify-content:center;gap:20px;flex-wrap:wrap}
+.hero-meta-item{display:flex;align-items:center;gap:6px;font-size:.78rem;color:rgba(255,255,255,.35)}
+.hero-meta-item svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+/* ── LAYOUT ── */
+.page-wrap{max-width:860px;margin:0 auto;padding:48px 24px 80px}
+
+/* ── SOMMAIRE ── */
+.toc{background:#fff;border:1.5px solid #e2e8f5;border-radius:16px;padding:24px 28px;margin-bottom:48px;box-shadow:0 2px 12px rgba(26,107,250,.06)}
+.toc-title{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:.95rem;color:#0f1923;margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.toc-title svg{width:16px;height:16px;stroke:#ff6b2b;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.toc-list{display:grid;grid-template-columns:1fr 1fr;gap:6px 24px}
+.toc-item{display:flex;align-items:center;gap:8px;font-size:.84rem;text-decoration:none;color:#3d4f60;padding:4px 0;transition:color .2s;border:none;background:none;cursor:pointer;text-align:left;font-family:'Plus Jakarta Sans',sans-serif}
+.toc-item:hover{color:#ff6b2b}
+.toc-num{width:20px;height:20px;border-radius:50%;background:#f0f4ff;display:flex;align-items:center;justify-content:center;font-size:.62rem;font-weight:700;color:#1a6bfa;flex-shrink:0}
+
+/* ── SECTIONS ── */
+.cgv-section{margin-bottom:48px;scroll-margin-top:80px}
+.section-header{display:flex;align-items:flex-start;gap:14px;margin-bottom:20px;padding-bottom:16px;border-bottom:2px solid #e2e8f5}
+.section-num{width:36px;height:36px;border-radius:10px;background:#ff6b2b;display:flex;align-items:center;justify-content:center;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:.9rem;color:#fff;flex-shrink:0;margin-top:2px}
+.section-title{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:1.2rem;color:#0f1923;line-height:1.2}
+.section-subtitle{font-size:.8rem;color:#7a8fa6;margin-top:3px}
+
+.cgv-text{font-size:.9rem;color:#3d4f60;line-height:1.8;margin-bottom:14px}
+.cgv-text strong{color:#0f1923;font-weight:700}
+
+/* ── HIGHLIGHT BOXES ── */
+.info-box{border-radius:12px;padding:16px 20px;margin-bottom:16px;display:flex;gap:12px}
+.info-box svg{width:18px;height:18px;flex-shrink:0;margin-top:2px}
+.info-box-blue{background:#e8f0ff;border-left:4px solid #1a6bfa}
+.info-box-blue svg{stroke:#1a6bfa;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.info-box-blue p{font-size:.84rem;color:#1a3580;line-height:1.6}
+.info-box-orange{background:#fff0e8;border-left:4px solid #ff6b2b}
+.info-box-orange svg{stroke:#ff6b2b;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.info-box-orange p{font-size:.84rem;color:#7c2d00;line-height:1.6}
+.info-box-green{background:#e0fff5;border-left:4px solid #00c48c}
+.info-box-green svg{stroke:#00c48c;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.info-box-green p{font-size:.84rem;color:#064e35;line-height:1.6}
+
+/* ── PLACEHOLDER ── */
+.placeholder{background:#fff7e0;border:1.5px dashed #f59e0b;border-radius:10px;padding:12px 16px;margin:10px 0;font-size:.82rem;color:#92400e;display:flex;align-items:center;gap:8px}
+.placeholder svg{width:14px;height:14px;stroke:#f59e0b;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
+
+/* ── TABLE PLANS ── */
+.plans-table{width:100%;border-collapse:collapse;margin:16px 0}
+.plans-table th{background:#0f1923;color:#fff;padding:10px 14px;font-size:.78rem;font-weight:700;text-align:left}
+.plans-table th:first-child{border-radius:8px 0 0 0}
+.plans-table th:last-child{border-radius:0 8px 0 0}
+.plans-table td{padding:10px 14px;font-size:.84rem;color:#3d4f60;border-bottom:1px solid #e2e8f5}
+.plans-table tr:last-child td{border:none}
+.plans-table tr:nth-child(even) td{background:#f7f9ff}
+
+/* ── FOOTER ── */
+.cgv-footer{background:#0f1923;padding:32px 48px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
+.cgv-footer p{font-size:.78rem;color:rgba(255,255,255,.35)}
+.cgv-footer a{color:rgba(255,255,255,.4);text-decoration:none;font-size:.78rem}
+.cgv-footer a:hover{color:#fff}
+
+/* ── RESPONSIVE ── */
+@media(max-width:768px){
+  nav{padding:14px 18px}
+  .hero{padding:40px 20px 32px}
+  .page-wrap{padding:32px 18px 60px}
+  .toc-list{grid-template-columns:1fr}
+  .cgv-footer{padding:24px 18px;flex-direction:column;text-align:center}
+  .hero-meta{gap:12px}
+}
+
+/* ── PRINT ── */
+@media print{
+  nav,.toc,a{display:none}
+  .page-wrap{max-width:100%;padding:0}
+  .cgv-section{page-break-inside:avoid}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">
+    <div class="nav-logo-icon">
+      <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+    </div>
+    <span class="nav-logo-text">Fast<span>Devis</span></span>
+  </a>
+  <a href="index.html" class="nav-back">
+    <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+    Retour au site
+  </a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-label">Document légal</div>
+  <h1>Conditions Générales<br>de Vente</h1>
+  <p class="hero-sub">FastDevis · Service SaaS de génération de devis pour artisans</p>
+  <div class="hero-meta">
+    <div class="hero-meta-item"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Dernière mise à jour : Mai 2026</div>
+    <div class="hero-meta-item"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Conforme droit français</div>
+    <div class="hero-meta-item"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>Applicable dès souscription</div>
+  </div>
+</div>
+
+<!-- PAGE -->
+<div class="page-wrap">
+
+  <!-- SOMMAIRE -->
+  <div class="toc">
+    <div class="toc-title">
+      <svg viewBox="0 0 24 24"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+      Sommaire
+    </div>
+    <div class="toc-list">
+      <a href="#s1" class="toc-item"><span class="toc-num">1</span>Éditeur du service</a>
+      <a href="#s2" class="toc-item"><span class="toc-num">2</span>Description du service</a>
+      <a href="#s3" class="toc-item"><span class="toc-num">3</span>Acceptation des CGV</a>
+      <a href="#s4" class="toc-item"><span class="toc-num">4</span>Offres et tarifs</a>
+      <a href="#s5" class="toc-item"><span class="toc-num">5</span>Modalités de paiement</a>
+      <a href="#s6" class="toc-item"><span class="toc-num">6</span>Durée et résiliation</a>
+      <a href="#s7" class="toc-item"><span class="toc-num">7</span>Droit de rétractation</a>
+      <a href="#s8" class="toc-item"><span class="toc-num">8</span>Obligations de l'éditeur</a>
+      <a href="#s9" class="toc-item"><span class="toc-num">9</span>Obligations de l'utilisateur</a>
+      <a href="#s10" class="toc-item"><span class="toc-num">10</span>Données personnelles</a>
+      <a href="#s11" class="toc-item"><span class="toc-num">11</span>Propriété intellectuelle</a>
+      <a href="#s12" class="toc-item"><span class="toc-num">12</span>Limitation de responsabilité</a>
+      <a href="#s13" class="toc-item"><span class="toc-num">13</span>Litiges et droit applicable</a>
+      <a href="#s14" class="toc-item"><span class="toc-num">14</span>Contact</a>
+    </div>
+  </div>
+
+  <!-- ── ARTICLE 1 ── -->
+  <div class="cgv-section" id="s1">
+    <div class="section-header">
+      <div class="section-num">1</div>
+      <div>
+        <div class="section-title">Éditeur du service</div>
+        <div class="section-subtitle">Identité de l'entreprise responsable</div>
+      </div>
+    </div>
+    <p class="cgv-text">Le service FastDevis est édité par :</p>
+    <div class="info-box info-box-blue">
+      <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      <div>
+        <p><strong>Raison sociale :</strong> <span id="raison-sociale">
+          <span class="placeholder"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>À compléter : votre nom ou nom de société</span>
+        </span></p>
+        <p><strong>Statut juridique :</strong> <span class="placeholder" style="display:inline-flex"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>Auto-entrepreneur / SASU / EURL — à préciser</span></p>
+        <p><strong>SIRET :</strong> <span class="placeholder" style="display:inline-flex"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>XXX XXX XXX XXXXX — à compléter</span></p>
+        <p><strong>Adresse de siège social :</strong> <span class="placeholder" style="display:inline-flex"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>Votre adresse complète — à compléter</span></p>
+        <p><strong>Email :</strong> contact@fastdevis.fr</p>
+        <p><strong>Téléphone / WhatsApp :</strong> +33 6 66 09 99 85</p>
+        <p><strong>Site web :</strong> fastdeviss-lwgy.vercel.app</p>
+        <p><strong>Hébergeur :</strong> Vercel Inc., 440 N Barranca Ave #4133, Covina, CA 91723, États-Unis</p>
+        <p><strong>Base de données :</strong> Supabase (données hébergées dans l'Union Européenne — région Ireland)</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── ARTICLE 2 ── -->
+  <div class="cgv-section" id="s2">
+    <div class="section-header">
+      <div class="section-num">2</div>
+      <div>
+        <div class="section-title">Description du service</div>
+        <div class="section-subtitle">Ce que propose FastDevis</div>
+      </div>
+    </div>
+    <p class="cgv-text">FastDevis est un service SaaS (Software as a Service) accessible via navigateur web permettant aux artisans et entreprises du bâtiment de :</p>
+    <p class="cgv-text">• Générer des devis professionnels conformes à la législation française en moins de 30 secondes<br>
+    • Exporter ces devis au format PDF avec mentions légales complètes (SIRET, TVA, RC Pro, pénalités de retard)<br>
+    • Envoyer les devis par email, WhatsApp ou SMS directement depuis la plateforme (plans Pro et Teams)<br>
+    • Configurer des relances automatiques à J+2, J+5 et J+7 après envoi (plans Pro et Teams)<br>
+    • Gérer un CRM de clients et l'historique des devis<br>
+    • Pour le plan Teams : gérer une équipe de 2 à 10 artisans depuis un dashboard centralisé</p>
+
+    <div class="info-box info-box-blue">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+      <p>FastDevis est un outil d'aide à la rédaction de devis. <strong>L'éditeur ne garantit pas la validité juridique de chaque devis produit</strong> pour tous les cas particuliers. L'utilisateur reste seul responsable du contenu et de la conformité de ses devis vis-à-vis de ses clients.</p>
+    </div>
+  </div>
+
+  <!-- ── ARTICLE 3 ── -->
+  <div class="cgv-section" id="s3">
+    <div class="section-header">
+      <div class="section-num">3</div>
+      <div>
+        <div class="section-title">Acceptation des CGV</div>
+        <div class="section-subtitle">Conditions d'entrée en vigueur</div>
+      </div>
+    </div>
+    <p class="cgv-text">La souscription à l'un des plans FastDevis implique l'acceptation pleine et entière des présentes Conditions Générales de Vente. Cette acceptation est matérialisée par le clic sur le bouton de paiement Stripe et constitue une signature électronique au sens de l'article 1366 du Code civil.</p>
+    <p class="cgv-text">Les présentes CGV prévalent sur tout autre document, notamment sur les conditions générales d'achat de l'utilisateur. L'éditeur se réserve le droit de modifier les présentes CGV à tout moment. Les modifications prennent effet 30 jours après notification par email à l'utilisateur.</p>
+  </div>
+
+  <!-- ── ARTICLE 4 ── -->
+  <div class="cgv-section" id="s4">
+    <div class="section-header">
+      <div class="section-num">4</div>
+      <div>
+        <div class="section-title">Offres et tarifs</div>
+        <div class="section-subtitle">Plans disponibles et conditions tarifaires</div>
+      </div>
+    </div>
+    <p class="cgv-text">FastDevis propose les offres d'abonnement mensuel suivantes :</p>
+
+    <table class="plans-table">
+      <thead>
+        <tr>
+          <th>Plan</th>
+          <th>Tarif mensuel TTC</th>
+          <th>Engagement</th>
+          <th>Période d'essai</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Starter</strong></td>
+          <td>29,99 €</td>
+          <td>Sans engagement</td>
+          <td>7 jours gratuits</td>
+        </tr>
+        <tr>
+          <td><strong>Pro</strong></td>
+          <td>59,99 €</td>
+          <td>Sans engagement</td>
+          <td>Aucune</td>
+        </tr>
+        <tr>
+          <td><strong>Teams</strong></td>
+          <td>249,99 €</td>
+          <td>Sans engagement</td>
+          <td>Sur devis — contacter via WhatsApp</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p class="cgv-text">Tous les prix sont indiqués en euros toutes taxes comprises (TTC). L'éditeur se réserve le droit de modifier ses tarifs à tout moment. Les nouveaux tarifs s'appliquent au renouvellement mensuel suivant la notification, avec un préavis de 30 jours.</p>
+
+    <div class="info-box info-box-orange">
+      <svg viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+      <p>Le plan Starter inclut <strong>1 devis offert</strong> lors du premier mois, puis 10 devis par mois. Au-delà de cette limite, la création de nouveaux devis est bloquée jusqu'au renouvellement mensuel.</p>
+    </div>
+  </div>
+
+  <!-- ── ARTICLE 5 ── -->
+  <div class="cgv-section" id="s5">
+    <div class="section-header">
+      <div class="section-num">5</div>
+      <div>
+        <div class="section-title">Modalités de paiement</div>
+        <div class="section-subtitle">Facturation et renouvellement</div>
+      </div>
+    </div>
+    <p class="cgv-text">Le paiement s'effectue exclusivement via la plateforme sécurisée <strong>Stripe</strong> (Stripe, Inc., 354 Oyster Point Blvd, South San Francisco, CA 94080, États-Unis). FastDevis ne stocke aucune donnée bancaire sur ses serveurs.</p>
+    <p class="cgv-text">L'abonnement est facturé mensuellement, le jour anniversaire de la souscription. Le renouvellement est automatique sauf résiliation préalable. En cas d'échec de paiement, l'accès au service est suspendu et l'utilisateur est notifié par email. Après 7 jours sans régularisation, le compte est rétrogradé au plan gratuit et les données sont conservées pendant 30 jours.</p>
+
+    <div class="info-box info-box-green">
+      <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      <p>Toutes les transactions sont sécurisées par le protocole TLS 1.3 et la norme PCI-DSS via Stripe. Vos coordonnées bancaires ne transitent jamais par les serveurs FastDevis.</p>
+    </div>
+  </div>
+
+  <!-- ── ARTICLE 6 ── -->
+  <div class="cgv-section" id="s6">
+    <div class="section-header">
+      <div class="section-num">6</div>
+      <div>
+        <div class="section-title">Durée et résiliation</div>
+        <div class="section-subtitle">Comment mettre fin à votre abonnement</div>
+      </div>
+    </div>
+    <p class="cgv-text">L'abonnement est souscrit pour une durée mensuelle renouvelable tacitement. L'utilisateur peut résilier son abonnement à tout moment, sans pénalité, par l'un des moyens suivants :</p>
+    <p class="cgv-text">• Depuis son tableau de bord FastDevis, section "Mon compte" → "Gérer mon abonnement"<br>
+    • Par email à contact@fastdevis.fr avec l'objet "Résiliation — [votre email]"<br>
+    • Par message WhatsApp au +33 6 66 09 99 85</p>
+    <p class="cgv-text">La résiliation prend effet à la fin de la période mensuelle en cours. L'accès au service reste actif jusqu'à cette date. Aucun remboursement n'est effectué pour la période déjà facturée, sauf dans le cadre du droit de rétractation (article 7).</p>
+    <p class="cgv-text">En cas de violation grave des présentes CGV, l'éditeur se réserve le droit de résilier immédiatement l'accès au service, sans remboursement.</p>
+  </div>
+
+  <!-- ── ARTICLE 7 ── -->
+  <div class="cgv-section" id="s7">
+    <div class="section-header">
+      <div class="section-num">7</div>
+      <div>
+        <div class="section-title">Droit de rétractation</div>
+        <div class="section-subtitle">Conformément aux articles L221-18 et suivants du Code de la consommation</div>
+      </div>
+    </div>
+
+    <div class="info-box info-box-orange">
+      <svg viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+      <p><strong>Important :</strong> Le droit de rétractation de 14 jours s'applique uniquement aux consommateurs (particuliers). Les professionnels (artisans agissant dans le cadre de leur activité) ne bénéficient pas de ce droit.</p>
+    </div>
+
+    <p class="cgv-text">Conformément à l'article L221-18 du Code de la consommation, l'utilisateur consommateur dispose d'un délai de <strong>14 jours calendaires</strong> à compter de la souscription pour exercer son droit de rétractation, sans avoir à justifier de motifs.</p>
+    <p class="cgv-text">Pour exercer ce droit, l'utilisateur doit notifier sa décision par email à contact@fastdevis.fr avant l'expiration du délai. En cas de rétractation valide, le remboursement est effectué dans un délai de 14 jours sur le moyen de paiement utilisé lors de la souscription.</p>
+    <p class="cgv-text"><strong>Exception :</strong> Conformément à l'article L221-28 du Code de la consommation, le droit de rétractation ne peut être exercé si l'utilisateur a expressément demandé l'exécution du service avant l'expiration du délai de rétractation et que le service a été pleinement exécuté.</p>
+  </div>
+
+  <!-- ── ARTICLE 8 ── -->
+  <div class="cgv-section" id="s8">
+    <div class="section-header">
+      <div class="section-num">8</div>
+      <div>
+        <div class="section-title">Obligations de l'éditeur</div>
+        <div class="section-subtitle">Engagement de service et disponibilité</div>
+      </div>
+    </div>
+    <p class="cgv-text">L'éditeur s'engage à :</p>
+    <p class="cgv-text">• Fournir l'accès au service FastDevis avec un objectif de disponibilité de <strong>99% par mois</strong>, hors maintenances planifiées<br>
+    • Notifier les maintenances planifiées avec un préavis de 24 heures minimum par email<br>
+    • Sauvegarder les données de l'utilisateur quotidiennement<br>
+    • Traiter les demandes de support dans un délai de 48 heures ouvrées (24h pour les plans Teams)<br>
+    • Conserver les données de l'utilisateur pendant 30 jours après résiliation</p>
+    <p class="cgv-text">L'éditeur ne garantit pas la compatibilité du service avec tous les navigateurs et appareils. Le service est optimisé pour les navigateurs modernes (Chrome, Safari, Firefox, Edge — versions récentes).</p>
+  </div>
+
+  <!-- ── ARTICLE 9 ── -->
+  <div class="cgv-section" id="s9">
+    <div class="section-header">
+      <div class="section-num">9</div>
+      <div>
+        <div class="section-title">Obligations de l'utilisateur</div>
+        <div class="section-subtitle">Utilisation acceptable du service</div>
+      </div>
+    </div>
+    <p class="cgv-text">L'utilisateur s'engage à :</p>
+    <p class="cgv-text">• Fournir des informations exactes lors de l'inscription (SIRET, RC Pro, coordonnées)<br>
+    • Ne pas partager ses identifiants de connexion avec des tiers non autorisés<br>
+    • Utiliser le service uniquement dans le cadre de son activité professionnelle légale<br>
+    • Ne pas tenter de contourner les limitations de son plan (notamment la limite de devis mensuelle)<br>
+    • Ne pas utiliser le service pour envoyer des communications non sollicitées (spam)<br>
+    • Respecter la législation française en matière de devis et facturation</p>
+
+    <div class="info-box info-box-orange">
+      <svg viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+      <p>Tout usage abusif, frauduleux ou contraire aux présentes CGV peut entraîner la suspension immédiate du compte sans remboursement.</p>
+    </div>
+  </div>
+
+  <!-- ── ARTICLE 10 ── -->
+  <div class="cgv-section" id="s10">
+    <div class="section-header">
+      <div class="section-num">10</div>
+      <div>
+        <div class="section-title">Données personnelles</div>
+        <div class="section-subtitle">Conformité RGPD</div>
+      </div>
+    </div>
+    <p class="cgv-text">FastDevis collecte et traite des données personnelles dans le cadre de la fourniture de son service, conformément au Règlement Général sur la Protection des Données (RGPD — UE 2016/679) et à la loi Informatique et Libertés.</p>
+
+    <p class="cgv-text"><strong>Données collectées :</strong> Nom, prénom, email, numéro de téléphone, SIRET, informations d'entreprise, données de facturation (via Stripe), contenu des devis générés.</p>
+
+    <p class="cgv-text"><strong>Finalités du traitement :</strong> Fourniture du service, facturation, support client, amélioration du service, communications relatives au compte.</p>
+
+    <p class="cgv-text"><strong>Base légale :</strong> Exécution du contrat (article 6.1.b RGPD) pour la fourniture du service · Intérêt légitime (article 6.1.f RGPD) pour l'amélioration du service.</p>
+
+    <p class="cgv-text"><strong>Durée de conservation :</strong> Les données sont conservées pendant toute la durée de l'abonnement, puis 30 jours après résiliation pour les données de compte, et 5 ans pour les données de facturation (obligation légale).</p>
+
+    <p class="cgv-text"><strong>Sous-traitants :</strong> Vercel Inc. (hébergement), Supabase Inc. (base de données — Union Européenne), Stripe Inc. (paiement), Twilio Inc. (SMS/WhatsApp).</p>
+
+    <p class="cgv-text"><strong>Droits de l'utilisateur :</strong> Conformément au RGPD, vous disposez d'un droit d'accès, de rectification, d'effacement, de portabilité et d'opposition sur vos données. Pour exercer ces droits : contact@fastdevis.fr</p>
+
+    <div class="placeholder">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+      À compléter : Si vous avez désigné un DPO (Délégué à la Protection des Données), indiquez ses coordonnées ici. Sinon, supprimez cette mention.
+    </div>
+
+    <p class="cgv-text">Vous disposez également du droit d'introduire une réclamation auprès de la CNIL (Commission Nationale de l'Informatique et des Libertés) — cnil.fr</p>
+  </div>
+
+  <!-- ── ARTICLE 11 ── -->
+  <div class="cgv-section" id="s11">
+    <div class="section-header">
+      <div class="section-num">11</div>
+      <div>
+        <div class="section-title">Propriété intellectuelle</div>
+        <div class="section-subtitle">Droits sur le service et les contenus</div>
+      </div>
+    </div>
+    <p class="cgv-text">L'ensemble des éléments constituant le service FastDevis (interface, algorithmes, code source, design, marque) est la propriété exclusive de l'éditeur et est protégé par le droit de la propriété intellectuelle.</p>
+    <p class="cgv-text">L'utilisateur conserve l'entière propriété des devis qu'il génère via FastDevis et des données qu'il saisit. L'éditeur ne revendique aucun droit sur le contenu des devis créés par ses utilisateurs.</p>
+    <p class="cgv-text">L'abonnement confère à l'utilisateur un droit d'usage personnel, non exclusif et non transférable du service. Toute reproduction, modification ou distribution du service est strictement interdite.</p>
+  </div>
+
+  <!-- ── ARTICLE 12 ── -->
+  <div class="cgv-section" id="s12">
+    <div class="section-header">
+      <div class="section-num">12</div>
+      <div>
+        <div class="section-title">Limitation de responsabilité</div>
+        <div class="section-subtitle">Étendue des garanties</div>
+      </div>
+    </div>
+    <p class="cgv-text">Dans les limites autorisées par la loi, la responsabilité de l'éditeur est limitée aux dommages directs et prévisibles. L'éditeur ne saurait être tenu responsable :</p>
+    <p class="cgv-text">• Des erreurs ou omissions dans les devis générés<br>
+    • Des dommages indirects, pertes de chiffre d'affaires ou manque à gagner<br>
+    • Des interruptions de service dues à des tiers (hébergeur, opérateurs télécom)<br>
+    • De l'usage fait par l'utilisateur des devis générés<br>
+    • Des litiges entre l'utilisateur et ses propres clients</p>
+    <p class="cgv-text">En tout état de cause, la responsabilité de l'éditeur est limitée au montant des sommes versées par l'utilisateur au cours des 3 derniers mois précédant le fait générateur.</p>
+  </div>
+
+  <!-- ── ARTICLE 13 ── -->
+  <div class="cgv-section" id="s13">
+    <div class="section-header">
+      <div class="section-num">13</div>
+      <div>
+        <div class="section-title">Litiges et droit applicable</div>
+        <div class="section-subtitle">Résolution des conflits</div>
+      </div>
+    </div>
+    <p class="cgv-text">Les présentes CGV sont soumises au <strong>droit français</strong>. En cas de litige relatif à l'interprétation ou à l'exécution des présentes, les parties s'engagent à rechercher une solution amiable dans un délai de 30 jours.</p>
+    <p class="cgv-text">À défaut d'accord amiable, tout litige sera soumis à la compétence exclusive des tribunaux :</p>
+
+    <div class="placeholder">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+      À compléter : indiquez le tribunal compétent selon votre lieu de résidence. Exemple : "Tribunal de Commerce de Paris" ou "Tribunal Judiciaire de Lyon"
+    </div>
+
+    <p class="cgv-text">Conformément aux articles L611-1 et suivants du Code de la consommation, l'utilisateur consommateur peut recourir gratuitement à un médiateur de la consommation en cas de litige non résolu. La plateforme européenne de règlement en ligne des litiges est accessible à : ec.europa.eu/consumers/odr</p>
+  </div>
+
+  <!-- ── ARTICLE 14 ── -->
+  <div class="cgv-section" id="s14">
+    <div class="section-header">
+      <div class="section-num">14</div>
+      <div>
+        <div class="section-title">Contact</div>
+        <div class="section-subtitle">Nous joindre pour toute question</div>
+      </div>
+    </div>
+    <p class="cgv-text">Pour toute question relative aux présentes CGV ou à votre abonnement :</p>
+    <div class="info-box info-box-blue">
+      <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      <div>
+        <p><strong>Email :</strong> contact@fastdevis.fr</p>
+        <p><strong>WhatsApp :</strong> <a href="https://wa.me/33666099985" style="color:#1a6bfa">+33 6 66 09 99 85</a></p>
+        <p><strong>Délai de réponse :</strong> 48h ouvrées (24h pour le plan Teams)</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- DATE -->
+  <div style="text-align:center;padding:32px 0;border-top:1px solid #e2e8f5;margin-top:16px">
+    <p style="font-size:.8rem;color:#b0bac9">Document généré le Mai 2026 · Version 1.0 · FastDevis</p>
+    <button onclick="window.print()" style="margin-top:12px;padding:9px 20px;background:#0f1923;color:#fff;border:none;border-radius:100px;font-size:.8rem;font-weight:600;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif">Imprimer / Sauvegarder en PDF</button>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<div class="cgv-footer">
+  <div style="display:flex;align-items:center;gap:8px">
+    <div style="width:24px;height:24px;background:#ff6b2b;border-radius:6px;display:flex;align-items:center;justify-content:center">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+    </div>
+    <span style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;color:#fff">Fast<span style="color:#ff6b2b">Devis</span></span>
+  </div>
+  <p>© 2026 FastDevis · Tous droits réservés · Conforme RGPD</p>
+  <div style="display:flex;gap:20px">
+    <a href="index.html">Retour au site</a>
+    <a href="mailto:contact@fastdevis.fr">Contact</a>
+  </div>
+</div>
+
+</body>
+</html>
