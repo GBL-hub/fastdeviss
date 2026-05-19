@@ -469,7 +469,7 @@ function renderDashboard(c){
     <td><div class="action-btns">
       <button class="btn-sm" onclick="toast_show('PDF téléchargé','g')">PDF</button>
       ${f.whatsapp?`<button class="btn-sm green" onclick="toast_show('WhatsApp ouvert','g')">WA</button>`:''}
-      ${d.status==='envoyé'?`<button class="btn-sm orange" onclick="toast_show('Devis signé !','g')">Signer</button>`:''}
+      ${d.status==='envoyé'?`<button class="btn-sm orange" onclick="toast_show('Devis signé !','g')">Marquer signé</button>`:''}
     </div></td>
   </tr>`).join('')}
   </tbody></table></div></div>`;
@@ -637,7 +637,7 @@ function renderDevis(c){
       <button class="btn-sm" onclick="toast_show('PDF téléchargé','g')">PDF</button>
       ${f.whatsapp?`<button class="btn-sm green" onclick="toast_show('WhatsApp ouvert','g')">WA</button>`:`<button class="btn-sm" onclick="toast_show('WhatsApp dispo avec Pro','o')">WA 🔒</button>`}
       ${f.relances&&d.status==='envoyé'?`<button class="btn-sm" onclick="toast_show('Relance envoyée !','g')">Relancer</button>`:''}
-      ${d.status==='envoyé'?`<button class="btn-sm orange" onclick="toast_show('Devis signé !','g')">Signer</button>`:''}
+      ${d.status==='envoyé'?`<button class="btn-sm orange" onclick="toast_show('Devis signé !','g')">Marquer signé</button>`:''}
     </div></td>
   </tr>`).join('')}
   </tbody></table></div></div>`;
@@ -687,7 +687,7 @@ function renderRelances(c){
     <td><div class="action-btns">
       <button class="btn-sm green" onclick="toast_show('Relance WhatsApp envoyée !','g')">Relancer WA</button>
       <button class="btn-sm" onclick="toast_show('Relance SMS envoyée !','b')">SMS</button>
-      <button class="btn-sm orange" onclick="toast_show('Devis signé !','g')">Signé</button>
+      <button class="btn-sm orange" onclick="toast_show('Devis signé !','g')">Marquer signé</button>
     </div></td>
   </tr>`}).join('')}
   </tbody></table></div></div>
@@ -708,7 +708,7 @@ function renderSignature(c){
     <td class="td-name">${d.num}</td>
     <td>${d.client.split(' ')[0]} <span class="blur-name">${d.client.split(' ').slice(1).join(' ')}</span></td>
     <td>${d.date}</td>
-    <td><span class="badge b-signed">Signé</span></td>
+    <td><span class="badge b-signed">Devis signé</span></td>
     <td style="font-size:.74rem;color:#7a8fa6">192.168.${Math.floor(Math.random()*255)}.${Math.floor(Math.random()*255)} — ${d.date} 14:${Math.floor(Math.random()*59).toString().padStart(2,'0')}</td>
   </tr>`).join('')}
   </tbody></table></div></div>`;
