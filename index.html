@@ -2,9 +2,24 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<!-- FastDevis v2.8 - 2026-05-19 -->
+<!-- FastDevis v3.0 - 2026-06-06 -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FastDevis — Devis en 30 secondes. Signez plus de chantiers.</title>
+<title>FastDevis — Devis professionnel en 20 secondes pour artisans</title>
+<meta name="description" content="Générez vos devis conformes en 20 secondes depuis votre chantier. PDF légal, envoi WhatsApp automatique, relances J+2/J+5/J+7. Essai 7 jours gratuit.">
+<meta name="keywords" content="devis artisan, logiciel devis plombier, devis électricien, devis rapide, devis PDF, devis WhatsApp">
+<meta name="author" content="FastDevis">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://fastdeviss-lwgy.vercel.app">
+<!-- Open Graph -->
+<meta property="og:title" content="FastDevis — Devis professionnel en 20 secondes">
+<meta property="og:description" content="Générez vos devis conformes en 20 secondes. PDF légal, WhatsApp automatique, relances auto. Essai 7 jours gratuit.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://fastdeviss-lwgy.vercel.app">
+<meta property="og:locale" content="fr_FR">
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="FastDevis — Devis en 20 secondes pour artisans">
+<meta name="twitter:description" content="Générez vos devis conformes en 20 secondes. PDF légal, WhatsApp auto, relances automatiques.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Bricolage+Grotesque:wght@400;600;700;800&display=swap" rel="stylesheet">
@@ -105,6 +120,7 @@ nav ul li a:hover{color:#1a6bfa}
 /* STATS */
 .stats-band{background:linear-gradient(135deg,#1a6bfa,#0f4fd6);padding:48px}
 .stats-inner{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:24px;text-align:center}
+.stat-num{position:relative}
 .stat-num{font-family:'Bricolage Grotesque',sans-serif;font-size:2.8rem;font-weight:800;color:#fff;line-height:1;margin-bottom:6px}
 .stat-label{font-size:.85rem;color:rgba(255,255,255,.85);line-height:1.4}
 
@@ -486,8 +502,20 @@ footer a:hover{color:#fff}
   .stack-grid{grid-template-columns:1fr}
 }
 </style>
+<style>
+/* Scroll progress bar */
+#scroll-progress{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,#ff6b2b,#1a6bfa);z-index:9999;transition:width .1s linear;width:0%}
+/* Back to top button */
+#back-top{position:fixed;bottom:90px;right:24px;width:40px;height:40px;background:#0f1923;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;opacity:0;transform:translateY(10px);transition:all .3s;z-index:998;border:none;box-shadow:0 4px 12px rgba(0,0,0,.2)}
+#back-top.visible{opacity:1;transform:translateY(0)}
+#back-top svg{width:16px;height:16px;stroke:#fff;fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+</style>
 </head>
 <body>
+<div id="scroll-progress"></div>
+<button id="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Retour en haut">
+  <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
 
 <div class="toast" id="toast"></div>
 <!-- AUTH MODAL -->
@@ -603,6 +631,7 @@ footer a:hover{color:#fff}
     <li><a href="#demo">Exemple</a></li>
     <li><a href="#pricing">Tarifs</a></li>
     <li><a href="#faq">FAQ</a></li>
+    <li><a href="#pricing" class="nav-cta">Essayer gratuitement</a></li>
   </ul>
   <div class="nav-auth">
     <a href="#pricing" style="padding:8px 18px;background:#0f1923;color:#fff;-webkit-text-fill-color:#fff;border-radius:100px;font-size:.82rem;font-weight:700;text-decoration:none;border:1.5px solid #0f1923;white-space:nowrap;transition:all .2s" onmouseover="this.style.background='#1a6bfa';this.style.borderColor='#1a6bfa'" onmouseout="this.style.background='#0f1923';this.style.borderColor='#0f1923'">Voir les tarifs</a>
@@ -622,7 +651,7 @@ footer a:hover{color:#fff}
 <div class="hero-wrap">
   <div class="hero-inner">
     <div class="hero-left">
-      <div class="hero-badge"><div class="badge-dot"></div>Solution n°1 pour les artisans en 2026</div>
+      <div class="hero-badge" style="animation:fadeInDown .5s ease"><div class="badge-dot"></div>Solution n°1 pour les artisans en 2026</div>
       <h1>Vos devis en<br><span class="highlight">30 secondes</span><br><span class="orange">signez plus.</span></h1>
       <p class="hero-sub">FastDevis génère automatiquement vos devis professionnels conformes, vos PDFs, vos messages de réponse et relance vos prospects. Vous posez vos outils — FastDevis s'occupe du reste.</p>
       <div class="hero-actions">
@@ -905,6 +934,7 @@ if(animTarget) animObs.observe(animTarget);
   <div class="section-inner">
     <div class="section-label">Le problème</div>
     <h2 class="section-title">Vous perdez des chantiers<br>à cause de vos devis lents</h2>
+    <p style="font-size:1.05rem;color:#3d4f60;line-height:1.7;margin-bottom:40px;max-width:560px">Votre concurrent répond en 10 minutes. Vous, en 2 jours. FastDevis change ça définitivement.</p>
     <p style="font-size:1.05rem;color:#3d4f60;line-height:1.7;margin-bottom:32px">Chaque heure de retard, c'est un client qui appelle la concurrence. FastDevis change ça.</p>
     <div class="pain-grid">
       <div style="background:#fff;border:1.5px solid #e2e8f5;border-radius:18px;padding:24px;box-shadow:0 2px 16px rgba(26,107,250,.07)"><div style="width:44px;height:44px;border-radius:12px;background:#e8f0ff;display:flex;align-items:center;justify-content:center;margin-bottom:14px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1a6bfa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1rem;color:#0f1923;margin-bottom:8px">Devis le soir après le chantier</h3><p style="font-size:.875rem;color:#3d4f60;line-height:1.65">Vous rentrez épuisé mais les demandes s'accumulent. Votre concurrent répond en 10 minutes — vous, en 2 jours.</p></div>
@@ -961,6 +991,7 @@ if(animTarget) animObs.observe(animTarget);
       <div>
         <div class="section-label">Fonctionnalités</div>
         <h2 class="section-title">Tout ce qu'il vous faut,<br>rien de superflu</h2>
+        <p style="font-size:1rem;color:#3d4f60;line-height:1.7;margin-bottom:32px">Conçu spécialement pour les artisans du bâtiment — pas pour les grandes entreprises.</p>
         <p style="font-size:1.05rem;color:#3d4f60;line-height:1.7;margin-bottom:32px">Conçu pour les plombiers, électriciens, peintres, menuisiers et tous les artisans du bâtiment.</p>
         <div class="feature-list">
           <div class="feature-item"><div class="feat-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg></div><div class="feat-text"><h4>Génération instantanée</h4><p>Décrivez le travail en langage naturel. FastDevis génère un devis complet avec toutes les lignes de prestations en quelques secondes.</p></div></div>
@@ -1172,13 +1203,13 @@ if(animTarget) animObs.observe(animTarget);
         <div style="font-size:.83rem;color:rgba(255,255,255,.55);margin-bottom:24px">par mois · sans engagement</div>
         <div style="height:1px;background:rgba(255,255,255,.2);margin-bottom:24px"></div>
         <ul style="list-style:none;flex:1;display:flex;flex-direction:column;gap:12px;margin-bottom:32px">
-          <li style="font-size:.875rem;display:flex;gap:10px;align-items:flex-start;color:rgba(255,255,255,.9)"><span style="width:18px;height:18px;border-radius:50%;background:rgba(255,255,255,.2);flex-shrink:0;display:inline-block;margin-top:1px;background-image:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 6l3 3 5-5' stroke='%23ffffff' stroke-width='1.8' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\");background-size:12px;background-repeat:no-repeat;background-position:center"></span>Devis illimités</li>
-          <li style="font-size:.875rem;display:flex;gap:10px;align-items:flex-start;color:rgba(255,255,255,.9)"><span style="width:18px;height:18px;border-radius:50%;background:rgba(255,255,255,.2);flex-shrink:0;display:inline-block;margin-top:1px;background-image:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 6l3 3 5-5' stroke='%23ffffff' stroke-width='1.8' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\");background-size:12px;background-repeat:no-repeat;background-position:center"></span>PDF avec votre logo et branding</li>
-          <li style="font-size:.875rem;display:flex;gap:10px;align-items:flex-start;color:rgba(255,255,255,.9)"><span style="width:18px;height:18px;border-radius:50%;background:rgba(255,255,255,.2);flex-shrink:0;display:inline-block;margin-top:1px;background-image:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 6l3 3 5-5' stroke='%23ffffff' stroke-width='1.8' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\");background-size:12px;background-repeat:no-repeat;background-position:center"></span>Relances automatiques J+2, J+5, J+7</li>
-          <li style="font-size:.875rem;display:flex;gap:10px;align-items:flex-start;color:rgba(255,255,255,.9)"><span style="width:18px;height:18px;border-radius:50%;background:rgba(255,255,255,.2);flex-shrink:0;display:inline-block;margin-top:1px;background-image:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 6l3 3 5-5' stroke='%23ffffff' stroke-width='1.8' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\");background-size:12px;background-repeat:no-repeat;background-position:center"></span>Bouton Accepter le devis client</li>
-          <li style="font-size:.875rem;display:flex;gap:10px;align-items:flex-start;color:rgba(255,255,255,.9)"><span style="width:18px;height:18px;border-radius:50%;background:rgba(255,255,255,.2);flex-shrink:0;display:inline-block;margin-top:1px;background-image:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 6l3 3 5-5' stroke='%23ffffff' stroke-width='1.8' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\");background-size:12px;background-repeat:no-repeat;background-position:center"></span>Signature digitale (IP + horodatage)</li>
-          <li style="font-size:.875rem;display:flex;gap:10px;align-items:flex-start;color:rgba(255,255,255,.9)"><span style="width:18px;height:18px;border-radius:50%;background:rgba(255,255,255,.2);flex-shrink:0;display:inline-block;margin-top:1px;background-image:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 6l3 3 5-5' stroke='%23ffffff' stroke-width='1.8' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\");background-size:12px;background-repeat:no-repeat;background-position:center"></span>CRM clients intégré</li>
-          <li style="font-size:.875rem;display:flex;gap:10px;align-items:flex-start;color:rgba(255,255,255,.9)"><span style="width:18px;height:18px;border-radius:50%;background:rgba(255,255,255,.2);flex-shrink:0;display:inline-block;margin-top:1px;background-image:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 6l3 3 5-5' stroke='%23ffffff' stroke-width='1.8' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\");background-size:12px;background-repeat:no-repeat;background-position:center"></span>Support prioritaire</li>
+          <li style="font-size:.875rem;display:flex;gap:10px;align-items:flex-start;color:rgba(255,255,255,.9)"><span style="width:18px;height:18px;border-radius:50%;background:#ff6b2b;flex-shrink:0;display:inline-block;margin-top:1px;background-image:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 6l3 3 5-5' stroke='%23ffffff' stroke-width='1.8' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\");background-size:12px;background-repeat:no-repeat;background-position:center"></span>Devis illimités</li>
+          <li style="font-size:.875rem;display:flex;gap:10px;align-items:flex-start;color:rgba(255,255,255,.9)"><span style="width:18px;height:18px;border-radius:50%;background:#ff6b2b;flex-shrink:0;display:inline-block;margin-top:1px;background-image:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 6l3 3 5-5' stroke='%23ffffff' stroke-width='1.8' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\");background-size:12px;background-repeat:no-repeat;background-position:center"></span>PDF avec votre logo et branding</li>
+          <li style="font-size:.875rem;display:flex;gap:10px;align-items:flex-start;color:rgba(255,255,255,.9)"><span style="width:18px;height:18px;border-radius:50%;background:#ff6b2b;flex-shrink:0;display:inline-block;margin-top:1px;background-image:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 6l3 3 5-5' stroke='%23ffffff' stroke-width='1.8' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\");background-size:12px;background-repeat:no-repeat;background-position:center"></span>Relances automatiques J+2, J+5, J+7</li>
+          <li style="font-size:.875rem;display:flex;gap:10px;align-items:flex-start;color:rgba(255,255,255,.9)"><span style="width:18px;height:18px;border-radius:50%;background:#ff6b2b;flex-shrink:0;display:inline-block;margin-top:1px;background-image:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 6l3 3 5-5' stroke='%23ffffff' stroke-width='1.8' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\");background-size:12px;background-repeat:no-repeat;background-position:center"></span>Bouton Accepter le devis client</li>
+          <li style="font-size:.875rem;display:flex;gap:10px;align-items:flex-start;color:rgba(255,255,255,.9)"><span style="width:18px;height:18px;border-radius:50%;background:#ff6b2b;flex-shrink:0;display:inline-block;margin-top:1px;background-image:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 6l3 3 5-5' stroke='%23ffffff' stroke-width='1.8' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\");background-size:12px;background-repeat:no-repeat;background-position:center"></span>Signature digitale (IP + horodatage)</li>
+          <li style="font-size:.875rem;display:flex;gap:10px;align-items:flex-start;color:rgba(255,255,255,.9)"><span style="width:18px;height:18px;border-radius:50%;background:#ff6b2b;flex-shrink:0;display:inline-block;margin-top:1px;background-image:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 6l3 3 5-5' stroke='%23ffffff' stroke-width='1.8' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\");background-size:12px;background-repeat:no-repeat;background-position:center"></span>CRM clients intégré</li>
+          <li style="font-size:.875rem;display:flex;gap:10px;align-items:flex-start;color:rgba(255,255,255,.9)"><span style="width:18px;height:18px;border-radius:50%;background:#ff6b2b;flex-shrink:0;display:inline-block;margin-top:1px;background-image:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 6l3 3 5-5' stroke='%23ffffff' stroke-width='1.8' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\");background-size:12px;background-repeat:no-repeat;background-position:center"></span>Support prioritaire</li>
         </ul>
         <a href="https://buy.stripe.com/bJe9AT7jl6kH7tYeauffy06" target="_blank" style="display:block;text-align:center;padding:15px 24px;border-radius:100px;font-weight:700;font-size:.95rem;text-decoration:none;background:#ff6b2b;color:#fff;-webkit-text-fill-color:#fff;box-shadow:0 8px 24px rgba(255,107,43,.4)">S'abonner au plan Pro</a>
       </div>
@@ -1226,7 +1257,7 @@ if(animTarget) animObs.observe(animTarget);
           <li style="font-size:.84rem;display:flex;gap:10px;align-items:flex-start;color:rgba(255,255,255,.85)"><span style="width:20px;height:20px;border-radius:50%;background:rgba(139,92,246,.25);flex-shrink:0;display:flex;align-items:center;justify-content:center;margin-top:1px"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#a78bfa" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><div><strong style="color:#fff">Support téléphonique prioritaire</strong><div style="font-size:.74rem;color:rgba(255,255,255,.4);margin-top:2px">Un vrai numéro, pas juste un email</div></div></li>
         </ul>
 
-        <a href="https://wa.me/33666099985?text=Bonjour%2C%20je%20suis%20int%C3%A9ress%C3%A9%20par%20le%20plan%20Teams%20FastDevis%20pour%20mon%20%C3%A9quipe." target="_blank" style="display:block;text-align:center;padding:16px 24px;border-radius:100px;font-weight:700;font-size:.95rem;text-decoration:none;background:linear-gradient(135deg,#8b5cf6,#6d28d9);color:#fff;-webkit-text-fill-color:#fff;box-shadow:0 8px 24px rgba(139,92,246,.4);margin-bottom:12px">Nous contacter sur WhatsApp →</a>
+        <a href="https://buy.stripe.com/bJebJ1dHJaAXeWq2rMffy05" target="_blank" style="display:block;text-align:center;padding:16px 24px;border-radius:100px;font-weight:700;font-size:.95rem;text-decoration:none;background:linear-gradient(135deg,#8b5cf6,#6d28d9);color:#fff;-webkit-text-fill-color:#fff;box-shadow:0 8px 24px rgba(139,92,246,.4);margin-bottom:12px">S'abonner au plan Teams →</a>
         <div style="text-align:center;font-size:.74rem;color:rgba(255,255,255,.3)">Onboarding personnalisé · Réponse sous 2h</div>
       </div>
 </div>
@@ -1361,9 +1392,16 @@ if(animTarget) animObs.observe(animTarget);
 
 <!-- CTA FINAL -->
 <div class="cta-final">
+  <div style="display:inline-flex;align-items:center;gap:6px;background:rgba(0,196,140,.15);border:1px solid rgba(0,196,140,.3);border-radius:100px;padding:5px 14px;margin-bottom:16px">
+    <span style="width:7px;height:7px;border-radius:50%;background:#00c48c;animation:pulse-dot 1.5s ease infinite"></span>
+    <span style="font-size:.76rem;font-weight:700;color:#00c48c;letter-spacing:.04em">1 247 artisans déjà inscrits</span>
+  </div>
   <h2>Prêt à signer plus de chantiers ?</h2>
-  <p>Du solo à l'équipe de 10 · Configuré en 2 minutes · Résiliation libre</p>
-  <a href="#pricing" class="cta-white">Choisir mon plan</a>
+  <p>Du solo à l'équipe de 10 · 7 jours gratuits · Configuré en 2 minutes · Résiliation libre</p>
+  <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:8px">
+    <a href="https://buy.stripe.com/5kQ5kD0UX24r15A8Qaffy07" target="_blank" class="cta-white">Essayer 7 jours gratuits</a>
+    <a href="#demo" style="padding:16px 28px;border-radius:100px;font-weight:700;font-size:.95rem;text-decoration:none;border:2px solid rgba(255,255,255,.3);color:#fff;-webkit-text-fill-color:#fff;transition:all .2s" onmouseover="this.style.background='rgba(255,255,255,.1)'" onmouseout="this.style.background='transparent'">Voir le devis exemple</a>
+  </div>
 </div>
 <!-- FOOTER -->
 <footer style="background:#0f1923;color:rgba(255,255,255,.6);padding:48px;display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:28px">
@@ -1397,8 +1435,14 @@ if(animTarget) animObs.observe(animTarget);
     </div>
   </div>
   <div style="width:100%;padding-top:24px;border-top:1px solid rgba(255,255,255,.08);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px">
-    <p style="font-size:.76rem;color:rgba(255,255,255,.25)">© 2026 FastDevis · Tous droits réservés</p>
-    <p style="font-size:.76rem;color:rgba(255,255,255,.25)">Conforme RGPD · Hébergé en France</p>
+    <p style="font-size:.76rem;color:rgba(255,255,255,.25)">© 2026 FastDevis · Tous droits réservés · Données hébergées dans l'UE</p>
+    <div style="display:flex;gap:16px;flex-wrap:wrap;justify-content:center">
+      <p style="font-size:.76rem;color:rgba(255,255,255,.25)">Conforme RGPD</p>
+      <p style="font-size:.76rem;color:rgba(255,255,255,.25)">·</p>
+      <p style="font-size:.76rem;color:rgba(255,255,255,.25)">Paiement sécurisé Stripe</p>
+      <p style="font-size:.76rem;color:rgba(255,255,255,.25)">·</p>
+      <p style="font-size:.76rem;color:rgba(255,255,255,.25)">Support 7j/7</p>
+    </div>
   </div>
 </footer>
 <script>
@@ -1974,6 +2018,18 @@ function toastMsg(msg, type='green'){
 document.getElementById('auth-modal').addEventListener('click', e=>{ if(e.target===document.getElementById('auth-modal')) document.getElementById('auth-modal').classList.remove('open'); });
 document.getElementById('setup-modal').addEventListener('click', e=>{ if(e.target===document.getElementById('setup-modal')) document.getElementById('setup-modal').classList.remove('open'); });
 
+// ── SCROLL PROGRESS + BACK TO TOP ──
+window.addEventListener('scroll', () => {
+  const scrolled = window.scrollY;
+  const total = document.documentElement.scrollHeight - window.innerHeight;
+  const pct = Math.round(scrolled / total * 100);
+  document.getElementById('scroll-progress').style.width = pct + '%';
+  
+  const backTop = document.getElementById('back-top');
+  if (scrolled > 400) backTop.classList.add('visible');
+  else backTop.classList.remove('visible');
+});
+
 // ── LIVE COUNTER ──
 (function(){
   const el = document.getElementById('live-counter');
@@ -2043,6 +2099,94 @@ window.addEventListener('resize', applyMobileLayout);
 
 // Init on load
 updateNavProfile();
+</script>
+<!-- SUPPORT BUBBLE -->
+<div id="support-bubble" style="position:fixed;bottom:24px;right:24px;z-index:9999">
+
+  <!-- Bulle principale -->
+  <div id="support-btn" onclick="toggleSupport()" style="width:56px;height:56px;border-radius:50%;background:#ff6b2b;box-shadow:0 4px 20px rgba(255,107,43,.5);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:transform .2s;position:relative">
+    <svg id="support-icon-chat" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+    <svg id="support-icon-close" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="display:none"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    <!-- Badge notification -->
+    <div style="position:absolute;top:-3px;right:-3px;width:14px;height:14px;background:#00c48c;border-radius:50%;border:2px solid #fff;animation:pulse-dot 2s ease infinite"></div>
+  </div>
+
+  <!-- Panel support -->
+  <div id="support-panel" style="display:none;position:absolute;bottom:68px;right:0;width:300px;background:#fff;border-radius:18px;box-shadow:0 8px 40px rgba(0,0,0,.15);border:1.5px solid #e2e8f5;overflow:hidden">
+
+    <!-- Header -->
+    <div style="background:#ff6b2b;padding:18px 20px">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
+        <div style="width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        </div>
+        <div>
+          <div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:.9rem;color:#fff">Support FastDevis</div>
+          <div style="font-size:.7rem;color:rgba(255,255,255,.8);display:flex;align-items:center;gap:4px">
+            <span style="width:6px;height:6px;border-radius:50%;background:#00c48c;display:inline-block"></span>
+            Disponible · Répond en moins de 2h
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Contenu -->
+    <div style="padding:16px">
+      <p style="font-size:.82rem;color:#3d4f60;margin-bottom:14px;line-height:1.5">Bonjour 👋 Une question sur FastDevis ? Je réponds personnellement à chaque message.</p>
+
+      <!-- Email -->
+      <a href="mailto:support@fastdevis.fr?subject=Question FastDevis&body=Bonjour,%0A%0AJ'ai une question concernant FastDevis :%0A%0A" style="display:flex;align-items:center;gap:10px;padding:11px 14px;background:#f7f9ff;border-radius:11px;border:1.5px solid #e2e8f5;text-decoration:none;margin-bottom:8px;transition:border-color .2s" onmouseover="this.style.borderColor='#ff6b2b'" onmouseout="this.style.borderColor='#e2e8f5'">
+        <div style="width:34px;height:34px;border-radius:9px;background:#fff0e8;display:flex;align-items:center;justify-content:center;flex-shrink:0">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ff6b2b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div style="font-size:.82rem;font-weight:700;color:#0f1923">Envoyer un email</div>
+          <div style="font-size:.72rem;color:#7a8fa6">support@fastdevis.fr</div>
+        </div>
+        <svg style="margin-left:auto;width:14px;height:14px;stroke:#b0bac9;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+      </a>
+
+      <!-- WhatsApp -->
+      <a href="https://wa.me/33666099985?text=Bonjour%2C%20j'ai%20une%20question%20sur%20FastDevis." target="_blank" style="display:flex;align-items:center;gap:10px;padding:11px 14px;background:#f7f9ff;border-radius:11px;border:1.5px solid #e2e8f5;text-decoration:none;transition:border-color .2s" onmouseover="this.style.borderColor='#25d366'" onmouseout="this.style.borderColor='#e2e8f5'">
+        <div style="width:34px;height:34px;border-radius:9px;background:#e8f5e9;display:flex;align-items:center;justify-content:center;flex-shrink:0">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#25d366" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+        </div>
+        <div>
+          <div style="font-size:.82rem;font-weight:700;color:#0f1923">WhatsApp</div>
+          <div style="font-size:.72rem;color:#7a8fa6">Réponse rapide garantie</div>
+        </div>
+        <svg style="margin-left:auto;width:14px;height:14px;stroke:#b0bac9;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+      </a>
+    </div>
+
+    <!-- Footer -->
+    <div style="padding:10px 16px;border-top:1px solid #e2e8f5;text-align:center">
+      <p style="font-size:.7rem;color:#b0bac9">Lun-Sam · 9h-20h · Réponse garantie sous 2h</p>
+    </div>
+  </div>
+</div>
+
+<script>
+function toggleSupport(){
+  const panel = document.getElementById('support-panel');
+  const iconChat = document.getElementById('support-icon-chat');
+  const iconClose = document.getElementById('support-icon-close');
+  const btn = document.getElementById('support-btn');
+  const isOpen = panel.style.display === 'block';
+  panel.style.display = isOpen ? 'none' : 'block';
+  iconChat.style.display = isOpen ? 'flex' : 'none';
+  iconClose.style.display = isOpen ? 'none' : 'flex';
+  btn.style.transform = isOpen ? 'scale(1)' : 'scale(0.95)';
+}
+// Fermer en cliquant dehors
+document.addEventListener('click', e => {
+  const bubble = document.getElementById('support-bubble');
+  if (!bubble.contains(e.target)) {
+    document.getElementById('support-panel').style.display = 'none';
+    document.getElementById('support-icon-chat').style.display = 'flex';
+    document.getElementById('support-icon-close').style.display = 'none';
+  }
+});
 </script>
 </body>
 </html>
